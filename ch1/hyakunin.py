@@ -12,7 +12,7 @@ if len(sys.argv) <= 1:
 keyword = sys.argv[1]
 
 #パラメータにURIエンコード
-API = "http://api.aoikujira.com/hyakunin/get.pho"
+API = "http://api.aoikujira.com/hyakunin/get.php"
 query = {
     "fmt": "ini",
     "key": keyword
@@ -25,5 +25,5 @@ print("url=",url)
 # with文で初期処理~終了処理を自動化してもらう
 with req.urlopen(url) as r:
    b = r.read()
-   data = b.encode('utf-8')
+   data = b.decode('utf-8')
    print(data)
