@@ -12,3 +12,5 @@ sel("#ve-list > li[data-lo='us']",1)
 sel("#ve-list > li.black",1)
 
 #find method select
+cond = {"data-lo":"us","class":"black"}
+print(soup.find(id="ve-list").find("li",cond).string)
