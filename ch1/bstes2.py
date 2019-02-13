@@ -2,8 +2,8 @@ from bs4 import BeautifulSoup
 
 html = """
 <html><body>
-    <h1>スクレイピングとは？</h1>
-    <p>Web ページを解析すること</p>
+    <h1 id = "title">スクレイピングとは？</h1>
+    <p id = "body">Web ページを解析すること</p>
     <p>任意の個所を抽出</p>
 </body></html>
 """
@@ -17,5 +17,5 @@ body = soup.find(id = "body")
 
 #text 表示
 print("#titile ="+ title.string)
-print("#body" + body.string)
+print("#body =" + body.string)
 
