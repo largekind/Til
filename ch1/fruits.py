@@ -1,5 +1,5 @@
 from bs4 import BeautifulSoup
-fp = open("fruits-vegetables.html")
+fp = open("fruits-vegetables.html",encoding="utf-8").read()
 soup = BeautifulSoup(fp,"html.parser")
 
 #CSS select

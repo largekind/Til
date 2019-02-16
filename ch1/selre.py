@@ -11,6 +11,6 @@ html = """
 """
 
 soup = BeautifulSoup(html, "html.parser")
-# 正規表現でhref->httpsを抽出
+# 正規表現でhref->httpsを抽出 r"string -> エスケープシーケンス無視
 li = soup.find_all(href=re.compile(r"^https://"))
 for e in li: print(e.attrs['href'])
