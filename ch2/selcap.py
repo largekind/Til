@@ -1,9 +1,9 @@
-from selenium import Webdriver
+from selenium import webdriver 
 
 url = "https://www.aozora.gr.jp/cards/000081/files/46268_23911.html"
 
 # Chromeのドライバを得る
-browser = Webdriver.Chrome()
+browser = webdriver.Chrome()
 #暗黙的な待機
 browser.implicitly_wait(3)
 
