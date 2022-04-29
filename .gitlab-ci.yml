@@ -43,3 +43,9 @@ deploy-job:      # This job runs in the deploy stage.
   script:
     - echo "Deploying application..."
     - echo "Application successfully deployed."
+
+create-issue:    # Crate everyday issue
+  script: "echo schedule pipeline"
+  rules:
+      - if: '$CI_PIPELINE_SOURCE == "schedule"'
+
