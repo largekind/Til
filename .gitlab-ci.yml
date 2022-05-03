@@ -44,7 +44,7 @@ deploy-job:      # This job runs in the deploy stage.
     - pip install --upgrade python-gitlab
   script:
     - echo "Deploying application..."
-    - python -m ./cicd/gitlab/create_issue.py
+    - python -m ./create_issue.py
     - echo "Application successfully deployed."
 
 create-issue:    # Crate everyday issue
