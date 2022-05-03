@@ -49,7 +49,7 @@ deploy-job:      # This job runs in the deploy stage.
 create-issue:    # Crate everyday issue
   script:
     - echo "Deploying application..."
-    - python -m create_issue.py
+    - python -m create_issue
     - echo "Application successfully deployed."
   rules:
     - if: '$CI_PIPELINE_SOURCE == "schedule"'
