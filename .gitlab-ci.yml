@@ -27,28 +27,30 @@ build-job:       # This job runs in the build stage, which runs first.
 unit-test-job:   # This job runs in the test stage.
   stage: test    # It only starts when the job in the build stage completes successfully.
   script:
-    - echo "Running unit tests... This will take about 60 seconds."
-    - sleep 60
+    - echo "Running unit tests... This will take about 1 seconds."
+    - sleep 1
     - echo "Code coverage is 90%"
 
 lint-test-job:   # This job also runs in the test stage.
   stage: test    # It can run at the same time as unit-test-job (in parallel).
   script:
-    - echo "Linting code... This will take about 10 seconds."
-    - sleep 10
+    - echo "Linting code... This will take about 1 seconds."
+    - sleep 1
     - echo "No lint issues found."
 
 deploy-job:      # This job runs in the deploy stage.
   stage: deploy  # It only runs when *both* jobs in the test stage complete successfully.
-  before_script:
-    - pip install --upgrade python-gitlab
   script:
     - echo "Deploying application..."
-    - python -m ./create_issue.py
     - echo "Application successfully deployed."
 
 create-issue:    # Crate everyday issue
-  script: "echo schedule pipeline"
+  script:
+    - echo "Deploying application..."
+    - python -m create_issue.py
+    - echo "Application successfully deployed."
   rules:
-      - if: '$CI_PIPELINE_SOURCE == "schedule"'
+    - if: '$CI_PIPELINE_SOURCE == "schedule"'
+  before_script:
+    - pip install --upgrade python-gitlab
 
