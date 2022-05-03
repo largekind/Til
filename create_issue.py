@@ -2,7 +2,7 @@
 import gitlab
 import os
 
-gl = gitlab.Gitlab(os.environ['CI_SERVER_URL'], private_token=os.environ['CI_JOB_TOKEN'])
+gl = gitlab.Gitlab(os.environ['CI_SERVER_URL'], private_token=os.environ['PRIVATE_TOKEN'])
 project = gl.projects.get(os.environ['CI_PROJECT_ID'])
 
 issue_details = {
