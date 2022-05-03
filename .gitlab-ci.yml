@@ -12,7 +12,7 @@
 # Stages run in sequential order, but jobs within stages run in parallel.
 #
 # For more information, see: https://docs.gitlab.com/ee/ci/yaml/index.html#stages
-
+image : python:3.7
 stages:          # List of stages for jobs, and their order of execution
   - build
   - test
@@ -40,8 +40,11 @@ lint-test-job:   # This job also runs in the test stage.
 
 deploy-job:      # This job runs in the deploy stage.
   stage: deploy  # It only runs when *both* jobs in the test stage complete successfully.
+  before_script:
+    - pip install -r ./cicd/gitlab/requirements.txt
   script:
     - echo "Deploying application..."
+    - python -m ./cicd/gitlab/create_issue.py
     - echo "Application successfully deployed."
 
 create-issue:    # Crate everyday issue
