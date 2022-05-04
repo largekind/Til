@@ -54,5 +54,6 @@ create-issue:    # Crate everyday issue
   rules:
     - if: '$CI_PIPELINE_SOURCE == "schedule"'
   before_script:
+    - pip install pytz
     - pip install --upgrade python-gitlab
 
