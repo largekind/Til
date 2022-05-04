@@ -24,7 +24,6 @@ details = f''' # 概要
 issue_details = {
         'title': f'{today} Enjoying Study',
         'description': details,
-        'assignee_ids': [111, 222]
         }
 
 issue = project.issues.create(issue_details )
