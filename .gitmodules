@@ -1,3 +1,5 @@
 [submodule "avilen"]
-	path = avilen
-	url = https://gitlab.com/largekind/avilen
+	 path = avilen
+	 url = https://gitlab.com/largekind/avilen
+[submodule "Python/avilen"]
+	 path = Python/avilen
