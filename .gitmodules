@@ -1,5 +1,6 @@
-[submodule "avilen"]
-	 path = avilen
-	 url = https://gitlab.com/largekind/avilen
 [submodule "Python/avilen"]
-	 path = Python/avilen
+	path = Python/avilen
+	url = https://gitlab.com/largekind/avilen
+[submodule "Architecture/DesignPattern"]
+	path = Architecture/DesignPattern
+	url = https://gitlab.com/largekind/designpattern
