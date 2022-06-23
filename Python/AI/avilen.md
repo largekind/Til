@@ -50,3 +50,17 @@
 
 チャネルをG個でグルーピングしてLayer Normalizatoin/Instance Normalizationの中間的な正規化を行う
 セグメンテーションなどで利用
+
+## RNN
+
+時系列データを取り扱うDL系列。RNNとかLSTMとかGRUとか
+
+### Recurrent Neaural Network (RNN)
+
+Reccurent : 回帰
+回帰的に前の入力情報を次のネットワークに伝搬させることで、時系列データの学習を可能にしたDNN
+
+### BPTT (Backpropagation Through Time)
+
+時間方向の逆伝搬を行う処理
+前時間の入力を別の追加したネットワークに入れこむ形にし、伝搬可能にすることで実現している
