@@ -863,3 +863,76 @@ Attentionの重みaを求めるため、各エンコーダの隠れ状態全体�
 
 Seq2Seqのように異なる系列間の各要素の類似度を算出する
 
+### Attention付きbi-LSTM
+
+そのままの意味。Attention機構を入れ込んだ双方向のLSTM
+
+### Google Neural Machine Translation(GNMT)
+
+Attention付きbi-LSTMにSkip-Connectionを入れて、更にGPUで並列処理可能にしたモデル
+
+名前の通りGoogle開発
+
+### Transformer
+
+Attention機構のみをメインとして、単語の時系列的な情報は別の方法で学習させる形式にした新しい手法のモデル。
+(LSTMが重すぎてGPUとかも有効活用できないので、変わりに時系列は別のベクトルとして扱い学習させる方式にした)
+
+#### Positional Encoders
+
+Transformerで時系列的な情報をLSTM経由せずに学習させるための工夫1
+
+エンコーダに入れ込み学習する際、
+単語の順序、位置関係をベクトル化して、元の埋め込みベクトルに付与する方法
+
+#### Multi-Head Attention
+
+並列的に複数のAttentionを計算、結合させる仕組みのこと
+
+このままだと並列計算時に未来の情報もそのまま勝手に取ってAttentionを計算するので、
+Transformerではそれを防ぐために「Masked Multi-Head Attention」と呼ばれる工夫を用いる
+#### Masked Multi-Head Attention
+
+Transformerで時系列的な情報をLSTM経由せずに学習させるための工夫2
+
+デコーダにエンコーダの情報を入れ込む際、系列の後ろの要素（未来の情報）はマスクして隠すことで、
+カンニング的に未来の情報を取ってくるような事をしないようにする工夫
+
+### OpenAI GPT
+
+一時期、「性能高すぎて悪用されそうだから公表できない」となった超精度の言語生成モデル
+
+TransformerのEncorderを単語モデルに応用したアーキテクチャ。
+GPT -> GPT-2 -> GPT-3と数字が増えるごとに大規模かつ膨大なパラメータでの学習が入っている。
+
+### BERT
+
+双方向にTransformerのEncoderを使ったモデル
+
+GPTが単方向に対し、BERTは双方向となる
+#### Maskerd Language Model(MLM)
+
+文章の穴埋め問題を解くような形で学習を行う手法
+
+#### Next Sentence Prediction(NSP)
+
+2文から連続した文か不連続の文かを判定する手法。
+
+これにより、会話がまだ続いているのか等を学習可能となる
+
+### XLNet
+
+MLMの工夫をし、実際のタスクを解くときにマスクによりノイズが出ていた部分を
+予測単語の順序入れ替えなどで解決したモデル
+
+### ALBERT
+
+A Lite BERT
+
+BERTを軽量化するためにWord Embedding(単語のベクトル化)にAuto Encoderの機構を入れたり、
+各層のパラメータの重みを共有化させるなどをしてパラメータを削減、軽量化したモデル
+
+### pronpt-based lerning
+
+言語モデルを用いてプロンプト（適当な文）を生成することで
+事前学習とFine-tuningのギャップを埋める学習法
