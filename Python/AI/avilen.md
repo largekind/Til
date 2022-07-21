@@ -1046,3 +1046,41 @@ DFTのオーダーがN^2とめちゃくちゃ遅いので、複素数の対称�
 
 その対策として「無音」の情報を入れ込むことで入力サイズを一定化にする（パディング的なイメージ）
 
+## WaveNet
+
+音声を出力するための音声合成ニューラルネットワーク
+
+中身的にはCNNとRNNを組み合わせて、時系列的に複数チャンネルであらわされた音声を出力するような形式となっている
+
+構造的には3d Dilated Resnetに近い気がする
+### Dilated Casual Conv
+
+Dilated Conv + Causal Conv
+
+Dilatedに加えて、「過去の情報のみを畳み込み演算する手法」であるCasual Convを組み合わせて使用する
+
+Dilated Convが入るのは、Casual Convだけでは過去の直近情報しか取れないため、
+受容野を広げるために使用されている
+
+### Residual & Skip Connection
+
+Resnetと同じ。入力を別レイヤの層につないで残差を学習させる
+
+### Gated Activation Units
+
+ただのLSTMのゲート。過去のデータをどこまで使用するかを持ち込む
+
+## Conditional Wavenet
+
+コナンのボイスチェンジャー的な奴。追加情報を加えることで、特定人物の声などを指定することができる
+
+### Global COnditioning
+
+全体的に条件を付ける。「～さん的な声」といった感じ
+
+中身としてはLSTMのゲートと同じ式を加えるような形式
+
+### Local COnditioning
+
+一定的な時系列に条件付けを付与するような形式
+
