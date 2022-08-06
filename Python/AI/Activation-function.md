@@ -67,7 +67,7 @@ $$
 $$
 - 逆伝播
 $$
-{\cfrac{\partial y}{\partial x} = \textrm{sech}^2 x = \cfrac{1}{\cosh^2 x} = \cfrac{4}{(e^x + e^{-x})^2}
+{\cfrac{\partial y}{\partial x} = \textrm{sech}^2 x = \cfrac{1}{\cosh^2 x} = \cfrac{4}{(e^x + e^{-x})^2} = 1 - tanh(x)^2
 }
 $$
 
