@@ -8,6 +8,8 @@
 
 ## Batch Normalization
 
+バッチ正規化
+
 全てのバッチごとに正規化(平均0、分散1化)する処理  
 各ノードの値をミニバッチ単位で正規化して、スケールをそろえる（バッチ正規化）  
 **正則化としても機能する** (L2正則化やDrropoutの必要性が小さくなる)
@@ -28,7 +30,7 @@ def Batch_Normalization(x,w):
 
 ## Layer Normalization
 
-レイヤーごとに正規化を行う処理  
+レイヤー正規化
 
 1つのサンプルにおけるレイヤーの隠れ層ごとに正規化を行う処理  
 オンライン学習やRNNで使用する
@@ -49,10 +51,14 @@ def Layer_Normalization(x,w):
 
 ## Instance Normalization
 
+インスタンス正規化
+
 各チャネルで独立で画像の縦横方向のみで平均・分散をとる  
 画像分野ではバッチ正規化の代わりで注目されている
 
 ## Group Normalization
+
+グループ正規化
 
 チャネルをG個でグルーピングしてLayer Normalizatoin/Instance Normalizationの中間的な正規化を行う  
 セグメンテーションなどで利用
