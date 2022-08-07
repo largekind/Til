@@ -80,3 +80,15 @@ $$
 {y_i = \cfrac{e^{x_i}}{\displaystyle\sum_{k=1}^{n}{e^{x_k}}} \quad (i = 1, 2, \ldots, n)
 }
 $$
+
+- 逆伝搬
+$$
+\cfrac{\partial y_i}{\partial x} = 
+\begin{cases}
+y_i - y_i^2 & (i = k)\\
+-y_iy_k & (i \neq k)
+\end{cases}
+$$
+
+${\displaystyle\sum_{k=1}^{n}{e^{x_k}}} $を求める時は各クラス毎の和であるため、np.sum(dx,axis=1,keepdims=1)で求める
+
