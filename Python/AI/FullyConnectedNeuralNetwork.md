@@ -64,3 +64,28 @@ class FullyConnectionNeuralNetwork():
       return coef_init, intercept_init
 
 ```
+
+## 順伝播処理
+
+順伝搬の処理。次の層が隠れ層なら活性化関数にrelu、出力層ならsoftmax関数を指定する
+
+``` python
+def _forward(self, activations: list):
+  #activations : 各層の出力をまとめたリスト shape : (バッチサイズ , 次元)
+  
+  affile = [None] * (self.n_layers_ -1)
+  for i in range(self.n_layers_ - 1):
+    #アフィン変換 H = XW + Bになり、X: activations W:coef(重み/係数) B:intercepts_(切片/バイアス)となる
+    affile[i] = np.dot(activations,self.coefs_[i]) + self.intercepts_
+    
+    #次層が出力層/隠れ層かでActivationを変える
+    if (i + 1) == (self.n_layers_ -1):
+      #出力層
+      activations[i + 1] = softmax(affine[i])
+    else:
+      #隠れ層
+      activations[i + 1] = relu(affine[i])
+
+    return activations
+```
+
