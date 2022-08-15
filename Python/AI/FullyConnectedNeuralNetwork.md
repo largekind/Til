@@ -89,3 +89,24 @@ def _forward(self, activations: list):
     return activations
 ```
 
+## 勾配+逆伝搬
+
+最終層から入口へ勾配が伝搬していく
+
+$H = XW+B$に対して、重みの勾配$\frac{\delta W}{\delta L} = X^T\frac{\delta L}{\delta H}$
+
+入力の勾配$\frac{\delta X}{\delta L} = \frac{\delta L}{\delta H}W^T$で与えられることから実装を行う
+
+纏めると以下の式になる
+$$
+{\begin{align}
+\frac{\partial f}{\partial \boldsymbol{X}} &= \frac{\partial f}{\partial \boldsymbol{Y}} \cdot W^T  \\
+\frac{\partial f}{\partial W} &= \boldsymbol{X}^T \cdot \frac{\partial f}{\partial \boldsymbol{Y}}    \\
+\frac{\partial f}{\partial \boldsymbol{b}} &= \frac{\partial f}{\partial \boldsymbol{Y}}   \\
+\end{align}
+}
+$$
+
+導出は結結面倒なので以下のqiitaを参照
+
+https://qiita.com/masatomix/items/0678e56e56af27efa110
