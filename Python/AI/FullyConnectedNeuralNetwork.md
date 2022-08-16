@@ -110,3 +110,41 @@ $$
 導出は結結面倒なので以下のqiitaを参照
 
 https://qiita.com/masatomix/items/0678e56e56af27efa110
+
+``` python
+#勾配の算出
+def _grad(self, j, activations, deltas):
+  #係数(重み)の勾配はdot(x^T,delta)、Xはactivations、deltaは勾配なので、そこから計算する
+  self.coef_grads_[j] = np.dot(activations[j].T , deltas[j])
+  #切片(バイアス)の勾配は勾配の総和となる
+  self.intercept_grads_[j] = np.sum(deltas[j],axis=0)
+
+# 逆伝搬
+def _backward(self, t, activations):
+  # t : 正解ラベル shape=(バッチ,出力層ノード数)
+  # activation : list 各層の出力を収めたもの
+
+  deltas = [None] * (self.n_layers_ -1) #勾配
+  last = self.n_layers - 2 #出力層の1つ手前のindex
+
+  #交差エントロピーとsoftmaxを用いて勾配算出
+  n_samples = t.shape[0]
+  deltas[last] = (activations[-1] - t) / n_samples #出力層に出ている予測値と正解ラベルの差をサンプル数で割る
+  
+  #出力層の1つ手前のパラメータの勾配を算出
+  self.grad(last,activations,delta)
+  
+  #残りのパラメータの勾配を産出
+  for i in range(self.n_layers -2 ,0 , -1)
+    # 入力(activations)の勾配算出 (1)式からdeltaと重みの転置した物の内積になる
+    deltas[i-1] = np.dot(delta[i],self.coefs_[i].T)
+    
+    # ReLUの勾配 i-1番目から出力されたi番目の入力とそれに付随する1つ前の勾配から求める
+    relu_backward(activations[i], deltas[i-1])
+    
+    # パラメータの勾配 i-i番目の勾配を求める
+    self._grad(i-1, activations, deltas)
+    
+  return
+
+```
