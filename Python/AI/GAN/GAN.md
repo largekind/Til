@@ -29,7 +29,6 @@ Generatorは通常のConv、DiscriminatorにはdeConvを使ってる
 DCGAN Discriminatorの学習で使われている活性化関数。
 Reluの負値にもある程度傾斜をつけたRelu改良版。
 
-
 通常のReluだとGeneratorまでに逆伝搬させる際、0以下の情報が伝搬せず学習が上手くできない問題があったためにLeakly Reluにした模様。
 
 ### PGGAN
