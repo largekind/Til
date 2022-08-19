@@ -11,3 +11,11 @@ $$
 \theta _{t+1} = \theta _t -\eta \frac{\partial L}{\partial \theta _t }
 $$
 
+## Mometum
+
+SGDの改良版。SGDにモーメンタムによる減衰処理が入る
+
+$$
+v_{t+1} = \alpha v_t -\eta \frac{\partial L}{\partial \theta _t } \\
+\theta _{t+1} = \theta _t + v_{t+1}
+$$
