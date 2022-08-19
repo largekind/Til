@@ -56,6 +56,18 @@ def Layer_Normalization(x,w):
 各チャネルで独立で画像の縦横方向のみで平均・分散をとる  
 画像分野ではバッチ正規化の代わりで注目されている
 
+コード的にはチャネル方向で独立のため、高さと幅の次元を指定して平均/分散をとる処理になる
+
+``` python
+#x.shape : (バッチサイズM, チャネルC , 幅W, 高さH)
+def instance_normalization(x):
+  mean = np.mean(x,axis = (2,3)) #幅と高さの次元で平均を取る
+  var = np.var(x,axis = (2,3)) #幅と高さの次元で平均を取る
+
+  x_normad = (x-mean)/(np.sqrt(var) + 1e-8)
+  return x_normad
+```
+
 ## Group Normalization
 
 グループ正規化
