@@ -19,3 +19,20 @@ $$
 v_{t+1} = \alpha v_t -\eta \frac{\partial L}{\partial \theta _t } \\
 \theta _{t+1} = \theta _t + v_{t+1}
 $$
+
+## Nesterov's Momentum
+
+ネステロフのモーメンタム。
+Momentumの改良版
+
+$$
+v_{t+1} = \alpha v_t -\eta \frac{\partial L}{\partial(\theta _t + \alpha v_t)} \\
+\theta _{t+1} = \theta _t + v_{t+1}
+$$
+
+ただし実装が面倒なので、通常は以下の計算を用いる
+$$
+v_{t+1} = \alpha v_t -\eta \frac{\partial L}{\partial\Theta _t}\\
+\Theta _{t+1} = \Theta _t + \alpha^2 v_t - (1 + \alpha)\eta \frac{\partial L}{\partial\Theta _t}
+$$
+
