@@ -103,6 +103,11 @@ Adaptive Instance Normalization
 
 正規化したコンテンツ入力をスタイル入力にシフトさせる手法
 
+計算式は以下の通り
+$$
+AdaIN(x,y) = y_{s,i}\frac{x_i - \mu(x_i)}{\sigma (x_i)} + y_{b,i}
+$$
+
 ## img -> imgのGAN(画像変換)
 
 画像のスタイル変換や加工などを行うGAN
