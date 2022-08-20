@@ -36,3 +36,11 @@ v_{t+1} = \alpha v_t -\eta \frac{\partial L}{\partial\Theta _t}\\
 \Theta _{t+1} = \Theta _t + \alpha^2 v_t - (1 + \alpha)\eta \frac{\partial L}{\partial\Theta _t}
 $$
 
+## AdaGrad
+
+Adamの前任となった最適化法
+
+$$
+h_{t+1l} = h_t + \frac{\partial L}{\partial \theta_t} \times  \frac{\partial L}{\partial \theta_t}   \\
+\theta _{t+1l} = \theta _t -\eta \frac{1}{\epsilon + \sqrt{h_{t+1}}} + \frac{\partial L}{\partial\Theta _t}
+$$
