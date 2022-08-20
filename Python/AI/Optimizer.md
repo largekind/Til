@@ -44,3 +44,12 @@ $$
 h_{t+1l} = h_t + \frac{\partial L}{\partial \theta_t} \times  \frac{\partial L}{\partial \theta_t}   \\
 \theta _{t+1l} = \theta _t -\eta \frac{1}{\epsilon + \sqrt{h_{t+1}}} + \frac{\partial L}{\partial\Theta _t}
 $$
+
+## RMSProp
+
+AdaGradに割合的な考えを入れた最適化手法
+
+$$
+h_{t+1l} = \rho h_t + (1-\rho) \frac{\partial L}{\partial \theta_t} \times  \frac{\partial L}{\partial \theta_t}   \\
+\theta _{t+1l} = \theta _t -\eta \frac{1}{\sqrt{\epsilon + h_{t+1}}} + \frac{\partial L}{\partial\Theta _t}
+$$
