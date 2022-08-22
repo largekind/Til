@@ -124,6 +124,13 @@ Skip Conectionなどが入ったResidual Blockを導入、残差を学習する�
 
 Resnetのチャネル数を増やして計算量と層を減らして精度をupさせたResnet
 
+オリジナルのResnetと比較して、以下の利点を持つ
+- オリジナルのResnetより学習が高速
+- オリジナルのResnetより層数が少ない
+- オリジナルのResnetより各Residual Blockのフィルタ数が多い
+
+その分、**オリジナルのResnetよりモデルパラメータが多い**(メモリを多く消費する)
+
 ### Dense Net (2016)
 
 Skip Connectionを別レイヤー（後ろの層全て）に繋げられるようにし、
