@@ -28,6 +28,11 @@ def Batch_Normalization(x,w):
   a_normalized = (a - mean) / (std + 1e-8)
 ```
 
+学習/検証/テストでそれぞれ以下のように使い分ける
+- 学習時 : バッチ統計量
+- 検証時 : 全体の移動統計量
+- テスト時 : 全体の移動統計量
+
 ## Layer Normalization
 
 レイヤー正規化
