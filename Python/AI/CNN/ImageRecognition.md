@@ -116,7 +116,7 @@ Skip Conectionなどが入ったResidual Blockを導入、残差を学習する�
 
 #### Residual Block
 
-層を跨ぐ結合 Skip Connectionを用いて残差を学習するブロック  
+層を跨ぐ結合 Skip Connection(identity mapping)を用いて残差を学習するブロック  
 入力がそのまま出力に入りこむため、層が深くなることに勾配計算 -> 微分により値が小さくなっていた問題が解決された  
 **単純にskip入れるだけで勾配消失が改善するので、これ以降のモデルにもこの考えが入るようになった**
 
