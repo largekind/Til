@@ -290,6 +290,8 @@ Encoderの各層の情報を対応するDecoderの情報にshortcut Connection�
 
 FCN/U-Netが中間層を保存する関係でメモリ効率が悪い問題があるのを解決したモデル
 
+**Max-Pooling index**と呼ばれるMaxpooling層で抽出したpixelのインデックスのみ保存する手法により特徴マップをアップサンプリングすることで、メモリ効率が悪い問題を解決した
+
 #### up-pooling
 
 中間層の保存部分での工夫。
