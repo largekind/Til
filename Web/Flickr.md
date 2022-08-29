@@ -24,14 +24,16 @@ from flickrapi import FlickrAPI
 
 key,secret = 適当に必要な情報を格納(APIとして取得しておく)
 
+# API取得用のインスタンスを作成
 savedir = "./" + keyword
 flicker = FlickrAPI(key, secret, format='parsed-json')
 
+# 画像の検索
 result = flicker.photos.search(
-  text = keyword,
-  per_page = 400,
-  media = 'photos',
-  sort = 'relevance',
-  extras = 'url_q, license',
+  text = keyword, # 検索ワード
+  per_page = 400, # 検索するページ数
+  media = 'photos', #検索する媒体 画像/動画etc
+  sort = 'relevance', # 画像のソート順
+  extras = 'url_q, license', #その他 必要情報
 )
 ```
