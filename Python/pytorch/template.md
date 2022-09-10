@@ -7,6 +7,18 @@ DTL : Django Template language　を用いて作成する
 
 ## タイトル追加
 
-``` html
+``` django
 {% block title %} ページタイトル {%endblock}
+```
+
+## 外部ファイルの読み込み
+
+ベースとなるhtmlに埋め込む形式で作成する場合の記載
+
+``` django
+{% extend 'base.html' %} 
+{% block title %}タイトル名称{% endblock %}
+{% block content%}
+  contentブロック内に入れ込みたいhtml内容
+{% endblock %}
 ```
