@@ -6,3 +6,10 @@ Webブラウザ以外でもjavascriptを実行できるようにするための�
 
 dockerですでに提供されている環境使えばよい
 
+## REPL (Read-Eval-Print Loop)
+
+nodeだけで実行するとpythonやrubyであるインタプリタみたいなプロンプト（REPL）を使うことができる
+
+> node
+
+対話型のウィンドウが開くので、いろいろ簡単な式を試したいときに使用できる
