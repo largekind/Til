@@ -19,4 +19,20 @@ info If you think this is a bug, please open a bug report with the information p
 
 ## 原因
 
-WSL2の権限回りが問題である模様。具体的な情報は見当たらず
+WSL2の権限回りが問題でchmodなどで付与したlinuxのファイルパーティションの権限が正常通りに動作しなくなっているため。
+
+[詳細リンク](https://alessandrococco.com/2021/01/wsl-how-to-resolve-operation-not-permitted-error-on-cloning-a-git-repository)
+
+## 対策法
+
+リンク参照。wslのマウント系の設定を主導で復旧させる。
+
+1. WSL配下の"/etc/wsl.conf"がなければ作成
+2. 上記の設定ファイルを管理者権限付与したエディタで開いて追加
+``` conf
+[automount]
+options = "metadata"
+```
+3. ファイルを保存して、WLSを一度シャットダウン PowerShell上で以下実行
+> wsl --shutdown
+4. wsl再起動
