@@ -58,3 +58,13 @@ $$
 h_{t+1l} = \rho h_t + (1-\rho) \frac{\partial L}{\partial \theta_t} \times  \frac{\partial L}{\partial \theta_t}   \\
 \theta _{t+1l} = \theta _t -\eta \frac{1}{\sqrt{\epsilon + h_{t+1}}} + \frac{\partial L}{\partial\Theta _t}
 $$
+
+
+## Adam
+
+一番よく使われる最適化手法
+
+$$
+m_{t+1} = \rho _1m_1 + (1-\rho _1) + \frac{\partial L}{\partial\Theta _t} \\
+v_{t+1} = \rho _2v_1 + (1-\rho _1) + \frac{\partial L}{\partial\Theta _t} \frac{\partial L}{\partial\Theta _t}
+$$
