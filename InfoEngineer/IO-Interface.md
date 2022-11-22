@@ -16,3 +16,8 @@ HDDとかCD-ROMなどを繋ぐやつ。
 
 正直見たことない規格
 
+## HDMI : High-Definition Multimedia Interface
+
+DVIを基に音声伝送機能や著作権保護機能、色差伝送機能を加えるなどAV家電向けに改良したデジタル家電向けのインタフェース
+
+RCA端子やD端子と異なり、理論的には劣化がない規格
