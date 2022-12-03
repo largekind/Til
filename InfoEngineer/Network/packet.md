@@ -2,6 +2,8 @@
 
 ## ATM : Asynchronous Transfer Mode
 
+Async : 非同期 Sync(同期)の逆
+
 非同期転送モード
 
 高速通信のために送信データを固定セルに分割してやり取りする方式
