@@ -10,3 +10,6 @@ Kaggleのほかにも以下が存在
 - SIGNATE
 - TopCoder
 
+## Kaggle
+
+世界的に一番有名な分析コンペのプラットフォーム
