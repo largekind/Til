@@ -110,6 +110,8 @@ GBDT : 勾配ブースティング木
 - ネットワーク構成や層などが調整できる
 - Optimizerの選択
   - Adamでよい気がする…
+  - 最近はAdamよりもよいLionと呼ばれる最適化手法も出てきた模様
+    - [github](https://github.com/lucidrains/lion-pytorch)
 
 ## 線形モデルによるチューニング
 
