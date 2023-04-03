@@ -14,7 +14,7 @@ jekyllの詳細はgoogleなどで検索
 Ubuntuであれば以下コマンド
 > sudo apt install -y ruby gem ruby-dev gcc build-essential
 2. jekyllをインストール。インストール用のgemFileを入れているので、以下を実行するのみ
-> sudo bundle install
+> sudo bundle install --path vendor/bundle 
 
 ## トラブルシューティング
 
@@ -288,3 +288,29 @@ make failed, exit code 2
 g++のパッケージ不足。以下インストールで対応可能
 > sudo apt install build-essential
 
+### ローカルでjekyllを動かそうとした場合のエラー
+
+#### 概要
+
+ローカルで以下実行してjekyllを動かそうとするとエラー発生
+>bundle exec jekyll serve
+
+```
+             Error: could not read file /mnt/f/Ubuntu/GitHome/enjoy/Til/_posts/0000-00-00-welcome-to-jekyll.markdown.erb: Invalid date '<%= Time.now.strftime('%Y-%m-%d %H:%M:%S %z') %>': Document '_posts/0000-00-00-welcome-to-jekyll.markdown.erb' does not have a valid date in the YAML front matter.
+             ERROR: YOUR SITE COULD NOT BE BUILT:
+                    ------------------------------------
+                    Invalid date '<%= Time.now.strftime('%Y-%m-%d %H:%M:%S %z') %>': Document '_posts/0000-00-00-welcome-to-jekyll.markdown.erb' does not have a valid date in the YAML front matter.
+                    ------------------------------------------------
+      Jekyll 4.1.1   Please append `--trace` to the `serve` command
+                     for any additional information or backtrace.
+                    ------------------------------------------------
+```
+
+#### 原因
+
+bundle installのパス指定漏れ + _config.xmlの設定によるもの。
+
+bundleでのインストール時、--path指定を入れる
+> sudo bundle install --path vendor/bundle 
+
+また、以下のexecute:で読み込む先のパス指定を行う
