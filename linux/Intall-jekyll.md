@@ -313,4 +313,13 @@ bundle installのパス指定漏れ + _config.xmlの設定によるもの。
 bundleでのインストール時、--path指定を入れる
 > sudo bundle install --path vendor/bundle 
 
-また、以下のexecute:で読み込む先のパス指定を行う
+また除外するファイルにvendorを追加する
+> exclude: [vendor]
+
+
+## 結論
+
+以下の点からjekyllを入れるのは断念
+- 単純にエラーが大量に出る 解決方法も追いづらい
+- wsl2ではそもそも動作ができない問題が存在している
+- jekyllはすでに古い模様で、hugoに移動しているリポジトリが存在していた
