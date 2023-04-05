@@ -1,3 +1,8 @@
+---
+title: "javascript 導入"
+date: 2023-04-06T00:00:00+09:00
+lastmod: "2023-04-06"
+---
 # javascript 導入
 
 javascriptの基本的な記法とかまとめる

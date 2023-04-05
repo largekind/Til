@@ -1,3 +1,8 @@
+---
+title: "KGI : Key Goal Indicator"
+date: 2023-04-06T00:00:00+09:00
+lastmod: "2023-04-06"
+---
 # KGI : Key Goal Indicator
 
 経営目標達成指標

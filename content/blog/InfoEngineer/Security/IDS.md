@@ -1,3 +1,8 @@
+---
+title: "IDS : Intrusion Detection System"
+date: 2023-04-06T00:00:00+09:00
+lastmod: "2023-04-06"
+---
 # IDS : Intrusion Detection System
 
 Intrusion : 侵入 Intrudeの名詞 In(中へ)+trud(押す) + sion (名詞化)

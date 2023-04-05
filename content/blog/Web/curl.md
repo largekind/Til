@@ -1,3 +1,8 @@
+---
+title: "curl"
+date: 2023-04-06T00:00:00+09:00
+lastmod: "2023-04-06"
+---
 # curl
 
 由来はsee URL

@@ -1,3 +1,8 @@
+---
+title: "パケット通信方式まとめ"
+date: 2023-04-06T00:00:00+09:00
+lastmod: "2023-04-06"
+---
 # パケット通信方式まとめ
 
 ## ATM : Asynchronous Transfer Mode

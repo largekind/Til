@@ -1,3 +1,8 @@
+---
+title: "DX : digital transformation"
+date: 2023-04-06T00:00:00+09:00
+lastmod: "2023-04-06"
+---
 # DX : digital transformation
 
 最近AIと同じくらい流行りの言葉

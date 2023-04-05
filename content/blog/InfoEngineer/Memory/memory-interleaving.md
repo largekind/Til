@@ -1,3 +1,8 @@
+---
+title: "メモリインタリーブ : memory interleaving"
+date: 2023-04-06T00:00:00+09:00
+lastmod: "2023-04-06"
+---
 # メモリインタリーブ : memory interleaving
 
 interleaving : interleave (inter 間に + leave 残す = 差し挟む) + ing 名詞化

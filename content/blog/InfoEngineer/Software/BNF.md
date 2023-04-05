@@ -1,3 +1,8 @@
+---
+title: "BNF : Backus–Naur form"
+date: 2023-04-06T00:00:00+09:00
+lastmod: "2023-04-06"
+---
 # BNF : Backus–Naur form
 
 バッカス・ナウア記法

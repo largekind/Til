@@ -1,3 +1,8 @@
+---
+title: "Image Normalizetion "
+date: 2023-04-06T00:00:00+09:00
+lastmod: "2023-04-06"
+---
 # Image Normalizetion 
 
 ネットワークが深くなると、非線形変換の繰り返しによりデータ分布が変わることがある（**内部の共変量シフト**）

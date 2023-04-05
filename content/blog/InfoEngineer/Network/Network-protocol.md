@@ -1,3 +1,8 @@
+---
+title: "ネットワーク系のプロトコル一覧"
+date: 2023-04-06T00:00:00+09:00
+lastmod: "2023-04-06"
+---
 # ネットワーク系のプロトコル一覧
 
 ## NNTP : Network New Tranfer Protocol 

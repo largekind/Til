@@ -1,3 +1,8 @@
+---
+title: "WAF : Web Application Firewall"
+date: 2023-04-06T00:00:00+09:00
+lastmod: "2023-04-06"
+---
 # WAF : Web Application Firewall
 
 Webアプリケーションに対する攻撃を検知し、遮断することが可能なファイアウォール

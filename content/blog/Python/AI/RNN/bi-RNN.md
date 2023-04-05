@@ -1,3 +1,8 @@
+---
+title: "双方向RNN (Bi-directional RNN)"
+date: 2023-04-06T00:00:00+09:00
+lastmod: "2023-04-06"
+---
 # 双方向RNN (Bi-directional RNN)
 
 過去 -> 未来だけでなく、未来 -> 過去への方向も考慮して学習したRNN

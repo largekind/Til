@@ -1,3 +1,8 @@
+---
+title: "Quallity Control"
+date: 2023-04-06T00:00:00+09:00
+lastmod: "2023-04-06"
+---
 # Quallity Control
 
 品質管理のこと

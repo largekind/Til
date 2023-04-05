@@ -1,3 +1,8 @@
+---
+title: "PPM : product portfolio matrix(management)"
+date: 2023-04-06T00:00:00+09:00
+lastmod: "2023-04-06"
+---
 # PPM : product portfolio matrix(management)
 
 プロダクト・ポートフォリオ・マネジメント

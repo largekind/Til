@@ -1,3 +1,8 @@
+---
+title: "Service Oriented Architecture"
+date: 2023-04-06T00:00:00+09:00
+lastmod: "2023-04-06"
+---
 # Service Oriented Architecture
 
 Oriented :　ori(昇る)+-ent(～な行動を行う、促す) -> orient 適用させる、～に向く + -ed(形容詞化) = ～指向の、～向きの

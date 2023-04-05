@@ -1,3 +1,8 @@
+---
+title: "VLSM : Variable Length Subnet Masking"
+date: 2023-04-06T00:00:00+09:00
+lastmod: "2023-04-06"
+---
 # VLSM : Variable Length Subnet Masking
 
 サブネットで必要となるIPアドレス数に基づいて、サブネットごとに異なるサブネットマスクを使用する手法

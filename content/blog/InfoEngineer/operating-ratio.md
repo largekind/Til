@@ -1,3 +1,8 @@
+---
+title: "稼働率の計算まとめ"
+date: 2023-04-06T00:00:00+09:00
+lastmod: "2023-04-06"
+---
 # 稼働率の計算まとめ
 
 ## MTBF : Mean Time Between Failures

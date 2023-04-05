@@ -1,3 +1,8 @@
+---
+title: "KPI : Key Perfomance Indicator"
+date: 2023-04-06T00:00:00+09:00
+lastmod: "2023-04-06"
+---
 # KPI : Key Perfomance Indicator
 
 Indicator : 指標

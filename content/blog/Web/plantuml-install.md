@@ -1,3 +1,8 @@
+---
+title: "plantuml導入(WSL2)"
+date: 2023-04-06T00:00:00+09:00
+lastmod: "2023-04-06"
+---
 # plantuml導入(WSL2)
 
 docker入れ込んでいること前提

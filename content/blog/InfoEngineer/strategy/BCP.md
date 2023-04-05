@@ -1,3 +1,8 @@
+---
+title: "BCP : Business Continuity Plan"
+date: 2023-04-06T00:00:00+09:00
+lastmod: "2023-04-06"
+---
 # BCP : Business Continuity Plan
 
 Continuity : 継続 Continue + ty

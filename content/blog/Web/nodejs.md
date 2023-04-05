@@ -1,3 +1,8 @@
+---
+title: "Nodejs"
+date: 2023-04-06T00:00:00+09:00
+lastmod: "2023-04-06"
+---
 # Nodejs
 
 Webブラウザ以外でもjavascriptを実行できるようにするための実行環境

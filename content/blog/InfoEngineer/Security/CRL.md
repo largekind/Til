@@ -1,3 +1,8 @@
+---
+title: "CRL : Certificate Revocation List"
+date: 2023-04-06T00:00:00+09:00
+lastmod: "2023-04-06"
+---
 # CRL : Certificate Revocation List
 
 Certificate : cert- 確かな + ifi 動詞化 + cate 名詞化 -> 確かにするもの = 証明書

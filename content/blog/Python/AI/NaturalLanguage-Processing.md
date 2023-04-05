@@ -1,3 +1,8 @@
+---
+title: "自然言語処理 (NLP)"
+date: 2023-04-06T00:00:00+09:00
+lastmod: "2023-04-06"
+---
 # 自然言語処理 (NLP)
 
 Natural Language Processing : NLP

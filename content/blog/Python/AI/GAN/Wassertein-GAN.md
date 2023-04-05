@@ -1,3 +1,8 @@
+---
+title: "Wassertein GAN"
+date: 2023-04-06T00:00:00+09:00
+lastmod: "2023-04-06"
+---
 # Wassertein GAN
 
 通常のGANがJSD(Jensen–Shannon divergence : イェンセン・シャノン情報量)を使うのに対し、

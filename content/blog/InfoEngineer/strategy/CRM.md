@@ -1,3 +1,8 @@
+---
+title: "CRM : Customer Relationship Management"
+date: 2023-04-06T00:00:00+09:00
+lastmod: "2023-04-06"
+---
 # CRM : Customer Relationship Management
 
 顧客関係の管理手法の１つ

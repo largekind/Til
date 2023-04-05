@@ -1,3 +1,8 @@
+---
+title: "RAID : Redundant Arrays of Inexpensive Disks"
+date: 2023-04-06T00:00:00+09:00
+lastmod: "2023-04-06"
+---
 # RAID : Redundant Arrays of Inexpensive Disks
 
 複数台のハードディスクを組み合わせて、仮想的な1台のハードディスクとして運用、冗長性を高める技術

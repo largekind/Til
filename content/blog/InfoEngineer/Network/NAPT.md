@@ -1,3 +1,8 @@
+---
+title: "NAPT : Network Address Port Translation"
+date: 2023-04-06T00:00:00+09:00
+lastmod: "2023-04-06"
+---
 # NAPT : Network Address Port Translation
 
 プライベートIPアドレスとポート番号の組合せとグローバルIPアドレスとポート番号の組合せとの変換を行う

@@ -1,3 +1,8 @@
+---
+title: "Global Attention Model"
+date: 2023-04-06T00:00:00+09:00
+lastmod: "2023-04-06"
+---
 # Global Attention Model
 
 グローバルアテンションモデル

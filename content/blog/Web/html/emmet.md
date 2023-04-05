@@ -1,3 +1,8 @@
+---
+title: "emmet"
+date: 2023-04-06T00:00:00+09:00
+lastmod: "2023-04-06"
+---
 # emmet
 
 htmlを滅茶苦茶書きやすくするVscode付属の機能

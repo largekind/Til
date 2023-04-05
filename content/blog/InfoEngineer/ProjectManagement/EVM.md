@@ -1,3 +1,8 @@
+---
+title: "EVM : Earned Value management"
+date: 2023-04-06T00:00:00+09:00
+lastmod: "2023-04-06"
+---
 # EVM : Earned Value management
 
 Earned Value : 出来高

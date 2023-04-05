@@ -1,3 +1,8 @@
+---
+title: "Error-correcting code memory"
+date: 2023-04-06T00:00:00+09:00
+lastmod: "2023-04-06"
+---
 # Error-correcting code memory
 
 エラー訂正機能を持つメモリ

@@ -1,3 +1,8 @@
+---
+title: "AES : Advanced Encryption Standard"
+date: 2023-04-06T00:00:00+09:00
+lastmod: "2023-04-06"
+---
 # AES : Advanced Encryption Standard
 
 Advance : 前進する。進歩する。 ab-（～から）＋ante（前に）が語源  
