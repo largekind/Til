@@ -4,3 +4,6 @@
 [submodule "Architecture/DesignPattern"]
 	path = content/Architecture/DesignPattern
 	url = https://gitlab.com/largekind/designpattern
+[submodule "themes/npqhugo"]
+	path = themes/npqhugo
+	url = https://github.com/saadsolimanxyz/npqhugo

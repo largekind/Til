@@ -4,7 +4,6 @@ _site
 __pycache__
 .virtual_documents
 .sass-cache
-.jekyll-cache
-.jekyll-metadata
 vendor
 Gemfile.lock
+.hugo_build.lock
