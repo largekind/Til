@@ -1,6 +1,6 @@
-baseURL = ""
-languageCode = "en-us"
-title = "title"
+baseURL = "largekind.til.io"
+languageCode = "ja"
+title = "largekind TIL"
 copyright = "Copyright © 2008–2019, Steve Francia and the Hugo Authors; all rights reserved."
 theme = "npqhugo"
 pygmentsUseClasses=true
@@ -9,13 +9,12 @@ pygmentsUseClasses=true
   author = "largekind"
   description = "An engineer of sorts."
   keywords = "Today I learned"
-  useAvatar = true
+  useAvatar = false
   microBlogSection = "posts"
   displayMicroBlog = true
   displayRecent = true
   recentMax = 4
   mail = "3191524-largekind@users.noreply.gitlab.com"
-
 [menu]
   [[menu.main]]
     name = "home"
