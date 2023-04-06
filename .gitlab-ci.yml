@@ -3,6 +3,12 @@ image: registry.gitlab.com/pages/hugo/hugo_extended:latest
 variables:
   GIT_SUBMODULE_STRATEGY: recursive
 
+before_script:
+  - apk add --no-cache git
+  - git config --global url."@gitlab.com/">https://${CI_ACCESS_USERNAME}:${CI_ACCESS_TOKEN}@gitlab.com/".insteadOf "https://gitlab.com/"
+  - git submodule sync --recursive
+  - git submodule update --init --recursive
+
 pages:
   script:
   - hugo
