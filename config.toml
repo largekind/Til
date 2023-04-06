@@ -29,6 +29,11 @@ lastmod = [":git", "lastmod", "date", "publishDate"]
     url = "/"
     weight = -9
   [[menu.main]]
+    name = "about"
+    pre = "<i class=\"fas fa-seedling\"></i>"
+    url = "/about"
+    weight = -9
+  [[menu.main]]
     name = "blog"
     pre = "<i class=\"fas fa-keyboard fa-ms\"></i>"
     url = "/blog/"
