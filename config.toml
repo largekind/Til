@@ -1,12 +1,14 @@
 baseURL = "largekind.til.io"
-languageCode = "ja"
 title = "largekind TIL"
 copyright = "Copyright © 2008–2019, Steve Francia and the Hugo Authors; all rights reserved."
 theme = "npqhugo"
 pygmentsUseClasses=true
 
-enableGitInfo = true
+languageCode = "ja"
+defaultContentLanguage = "ja"
+hasCJKLanguage = true
 
+enableGitInfo = true
 [frontmatter]
 date = ["date", "publishDate", "lastmod"]
 lastmod = [":git", "lastmod", "date", "publishDate"]
