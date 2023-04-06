@@ -1,6 +1,9 @@
 [submodule "Python/avilen"]
-	path = Python/avilen
+	path = content/blog/Python/avilen
 	url = https://gitlab.com/largekind/avilen
 [submodule "Architecture/DesignPattern"]
-	path = Architecture/DesignPattern
+	path = content/blog/Architecture/DesignPattern
 	url = https://gitlab.com/largekind/designpattern
+[submodule "themes/npqhugo"]
+	path = themes/npqhugo
+	url = https://github.com/saadsolimanxyz/npqhugo
