@@ -5,6 +5,11 @@ copyright = "Copyright © 2008–2019, Steve Francia and the Hugo Authors; all r
 theme = "npqhugo"
 pygmentsUseClasses=true
 
+enableGitInfo = true
+
+[frontmatter]
+date = ["date", "publishDate", "lastmod"]
+lastmod = [":git", "lastmod", "date", "publishDate"]
 [params]
   author = "largekind"
   description = "An engineer of sorts."
