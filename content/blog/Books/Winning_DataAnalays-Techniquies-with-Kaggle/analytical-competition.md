@@ -1,6 +1,7 @@
 ---
 title: "Chapger1 分析コンペ"
 date: 2023-04-05T00:00:00+09:00
+tags: [Books,Winning_DataAnalays-Techniquies-with-Kaggle]
 ---
 # Chapger1 分析コンペ
 

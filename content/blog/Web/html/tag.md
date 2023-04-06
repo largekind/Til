@@ -1,6 +1,7 @@
 ---
 title: "HTML tag一覧"
 date: 2023-04-05T00:00:00+09:00
+tags: [Web,html]
 ---
 # HTML tag一覧
 

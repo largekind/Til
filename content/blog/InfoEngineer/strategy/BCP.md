@@ -1,6 +1,7 @@
 ---
 title: "BCP : Business Continuity Plan"
 date: 2023-04-05T00:00:00+09:00
+tags: [InfoEngineer,strategy]
 ---
 # BCP : Business Continuity Plan
 

@@ -1,6 +1,7 @@
 ---
 title: "docker立ち上げ方法(WSL2)"
 date: 2023-04-05T00:00:00+09:00
+tags: [Web,docker]
 ---
 # docker立ち上げ方法(WSL2)
 

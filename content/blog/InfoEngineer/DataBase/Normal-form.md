@@ -1,6 +1,7 @@
 ---
 title: "正規形"
 date: 2023-04-05T00:00:00+09:00
+tags: [InfoEngineer,DataBase]
 ---
 # 正規形
 

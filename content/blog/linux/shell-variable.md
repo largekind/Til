@@ -1,6 +1,7 @@
 ---
 title: "shellScriptでの変数追加"
 date: 2023-04-05T00:00:00+09:00
+tags: [linux]
 ---
 # shellScriptでの変数追加
 

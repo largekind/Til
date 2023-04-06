@@ -1,6 +1,7 @@
 ---
 title: " PDPC : Process Decision Program Chart "
 date: 2023-04-05T00:00:00+09:00
+tags: [InfoEngineer,strategy]
 ---
 #  PDPC : Process Decision Program Chart 
 

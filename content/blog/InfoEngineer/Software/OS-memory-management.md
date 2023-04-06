@@ -1,6 +1,7 @@
 ---
 title: "OSメモリ管理"
 date: 2023-04-05T00:00:00+09:00
+tags: [InfoEngineer,Software]
 ---
 # OSメモリ管理
 

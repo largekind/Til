@@ -1,6 +1,7 @@
 ---
 title: "SEO : Search Engine Optimization"
 date: 2023-04-05T00:00:00+09:00
+tags: [InfoEngineer,Software]
 ---
 # SEO : Search Engine Optimization
 

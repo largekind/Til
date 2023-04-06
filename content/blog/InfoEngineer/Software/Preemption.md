@@ -1,6 +1,7 @@
 ---
 title: "タスク遷移の情報まとめ"
 date: 2023-04-05T00:00:00+09:00
+tags: [InfoEngineer,Software]
 ---
 # タスク遷移の情報まとめ
 
