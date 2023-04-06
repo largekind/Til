@@ -56,3 +56,8 @@ lastmod = [":git", "lastmod", "date", "publishDate"]
     pre = "<i class=\"far fa-envelope\"></i>"
     url = "/contact"
     weight = -1
+[module]
+[[module.mounts]]
+  excludeFiles = 'blog/Python/avilen/*'
+  source = 'content'
+  target = 'content'

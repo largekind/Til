@@ -1,7 +1,6 @@
 ---
 title: "Digital-Signage : 電子看板"
-date: 2023-04-06T00:00:00+09:00
-lastmod: "2023-04-06"
+date: 2023-04-05T00:00:00+09:00
 ---
 # Digital-Signage : 電子看板
 
