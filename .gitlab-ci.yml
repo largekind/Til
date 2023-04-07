@@ -22,7 +22,6 @@ default:
     - apk add --no-cache go curl bash nodejs
     - git submodule init
     - git submodule update
-    - git submodule update —remote themes/npqhugo
 
 test:
   script:
