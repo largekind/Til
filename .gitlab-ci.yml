@@ -20,8 +20,9 @@ variables:
 default:
   before_script:
     - apk add --no-cache go curl bash nodejs
-    - hugo mod init gitlab.com/pages/hugo
-    - hugo mod get -u https://github.com/saadsolimanxyz/npqhugo
+    - git submodule init
+    - git submodule update
+    - git submodule update —remote themes/npqhugo
 
 test:
   script:
