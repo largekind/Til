@@ -1,4 +1,6 @@
-# TIL
+# [TIL](https://largekind.gitlab.io/Til/)
+
+## 概要
 
 Today I Learned
 
@@ -8,3 +10,7 @@ Today I Learned
 
 細かいことは下記のQiitaを参照する
 - [TILの情報(Qiitaリンク)]("https://qiita.com/nemui_/items/239335b4ed0c3c797add")
+
+## 構成
+
+Hugoを使用。テーマは[npqhugo](https://largekind.gitlab.io/Til/)
