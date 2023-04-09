@@ -14,3 +14,8 @@ Today I Learned
 ## 構成
 
 Hugoを使用。テーマは[npqhugo](https://largekind.gitlab.io/Til/)
+
+## 記事の追加方法
+
+以下のコマンドを実行
+> hugo new (追加したいディレクトリパス/ファイル).md
