@@ -2,6 +2,7 @@
 title: "CRC :Cyclic Redundancy Check"
 date: 2023-04-05T00:00:00+09:00
 tags: [InfoEngineer,Security]
+categories: [InfoEngineer]
 ---
 # CRC :Cyclic Redundancy Check
 

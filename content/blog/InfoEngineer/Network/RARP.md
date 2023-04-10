@@ -2,6 +2,7 @@
 title: "RARP : Reverse Address Resolution Protocol"
 date: 2023-04-05T00:00:00+09:00
 tags: [InfoEngineer,Network]
+categories: [InfoEngineer]
 ---
 # RARP : Reverse Address Resolution Protocol
 

@@ -2,6 +2,7 @@
 title: "メモリインタリーブ : memory interleaving"
 date: 2023-04-05T00:00:00+09:00
 tags: [InfoEngineer,Memory]
+categories: [InfoEngineer]
 ---
 # メモリインタリーブ : memory interleaving
 

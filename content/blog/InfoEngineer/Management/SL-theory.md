@@ -2,6 +2,7 @@
 title: "SL理論 : situation leadership Theory"
 date: 2023-04-05T00:00:00+09:00
 tags: [InfoEngineer,Management]
+categories: [InfoEngineer]
 ---
 # SL理論 : situation leadership Theory
 

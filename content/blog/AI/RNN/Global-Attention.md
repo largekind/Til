@@ -2,6 +2,7 @@
 title: "Global Attention Model"
 date: 2023-04-05T00:00:00+09:00
 tags: [Python,AI,RNN]
+categories: [AI]
 ---
 # Global Attention Model
 

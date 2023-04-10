@@ -2,6 +2,7 @@
 title: "Service Oriented Architecture"
 date: 2023-04-05T00:00:00+09:00
 tags: [InfoEngineer,strategy]
+categories: [InfoEngineer]
 ---
 # Service Oriented Architecture
 

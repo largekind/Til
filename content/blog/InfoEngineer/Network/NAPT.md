@@ -2,6 +2,7 @@
 title: "NAPT : Network Address Port Translation"
 date: 2023-04-05T00:00:00+09:00
 tags: [InfoEngineer,Network]
+categories: [InfoEngineer]
 ---
 # NAPT : Network Address Port Translation
 

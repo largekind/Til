@@ -2,6 +2,7 @@
 title: "双方向RNN (Bi-directional RNN)"
 date: 2023-04-05T00:00:00+09:00
 tags: [Python,AI,RNN]
+categories: [AI]
 ---
 # 双方向RNN (Bi-directional RNN)
 

@@ -6,7 +6,7 @@ import os
 import datetime
 import itertools
 
-filelist = glob.glob('./content/**/*.md',recursive=True)
+filelist = glob.glob('./content/blog/**/*.md',recursive=True)
 #print(l)
 
 # 各ファイルごとに処理
@@ -40,6 +40,13 @@ for path in filelist:
       dirtags = os.path.dirname(path).replace("./content/blog/","").split("/")
       Buf.append('tags: ['+ ','.join(str(tag) for tag in dirtags) +']\n')
       print("DirTag:",dirtags)
+
+    # 自分がいる場所のcategoriesがない場合は付与
+    if not any("categories: " in word for word in lines):
+      #blog/以降のディレクトリパスを取得し、必要部分だけ抜粋
+      categories = os.path.dirname(path).replace("./content/blog/","").split("/")[0]
+      Buf.append('categories: ['+ categories +']\n')
+      print("categories:",categories)
 
     # Hugo未使用だった場合は最後の---を追記
     if UseHugoFirst == True:

@@ -2,6 +2,7 @@
 title: "モデルの使用テンソル型の修正方法"
 date: 2023-04-05T00:00:00+09:00
 tags: [Python,pytorch]
+categories: [Python]
 ---
 # モデルの使用テンソル型の修正方法
 

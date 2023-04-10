@@ -13,6 +13,11 @@
                     <i class="far fa-calendar-alt"></i> {{.Format "Jan 2 2006"}}
                 {{end}}
                 <br>
+                {{with .Params.categories}}
+                        <i class="fas fa-list"></i>
+                        Tags: {{ delimit . ", " }}
+                {{end}}
+                <br>
                 {{with .Params.tags}}
                         <i class="fas fa-tags"></i>
                         Tags: {{ delimit . ", " }}

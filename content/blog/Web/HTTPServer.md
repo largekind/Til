@@ -2,6 +2,7 @@
 title: "HTTPサーバー建て方(Python + docker)"
 date: 2023-04-05T00:00:00+09:00
 tags: [Web]
+categories: [Web]
 ---
 # HTTPサーバー建て方(Python + docker)
 

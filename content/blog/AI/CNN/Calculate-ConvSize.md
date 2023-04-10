@@ -2,6 +2,7 @@
 title: "畳み込み計算での画像サイズの計算"
 date: 2023-04-05T00:00:00+09:00
 tags: [Python,AI,CNN]
+categories: [AI]
 ---
 # 畳み込み計算での画像サイズの計算
 

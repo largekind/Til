@@ -2,6 +2,7 @@
 title: "アプリ立ち上げ"
 date: 2023-04-05T00:00:00+09:00
 tags: [Web,Django]
+categories: [Web]
 ---
 # アプリ立ち上げ
 

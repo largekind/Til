@@ -2,6 +2,7 @@
 title: "BNF : Backus–Naur form"
 date: 2023-04-05T00:00:00+09:00
 tags: [InfoEngineer,Software]
+categories: [InfoEngineer]
 ---
 # BNF : Backus–Naur form
 

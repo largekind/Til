@@ -39,25 +39,30 @@ lastmod = [":git", "lastmod", "date", "publishDate"]
     url = "/blog/"
     weight = -8
   [[menu.main]]
+    name = "categories"
+    pre = "<i class=\"fas fa-list fa-ms\"></i>"
+    url = "/categories/"
+    weight = -7
+  [[menu.main]]
     name = "tags"
     pre = "<i class=\"fas fa-tags fa-ms\"></i>"
     url = "/tags"
-    weight = -7
+    weight = -6
   [[menu.main]]
     name = "gitlab"
     pre = "<i class=\"fab fa-gitlab fa-ms\"></i>"
     url = "https://gitlab.com/largekind"
-    weight = -6
+    weight = -5
   [[menu.main]]
     name = "github"
     pre = "<i class=\"fab fa-github fa-ms\"></i>"
     url = "https://github.com/largekind"
-    weight = -5
+    weight = -4
   [[menu.main]]
     name = "RSS"
     pre = "<i class=\"fas fa-rss fa-ms\"></i>"
     url = "/index.xml"
-    weight = -4
+    weight = -3
   [[menu.main]]
     name = "contact"
     pre = "<i class=\"far fa-envelope\"></i>"
