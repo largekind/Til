@@ -13,7 +13,7 @@ Today I Learned
 
 ## 構成
 
-Hugoを使用。テーマは[npqhugo](https://largekind.gitlab.io/Til/)
+Hugoを使用。テーマは[npqhugo](https://github.com/saadsolimanxyz/npqhugo)を用いている。
 
 ## 記事の追加方法
 
