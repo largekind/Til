@@ -46,5 +46,8 @@ if matchList:
     result = {key: value for match in matchList for key, value in match.items()}
     print(result)
 else:
+    #もし正規表現に合致しないパターンがある場合はNoneを入れる 必要なければelse以降を削除すればよい
+    for group in re.findall('\(\?P\<(\w+)\>', pattern):
+        result[group] = None
     print("No match")
 ```
