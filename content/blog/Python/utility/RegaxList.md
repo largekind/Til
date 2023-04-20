@@ -1,7 +1,7 @@
 ---
 title: "正規表現のリストから情報を抽出し辞書に格納する方法"
 date: 2023-04-16T21:39:39+09:00
-tags: [Python, Regax]
+tags: [Python, Regax, utility]
 categories: Python
 ---
 
