@@ -1,7 +1,8 @@
 ---
-title: "Ensemble"
+title: "7章 アンサンブル"
 date: 2023-04-25T21:03:35+09:00
-draft: true
+tags: [Books,Winning_DataAnalays-Techniquies-with-Kaggle,AI]
+categories : [Books]
 ---
 
 # アンサンブル(Ensmble)
