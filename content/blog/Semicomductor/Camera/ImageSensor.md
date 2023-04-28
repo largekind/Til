@@ -1,7 +1,7 @@
 ---
 title: "Image Sensor"
 date: 2023-04-09T22:17:43+09:00
-tags: [Semiconductor]
+tags: [Semiconductor , Camera]
 categories: [Semiconductor]
 ---
 
