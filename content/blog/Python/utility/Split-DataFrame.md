@@ -1,7 +1,8 @@
 ---
 title: "DataFrameのデータ分割方法"
 date: 2023-05-01T21:24:00+09:00
-draft: true
+tags : [Python, pandas]
+categories : Python
 ---
 
 # DataFrameのデータ分割方法
