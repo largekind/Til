@@ -10,7 +10,13 @@ categories: [Semiconductor]
 ## 概要
 
 光を電気信号に変換する半導体。
-主にCCD/CMOSに大別される。
+主な処理は以下の流れとなる
+1. 光を電荷に変換
+2. 電荷の蓄積
+3. (CCD)電荷の転送
+4. 電荷を電気信号に変換
+
+CCD/CMOSに大別される。
 
 ## 構造
 
@@ -32,7 +38,7 @@ Charge Coupled Device Image Sensorの略
 
 Complementary Metal Oxide Semiconductor Image Sensor
 
-型とN型のMOSFETをディジタル回路（論理回路）で相補的に利用する回路方式(CMOS)で作られたイメージセンサ
+P型とN型のMOSFETをディジタル回路（論理回路）で相補的に利用する回路方式(CMOS)で作られたイメージセンサ
 
 基本的にはこちらが主流となっている
 
