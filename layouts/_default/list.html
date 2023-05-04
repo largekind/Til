@@ -18,9 +18,14 @@
                         Categories: {{ delimit . ", " }}
                 {{end}}
                 <br>
-                Tags:
-                {{ range .Params.tags }}
-                    <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+                {{ with .Params.tags }}
+                    <i class="fas fa-tags"></i>
+                    Tags:
+                    {{ range $index, $tag := . }}
+                        {{ $urlizedTag := urlize $tag }}
+                        {{ if gt $index 0 }}, {{ end }}
+                        <a href="{{ "/tags/" | relLangURL }}{{ $urlizedTag }}">{{ $tag }}</a>
+                    {{ end }}
                 {{ end }}
                 </div>
             </div>
