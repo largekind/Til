@@ -14,14 +14,22 @@
                 {{end}}
                 <br>
                 {{with .Params.categories}}
-                        <i class="fas fa-list"></i>
-                        Tags: {{ delimit . ", " }}
+                    <i class="fas fa-folder"></i>
+                    Categories:
+                    {{ range . }}
+                        <a href="{{ "/categories/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+                    {{ end }}
                 {{end}}
                 <br>
-                {{with .Params.tags}}
-                        <i class="fas fa-tags"></i>
-                        Tags: {{ delimit . ", " }}
-                {{end}}
+                {{ with .Params.tags }}
+                    <i class="fas fa-tags"></i>
+                    Tags:
+                    {{ range $index, $tag := . }}
+                        {{ $urlizedTag := urlize $tag }}
+                        {{ if gt $index 0 }}, {{ end }}
+                        <a href="{{ "/tags/" | relLangURL }}{{ $urlizedTag }}">{{ $tag }}</a>
+                    {{ end }}
+                {{ end }}
                 </div>
             </div>
         {{end}}
