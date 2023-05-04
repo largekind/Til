@@ -2,7 +2,7 @@
 title: "CMOSとCCDの比較"
 date: 2023-05-03T23:48:55+09:00
 tag : [Semiconductor, Camera]
-categories: Semiconductor
+categories: [Semiconductor]
 ---
 
 # CMOSとCCDの比較
