@@ -14,10 +14,13 @@
                 {{end}}
                 <br>
                 {{with .Params.categories}}
-                        <i class="fas fa-list"></i>
-                        Categories: {{ delimit . ", " }}
+                    <i class="fas fa-folder"></i>
+                    Categories:
+                    {{ range . }}
+                        <a href="{{ "/categories/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+                    {{ end }}
                 {{end}}
-                <br>
+                    <br>
                 {{ with .Params.tags }}
                     <i class="fas fa-tags"></i>
                     Tags:
