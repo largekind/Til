@@ -1,8 +1,8 @@
 ---
 title: "PLL(Palse Lock Loop)"
 date: 2023-05-04T21:56:05+09:00
-tag : [Semicomductor, HardWare]
-categories : [Semicomductor]
+tag : [Semiconductor, HardWare]
+categories : [Semiconductor]
 ---
 
 # PLL(Palse Lock Loop)
