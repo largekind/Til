@@ -15,13 +15,13 @@
                 <br>
                 {{with .Params.categories}}
                         <i class="fas fa-list"></i>
-                        Tags: {{ delimit . ", " }}
+                        Categories: {{ delimit . ", " }}
                 {{end}}
                 <br>
-                {{with .Params.tags}}
-                        <i class="fas fa-tags"></i>
-                        Tags: {{ delimit . ", " }}
-                {{end}}
+                Tags:
+                {{ range .Params.tags }}
+                    <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+                {{ end }}
                 </div>
             </div>
         {{end}}
