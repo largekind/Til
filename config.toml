@@ -1,4 +1,5 @@
 baseurl = "https://largekind.gitlab.io/Til/"
+canonifyurls = true
 title = "largekind TIL"
 copyright = "Copyright © 2008–2019, Steve Francia and the Hugo Authors; all rights reserved."
 theme = "npqhugo"
