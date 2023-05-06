@@ -1,7 +1,7 @@
 ---
 title: "RAID : Redundant Arrays of Inexpensive Disks"
 date: 2023-04-05T00:00:00+09:00
-tags: [InfoEngineer,HardWare]
+tags: [InfoEngineer,Hardware]
 categories: [InfoEngineer]
 ---
 # RAID : Redundant Arrays of Inexpensive Disks
