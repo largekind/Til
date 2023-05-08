@@ -1,7 +1,8 @@
 ---
 title: "Trunk Base Development"
 date: 2023-05-05T21:18:52+09:00
-draft: true
+tags: [Software, Git]
+caterogies: [Software]
 ---
 
 # トランクベース開発

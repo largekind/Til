@@ -1,7 +1,7 @@
 ---
 title: "Hugoの導入方法"
 date: 2023-04-06T21:13:35+09:00
-tags: ["linux"]
+tags: [linux, hugo]
 categories: [linux]
 ---
 
