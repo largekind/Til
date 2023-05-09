@@ -40,3 +40,10 @@ categories: [Semiconductor]
 
 > [ショートパケット] - [LPS] - [ロングパケット] - [LPS] - [ロングパケット] - [LPS] - [ショートパケット]
 
+## D-PHY 
+
+MIPIの物理層を示すインターフェース規格
+
+LPS用の低速モードや高速モードの通信がある。
+
+詳細は次の情報を参照 [D-PHY](https://engineering-university.yamasee-otto.com/mipi-dphy/)
