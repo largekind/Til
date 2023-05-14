@@ -1,4 +1,4 @@
-# Juliana
+# Kapito Inc.
 
 ## 目的(気になった理由)
 
