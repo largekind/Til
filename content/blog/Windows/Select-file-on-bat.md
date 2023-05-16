@@ -3,7 +3,6 @@ title: "Bat上でファイルを選択させる方法"
 date: 2023-05-14T21:15:31+09:00
 categories : ["Windows"]
 tags : ["Windows","shell"]
-draft: true
 ---
 
 # Bat上でファイルを選択させる方法
