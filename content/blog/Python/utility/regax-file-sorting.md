@@ -69,7 +69,8 @@ def create_dataframe_from_path(filepath, pattern_list):
                     # ここではパターンをディレクトリやファイル名に追加するだけでなく、辞書にも保存する
                     for key, value in match.groupdict().items():
                         data_dict[key] = value
-
+        # パス情報を追加
+        data_dict['Path'] = path
         # 1つのファイルに対してすべてのパターンをチェックした後、辞書をリストに追加
         data_list.append(data_dict)
 
