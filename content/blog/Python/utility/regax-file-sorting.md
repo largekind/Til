@@ -1,9 +1,8 @@
 ---
 title: "Regax File Sorting"
 date: 2023-05-19T22:08:01+09:00
-categories : [""]
-tags : ["",""]
-draft: true
+categories : ["Python"]
+tags : ["utility","Python"]
 ---
 
 # Regax File Sorting
