@@ -1,0 +1,35 @@
+<script src="https://cdn.jsdelivr.net/npm/vue" crossorigin></script>
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.4.5/fuse.min.js"
+  crossorigin
+></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js" crossorigin></script>
+<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js" crossorigin></script>
+<link rel="stylesheet" href="{{ "css/search.css" | absURL }}" />
+
+<div id="app">
+  <div style="display: flex; align-items: center;">
+    <i class="fas fa-search fa-lg"></i>
+    <input
+        v-model="word"
+        name="word"
+        type="text"
+        class="form-control input--xlarge"
+        placeholder="Search by word"
+        autofocus="autofocus"
+        style="margin-left: 10px;"
+    />
+  </div>
+  <search-result-item
+      v-for="res in results"
+      :title="res.item.title"
+      :contents="res.item.contents"
+      :url="res.item.permalink"
+      :date="res.item.date"
+      :image="res.item.image"
+      :tags="res.item.tags"
+      style="padding: 20px;"
+  />
+</div>
+
+<script src="{{ "js/search.js" | absURL }}"></script>
