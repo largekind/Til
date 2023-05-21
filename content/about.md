@@ -1,6 +1,8 @@
 ---
 title: "About"
 date: 2023-04-06T22:52:14+09:00
+tags: ["index"]
+categories: ["index"]
 ---
 
 ## Self-Introduction
