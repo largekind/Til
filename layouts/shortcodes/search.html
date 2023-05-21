@@ -1,4 +1,4 @@
-<script src="https://cdn.jsdelivr.net/npm/vue" crossorigin></script>
+<script src="https://unpkg.com/vue@next"></script>
 <script
   src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.4.5/fuse.min.js"
   crossorigin
@@ -23,10 +23,7 @@
   <search-result-item
       v-for="res in results"
       :title="res.item.title"
-      :contents="res.item.contents"
-      :url="res.item.permalink"
       :date="res.item.date"
-      :image="res.item.image"
       :tags="res.item.tags"
       style="padding: 20px;"
   />

@@ -15,7 +15,7 @@ const fuseOptions = {
   ]
 };
 
-Vue.component("search-result-item", {
+const SearchResultItem = {
   props: ["title", "url", "date", "image", "contents", "tags"],
   template: `
   <div style="display: flex;">
@@ -31,24 +31,33 @@ Vue.component("search-result-item", {
       <div v-for="tag in tags" class="search-tag" v-text="tag"></div>
     </div>
   </div>`
-});
+};
 
 const search = (words, fuse) =>
   _.intersectionBy(...words.map(x => fuse.search(x)), "item.permalink");
 
-const app = new Vue({
-  el: "#app",
+const app = Vue.createApp({
   mounted: async function() {
-    this.fuse = new Fuse((await axios.get("/index.json")).data, fuseOptions);
+    this.fuse = new Fuse((await axios.get("/Til/index.json")).data, fuseOptions);
   },
-  data: {
-    fuse: {},
-    word: "",
-    results: []
+  data() {
+    return {
+      fuse: {},
+      word: "",
+      results: []
+    }
   },
   watch: {
-    word: _.debounce(function(word) {
-      this.results = word.length > 0 ? search(word.split(" "), this.fuse) : [];
-    }, 500)
+    word: {
+      immediate: true,
+      handler(val, oldVal) {
+        _.debounce(() => {
+          this.results = val.length > 0 ? search(val.split(" "), this.fuse) : [];
+        }, 500)();
+      }
+    }
   }
 });
+
+app.component('search-result-item', SearchResultItem);
+app.mount('#app');
