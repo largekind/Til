@@ -1,26 +1,33 @@
 ---
-title: "Python上での簡単なPID制御"
-date: 2023-06-04T21:45:00+09:00
+title: "PID Autotuning"
+date: 2023-06-04T22:02:44+09:00
 categories : ["Python"]
-tags : ["Python","utility"]
+tags : ["Python","PID"]
 ---
 
-# Python上での簡単なPID制御
+# PID Autotuning
 
 ## 概要
 
-Pythonでの簡単なPID制御の仕組みを作成する
+PIDによる簡単なオートチューニング方法を記載する
 
-サンプルコードのため、他プログラムなどに考えが流用できるはず
+## 限界感度法
 
-## PIDとは
+### 概要
 
-[次のPID制御を参照](content\blog\InfoEngineer\Software\PID.md)
+Ziegler-Nichols法とも。
 
-## 通常のPID制御サンプル
+P制御のゲインと振動周期Tuを基準に、PIDのゲインを設定する方法。
+
+詳細は次の[限界感度法の説明](https://controlabo.com/ultimate-sensitivity-method/)を参照
+
+### サンプルコード
+
+Pythonでの記述となる。
 
 ``` python
-# PIDの簡単な処理クラス
+
+import math
 class PIDController:
     def __init__(self, kp, ki, kd):
         self.kp = kp  # 比例ゲイン
@@ -28,6 +35,7 @@ class PIDController:
         self.kd = kd  # 微分ゲイン
         self.error_integral = 0.0  # 誤差の積分値
         self.prev_error = 0.0  # 前回の誤差
+        self.tu = 0.0  # 処理時間の目安
 
     def compute_control_signal(self, setpoint, feedback):
         error = setpoint - feedback  # 目標値と現在値の差分
@@ -43,14 +51,21 @@ class PIDController:
 
         return control_signal
 
-# 仮想的な制御対象の更新関数
-def update_feedback(feedback , control_signal):
-    # ここに制御対象の出力を更新する処理を実装する
-    # 例えば、制御対象が温度制御の場合は温度を計測し、制御信号を入力して温度を更新する処理などを記述する
-    # この例では、制御信号を加えた場合にフィードバック値が変化すると仮定し、feedbackに加算する
-    feedback += control_signal
-    return feedback
-    
+    def autotune_ziegler_nichols(self, setpoint, feedback):
+        # オートチューニングの処理
+        self.tu += 1.0  # 処理時間の目安を1.0単位で増加させる
+
+        if self.tu >= 10.0:
+            # 目安の処理時間が10.0以上になった時点でゲインを計算する
+            ku = 4.0 / (self.tu * math.pi)
+            self.kp = 0.6 * ku
+            self.ki = 1.2 * ku / self.tu
+            self.kd = 0.075 * ku * self.tu
+
+    def get_tuned_gains(self):
+        return self.kp, self.ki, self.kd
+
+
 # 使用例
 kp = 1.0  # 比例ゲイン
 ki = 0.2  # 積分ゲイン
@@ -60,11 +75,14 @@ setpoint = 10.0  # 目標値
 # 制御器の初期化
 controller = PIDController(kp, ki, kd)
 
-# フィードバック値の取得（ループ内で更新される想定）
+# フィードバック値の取得
 feedback = 8.0
 
 # 制御ループ
 while abs(setpoint - feedback) > 0.01:  # 目標値に対する誤差が1%以内になるまでループする
+    # オートチューニングの実行
+    controller.autotune_ziegler_nichols(setpoint, feedback)
+
     # 制御信号の計算
     control_signal = controller.compute_control_signal(setpoint, feedback)
 
@@ -74,22 +92,5 @@ while abs(setpoint - feedback) > 0.01:  # 目標値に対する誤差が1%以内
     print("Feed Back", feedback)
 
     # フィードバック値の更新（制御対象の出力など）
-    feedback = update_feedback(feedback ,control_signal)
+    feedback = update_feedback(feedback, control_signal)
 ```
-
-ただし、この方法ではゲインを手動で調整する必要がある。
-
-そのため、各ゲインをオートチューニングする場合を記述する。
-
-## PIDオートチューニング
-
-### 概要
-
-各ゲインを自動的にチューニングする方法
-
-長くなるので以下に記述する
-
-[PIDオートチューニング](PID-Autotuning.md)
-
-
-
