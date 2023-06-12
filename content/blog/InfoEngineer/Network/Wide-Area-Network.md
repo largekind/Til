@@ -3,7 +3,6 @@ title: "WAN : Wide Area Network"
 date: 2023-06-08T21:48:28+09:00
 categories : ["InfoEngineer"]
 tags : ["InfoEngineer","Network"]
-draft: true
 ---
 
 # WAN : Wide Area Network

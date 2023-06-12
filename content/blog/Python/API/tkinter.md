@@ -3,7 +3,6 @@ title: "Tkinter"
 date: 2023-06-12T23:14:34+09:00
 categories : ["Python"]
 tags : ["Python","GUI"]
-draft: true
 ---
 
 # Tkinter
