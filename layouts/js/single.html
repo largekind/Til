@@ -6,7 +6,7 @@ var data = [
 {{- range $index, $page := .Site.Pages }}
 {{- if not (or (eq $page.Kind "taxonomy") (eq $page.Kind "term")) }}
   {
-    url: {{ $page.RelPermalink | jsonify }},
+    url: {{ $page.Permalink | jsonify }},
     title: {{ $page.Title | jsonify}},
     date: {{ $page.Date | jsonify }},
     body: {{ template "escape" (printf "%s %s" $page.Title $page.Plain) }}
