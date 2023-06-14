@@ -1,23 +1,24 @@
 # [TIL](https://largekind.gitlab.io/Til/)
 
-## 概要
+## About
+
+[日本語](./README-ja.md)
 
 Today I Learned
 
-本日の学んだことをまとめていくリポジトリ
+This is a repository where we will add what we have learned today in a timely manner
 
-主に動画学習系とかだと履歴残しづらいため、適当に気分でまとめていく
+Created to summarize in a mood as a TIL, as it is difficult to keep what we have learned from video learning and other materials
 
-細かいことは下記のQiitaを参照する
-- [TILの情報(Qiitaリンク)](https://qiita.com/nemui_/items/239335b4ed0c3c797add)
+Note that all information inside is in Japanese. Please give me a break since I am Japanese.
 
-## 構成
+See below for detailed information.
+- [TIL(Qiita Link Japanese)](https://qiita.com/nemui_/items/239335b4ed0c3c797add)
+## Artitecture
 
-Hugoを使用。テーマは[npqhugo](https://github.com/saadsolimanxyz/npqhugo)を用いている。
+Using Hugo. Theme is using [npqhugo](https://github.com/saadsolimanxyz/npqhugo)
 
-検索ページは以下のリンクを参照に作成 [検索ページ作成](https://blog.mamansoft.net/2019/11/11/add-search-page-in-blog-made-by-hugo/)
+## How to add an article
 
-## 記事の追加方法
-
-以下のコマンドを実行
-> hugo new (追加したいディレクトリパス/ファイル).md
+Run command in shell
+> hugo new (Add Directory path or file).md
