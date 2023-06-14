@@ -18,6 +18,8 @@ See below for detailed information.
 
 Using Hugo. Theme is using [npqhugo](https://github.com/saadsolimanxyz/npqhugo)
 
+The search page is created by referring to the following site [Create-Search-page(japanese)](https://aloha-ru.com/hugo/text-search/)
+
 ## How to add an article
 
 Run command in shell
