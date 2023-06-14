@@ -15,6 +15,8 @@ Today I Learned
 
 Hugoを使用。テーマは[npqhugo](https://github.com/saadsolimanxyz/npqhugo)を用いている。
 
+検索ページは以下のリンクを参照に作成 [検索ページ作成](https://aloha-ru.com/hugo/text-search/)
+
 ## 記事の追加方法
 
 以下のコマンドを実行
