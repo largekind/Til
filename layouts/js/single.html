@@ -1,0 +1,16 @@
+{{ define "escape" }}
+  {{- trim (replace . "\n" " ") " " | replaceRE " +" " " | jsonify | safeHTML -}}
+{{ end }}
+
+var data = [
+{{- range $index, $page := .Site.Pages }}
+{{- if not (or (eq $page.Kind "taxonomy") (eq $page.Kind "term")) }}
+  {
+    url: {{ $page.RelPermalink | jsonify }},
+    title: {{ $page.Title | jsonify}},
+    date: {{ $page.Date | jsonify }},
+    body: {{ template "escape" (printf "%s %s" $page.Title $page.Plain) }}
+  },
+{{- end }}
+{{- end }}
+]
