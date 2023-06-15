@@ -1,9 +1,8 @@
 ---
 title: "Excel Group to Dataframe"
 date: 2023-06-15T21:20:09+09:00
-categories : [""]
-tags : ["",""]
-draft: true
+categories : ["Python"]
+tags : ["Python","pandas"]
 ---
 
 # Excel Group to Dataframe
