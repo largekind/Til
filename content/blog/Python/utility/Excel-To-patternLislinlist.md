@@ -1,9 +1,8 @@
 ---
 title: "Excel to PatternLislinlist"
 date: 2023-06-13T23:35:16+09:00
-categories : [""]
-tags : ["",""]
-draft: true
+categories : ["Python"]
+tags : ["Python","Excel"]
 ---
 
 # Excel to PatternLislinlist
