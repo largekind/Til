@@ -41,11 +41,12 @@ update readme:
   script:
     - apk add --no-cache python3 py3-pip
     - pip3 install pyyaml
+    - git checkout $CI_COMMIT_REF_NAME
     - python3 generate_readme.py
     - git config --global user.name "GitLab CI/CD"
     - git config --global user.email "your-email@example.com"
     - git add README.md
     - git commit -m "Update README.md"
-    - git push
+    - git push origin $CI_COMMIT_REF_NAME
   only:
     - features/GenerateTILList
