@@ -19,7 +19,8 @@ variables:
 # from Alpine to Debian, see https://gitlab.com/pages/hugo/-/merge_requests/175.
 default:
   before_script:
-    - apk add --no-cache go curl bash nodejs
+    - apk add --no-cache go curl bash nodejs git-lfs
+    - git lfs install
     - git submodule init
     - git submodule update
 
