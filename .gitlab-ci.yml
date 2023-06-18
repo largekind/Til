@@ -45,9 +45,10 @@ update readme:
     - git checkout $CI_COMMIT_REF_NAME
     - python3 generate_readme.py
     - git config --global user.name "GitLab CI/CD"
-    - git config --global user.email "your-email@example.com"
+    - git config --global user.email "noreply+gitlab-migration-bot@gitlab.com"
     - git add README.md
     - git commit -m "Update README.md"
+    - git remote set-url origin https://oauth2:$UpdateREADME@gitlab.com/largekind/Til.git
     - git push origin $CI_COMMIT_REF_NAME
   only:
     - features/GenerateTILList
