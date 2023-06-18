@@ -24,3 +24,7 @@ The search page is created by referring to the following site [Create-Search-pag
 
 Run command in shell
 > hugo new (Add Directory path or file).md
+
+
+---
+## List
