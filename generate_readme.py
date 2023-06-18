@@ -13,30 +13,33 @@ with open("README.md", "r") as readme_file:
         exit(1)
 
 # ファイルとディレクトリをスキャンし、新しいリンクを作成
+categories = {}
 for dirpath, dirnames, filenames in os.walk("./content/blog/"):
     if ".git" in dirpath or ".gitlab" in dirpath:
         continue  # Skip .git and .gitlab directories
+    category = dirpath.lstrip("./content/blog/")
     for filename in filenames:
         if filename.endswith(".md") and filename != "README.md":
             filepath = os.path.join(dirpath, filename)
             with open(filepath, "r") as file:
-                # frotmatterの抽出
                 content = file.read().split('---', 2)
-                if len(content) < 3:
-                    continue
-                # yamlとしてtitle部分のみ取得
+                if len(content) < 3 or content[0].strip() != '':
+                    continue  # Skip files without properly formatted front matter
                 try:
                     til = yaml.safe_load(content[1])
-                    #print(til)
-                    if til is None or isinstance(til, list):
-                        print(f"No YAML in file {filepath}")
-                        continue
-                    category = dirpath.lstrip("./")
-                    title = til.get("title", "No title")
-                    readme_contents += f"- [{category}: {title}]({filepath})\n"
+                    if isinstance(til, dict):
+                        title = til.get("title", "No title")
+                        if category not in categories:
+                            categories[category] = []
+                        categories[category].append(f"- [{title}]({filepath})")
                 except yaml.YAMLError:
                     print(f"Error reading file {filepath}")
 
 # 更新した内容でREADME.mdファイルを再度書き込み
+for category, links in categories.items():
+    readme_contents += f"\n### {category}\n\n"
+    readme_contents += '\n'.join(links)
+    readme_contents += '\n'
+
 with open("README.md", "w") as readme_file:
     readme_file.write(readme_contents)
