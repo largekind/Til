@@ -44,6 +44,7 @@ update readme:
     - pip3 install pyyaml
     - git checkout $CI_COMMIT_REF_NAME
     - python3 generate_readme.py
+    - python3 generate_readme-ja.py
     - git config --global user.name "GitLab CI/CD"
     - git config --global user.email "noreply+gitlab-migration-bot@gitlab.com"
     - git add README.md
