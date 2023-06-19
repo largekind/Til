@@ -249,12 +249,12 @@ Run command in shell
 - [プレースホルダ : placeholder](./content/blog/InfoEngineer/DataBase/placeholder.md)
 - [データベースのキー一覧](./content/blog/InfoEngineer/DataBase/Database-key.md)
 - [スキーマ : schema](./content/blog/InfoEngineer/DataBase/schema.md)
+- [関数従属性](./content/blog/InfoEngineer/DataBase/functional-dependency.md)
 - [導出表](./content/blog/InfoEngineer/DataBase/derrived-table.md)
 - [資源のロック](./content/blog/InfoEngineer/DataBase/Lock.md)
 - [ACID特性](./content/blog/InfoEngineer/DataBase/ACID.md)
 - [リポジトリ](./content/blog/InfoEngineer/DataBase/repository.md)
 - [正規形](./content/blog/InfoEngineer/DataBase/Normal-form.md)
-- [関数従属性](./content/blog/InfoEngineer/DataBase/ functional-dependency.md)
 
 ### InfoEngineer/strategy
 
