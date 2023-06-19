@@ -47,8 +47,6 @@ update readme:
     - git config --global user.name "GitLab CI/CD"
     - git config --global user.email "noreply+gitlab-migration-bot@gitlab.com"
     - git add README.md
-    - git commit -m "Update README.md [ci skip]"
-    - git remote set-url origin https://oauth2:$UpdateREADME@gitlab.com/largekind/Til.git
-    - git push origin $CI_COMMIT_REF_NAME
+    - 'if git diff --cached --quiet; then echo "No changes to commit"; else git commit -m "Update README.md [ci skip]" && git remote set-url origin https://oauth2:$UpdateREADME@gitlab.com/largekind/Til.git && git push origin $CI_COMMIT_REF_NAME; fi'
   only:
     - features/GenerateTILList
