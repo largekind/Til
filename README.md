@@ -95,6 +95,7 @@ Run command in shell
 
 ### SoftWare
 
+- [GitLab Pipeline for Automatic Commits](./content/blog/SoftWare/Gitlab-pipeline-for-automatic-commits.md)
 - [Trunk Base Development](./content/blog/SoftWare/trunk-base-development.md)
 
 ### Semiconductor/HardWare
