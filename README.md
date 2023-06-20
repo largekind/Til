@@ -175,6 +175,10 @@ Run command in shell
 - [AveragePresion(平均適合率)](./content/blog/AI/Score/AveragePrecision.md)
 - [Dice係数](./content/blog/AI/Score/Dicec-coefficient.md)
 
+### AI/GPT
+
+- [GPT4ALLJ](./content/blog/AI/GPT/GPT4ALLJ.md)
+
 ### Windows
 
 - [ディスクの調子が悪い場合のトラブルシューティング](./content/blog/Windows/DiskChk-Troubleshooting.md)
