@@ -212,6 +212,7 @@ Run command in shell
 - [一定間隔でグラフに凡例を追加する方法](./content/blog/Python/utility/Add-Labels-at-Regular-Intervals.md)
 - [Python上での簡単なPID制御](./content/blog/Python/utility/Python-PID.md)
 - [DirectoryDivide](./content/blog/Python/utility/DirectoryDivide.md)
+- [ファイル群からディレクトリを抽出する](./content/blog/Python/utility/glob-to-dir-list.md)
 - [ColorChecker Detection](./content/blog/Python/utility/ColorChecker-detection.md)
 - [Regax File Sorting](./content/blog/Python/utility/regax-file-sorting.md)
 - [バイナリのような画像を監視、表示するツール](./content/blog/Python/utility/Bin-Image-Checker.md)
