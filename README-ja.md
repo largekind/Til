@@ -186,6 +186,7 @@ Hugoを使用。テーマは[npqhugo](https://github.com/saadsolimanxyz/npqhugo)
 
 ### Python/pandas
 
+- [部分的なDataFrameの比較と差分行の抽出](./content/blog/Python/pandas/Diff-part-of-data.md)
 - [DataFrameのデータ分割方法](./content/blog/Python/pandas/Split-DataFrame.md)
 - [Listの内容からDataFrameを抽出する方法](./content/blog/Python/pandas/Extract-dataframe-from-list.md)
 - [Excel Group to Dataframe](./content/blog/Python/pandas/Excel-group-to-dataframe.md)
