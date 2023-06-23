@@ -1,9 +1,9 @@
 ---
 title: "Trunk Base Development"
 date: 2023-05-05T21:18:52+09:00
-tags: ["Software", "Git"]
+tags: ["Software", "Git", "SoftWare"]
 caterogies: ['Software']
-categories: ["Software"]
+categories: ["SoftWare"]
 ---
 # トランクベース開発
 

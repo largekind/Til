@@ -1,7 +1,7 @@
 ---
 title: "I/O インターフェースまとめ"
 date: 2023-04-05T00:00:00+09:00
-tags: ["InfoEngineer", "Hardware"]
+tags: ["InfoEngineer", "Hardware", "HardWare"]
 categories: ["InfoEngineer"]
 ---
 # I/O インターフェースまとめ

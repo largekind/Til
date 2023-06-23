@@ -159,6 +159,21 @@ Run command in shell
 
 - [AIExpo 2022#2 情報まとめ](./content/blog/AI/News/AIExpo2022.md)
 
+### AI/News/AIExpo2023
+
+- [ghelia](./content/blog/AI/News/AIExpo2023/ghelia.md)
+- [IDEA](./content/blog/AI/News/AIExpo2023/IDEA.md)
+- [NXP](./content/blog/AI/News/AIExpo2023/NXP.md)
+- [KapitoInc](./content/blog/AI/News/AIExpo2023/KapitoInc.md)
+- [AOS](./content/blog/AI/News/AIExpo2023/AOS.md)
+- [AIExpo2023](./content/blog/AI/News/AIExpo2023/AIExpo2023.md)
+- [STM](./content/blog/AI/News/AIExpo2023/STM.md)
+- [template](./content/blog/AI/News/AIExpo2023/template.md)
+- [UbiquitousAI](./content/blog/AI/News/AIExpo2023/UbiquitousAI.md)
+- [Renesas](./content/blog/AI/News/AIExpo2023/Renesas.md)
+- [ChatPlus](./content/blog/AI/News/AIExpo2023/ChatPlus.md)
+- [THine](./content/blog/AI/News/AIExpo2023/THine.md)
+
 ### AI/RNN
 
 - [シンプルなRNNの実装](./content/blog/AI/RNN/Sinple-RNN.md)
