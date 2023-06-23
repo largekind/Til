@@ -45,10 +45,22 @@ update readme:
     - git checkout $CI_COMMIT_REF_NAME
     - python3 generate_readme.py
     - python3 generate_readme-ja.py
-    - python3 setHugoMd.py
     - git config --global user.name "GitLab CI/CD"
     - git config --global user.email "noreply+gitlab-migration-bot@gitlab.com"
     - git add .
     - 'if git diff --cached --quiet; then echo "No changes to commit"; else git commit -m "Update README.md [ci skip]" && git remote set-url origin https://oauth2:$UpdateREADME@gitlab.com/largekind/Til.git && git push origin $CI_COMMIT_REF_NAME; fi'
+  only:
+    - features/AutoHugoformat
+
+update HugoFrontmatter:
+  script:
+    - apk add --no-cache python3 py3-pip
+    - pip3 install pyyaml python-frontmatter
+    - git checkout $CI_COMMIT_REF_NAME
+    - python3 setHugoMd.py
+    - git config --global user.name "GitLab CI/CD"
+    - git config --global user.email "noreply+gitlab-migration-bot@gitlab.com"
+    - git add .
+    - 'if git diff --cached --quiet; then echo "No changes to commit"; else git commit -m "Update Frontmatter [ci skip]" && git remote set-url origin https://oauth2:$UpdateREADME@gitlab.com/largekind/Til.git && git push origin $CI_COMMIT_REF_NAME; fi'
   only:
     - features/AutoHugoformat
