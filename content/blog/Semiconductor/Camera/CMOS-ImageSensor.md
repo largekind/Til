@@ -1,10 +1,9 @@
 ---
 title: "CMOSイメージセンサー"
 date: 2023-04-28T21:47:12+09:00
-tags : [Semiconductor, Camera]
-categories: [Semiconductor]
+tags: ["Semiconductor", "Camera"]
+categories: ["Semiconductor"]
 ---
-
 # CMOSイメージセンサー
 
 ## 概要

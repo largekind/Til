@@ -1,8 +1,8 @@
 ---
 title: "TPM : Trusted Platform Module"
 date: 2023-04-05T00:00:00+09:00
-tags: [InfoEngineer,Security]
-categories: [InfoEngineer]
+tags: ["InfoEngineer", "Security"]
+categories: ["InfoEngineer"]
 ---
 # TPM : Trusted Platform Module
 

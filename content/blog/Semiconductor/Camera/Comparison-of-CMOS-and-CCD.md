@@ -1,10 +1,9 @@
 ---
 title: "CMOSとCCDの比較"
 date: 2023-05-03T23:48:55+09:00
-tags : [Semiconductor, Camera]
-categories: [Semiconductor]
+tags: ["Semiconductor", "Camera"]
+categories: ["Semiconductor"]
 ---
-
 # CMOSとCCDの比較
 
 CMOS/CCDのイメージセンサの比較を表にまとめる

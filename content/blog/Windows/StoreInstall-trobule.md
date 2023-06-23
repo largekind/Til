@@ -1,8 +1,8 @@
 ---
 title: "Windows Storeでインストールができなくなったトラブルシューティング"
 date: 2023-04-05T00:00:00+09:00
-tags: [Windows]
-categories: [Windows]
+tags: ["Windows"]
+categories: ["Windows"]
 ---
 # Windows Storeでインストールができなくなったトラブルシューティング
 

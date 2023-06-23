@@ -1,8 +1,8 @@
 ---
 title: "並列実行のアーキテクチャ"
 date: 2023-04-05T00:00:00+09:00
-tags: [InfoEngineer,Hardware]
-categories: [InfoEngineer]
+tags: ["InfoEngineer", "Hardware", "HardWare"]
+categories: ["InfoEngineer"]
 ---
 # 並列実行のアーキテクチャ
 
@@ -19,5 +19,3 @@ categories: [InfoEngineer]
 **(Simple/Multi)** _Instruction(命令数)_ + **(Simple/Multi)** + _Data(データ)_
 
 Instructionが命令/Dataはデータなので、あとは単一/複数 命令かデータかを判別すればよい
-
-

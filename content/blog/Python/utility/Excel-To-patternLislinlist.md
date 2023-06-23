@@ -1,10 +1,9 @@
 ---
 title: "Excel to PatternLislinlist"
 date: 2023-06-13T23:35:16+09:00
-categories : ["Python"]
-tags : ["Python","Excel"]
+categories: ["Python"]
+tags: ["Python", "Excel", "utility"]
 ---
-
 # Excel to PatternLislinlist
 
 ## 概要

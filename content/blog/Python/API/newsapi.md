@@ -1,10 +1,9 @@
 ---
 title: "NewsAPI"
 date: 2023-04-21T22:43:59+09:00
-categories: [Python]
-tags : [Python , API]
+categories: ["Python"]
+tags: ["Python", "API"]
 ---
-
 # NewsAPI
 
 ## 概要

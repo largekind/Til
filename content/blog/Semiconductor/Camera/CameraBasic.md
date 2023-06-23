@@ -1,10 +1,9 @@
 ---
 title: "カメラの基礎"
 date: 2023-05-09T23:14:10+09:00
-categories : ["Semiconductor"]
-tags : ["Semiconductor","Camera"]
+categories: ["Semiconductor"]
+tags: ["Semiconductor", "Camera"]
 ---
-
 # カメラの基礎
 
 ## 概要

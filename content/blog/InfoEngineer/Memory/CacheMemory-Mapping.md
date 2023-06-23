@@ -1,8 +1,8 @@
 ---
 title: "メモリマッピング"
 date: 2023-04-05T00:00:00+09:00
-tags: [InfoEngineer,Memory]
-categories: [InfoEngineer]
+tags: ["InfoEngineer", "Memory"]
+categories: ["InfoEngineer"]
 ---
 # メモリマッピング
 

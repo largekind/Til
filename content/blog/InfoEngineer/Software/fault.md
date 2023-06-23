@@ -1,8 +1,8 @@
 ---
 title: "対障用語"
 date: 2023-04-05T00:00:00+09:00
-tags: [InfoEngineer,Software]
-categories: [InfoEngineer]
+tags: ["InfoEngineer", "Software"]
+categories: ["InfoEngineer"]
 ---
 # 対障用語
 
@@ -70,4 +70,3 @@ Fool : バカ
 Proof : 防ぐ
 
 バカなユーザーが誤った動作しても安全に稼働させて、問題を防ごうという設計思想
-

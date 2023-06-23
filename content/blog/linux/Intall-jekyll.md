@@ -1,8 +1,8 @@
 ---
 title: "jekyllの環境整備"
 date: 2023-04-05T00:00:00+09:00
-tags: [linux]
-categories: [linux]
+tags: ["linux"]
+categories: ["linux"]
 ---
 # jekyllの環境整備
 

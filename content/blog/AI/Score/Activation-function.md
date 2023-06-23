@@ -1,8 +1,8 @@
 ---
 title: "活性化関数まとめ"
 date: 2023-04-05T00:00:00+09:00
-tags: [Python,AI,Score]
-categories: [AI]
+tags: ["Python", "AI", "Score"]
+categories: ["AI"]
 ---
 # 活性化関数まとめ
 
@@ -97,4 +97,3 @@ y_i - y_i^2 & (i = k)\\
 $$
 
 ${\displaystyle\sum_{k=1}^{n}{e^{x_k}}} $を求める時は各クラス毎の和であるため、np.sum(dx,axis=1,keepdims=1)で求める
-

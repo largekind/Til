@@ -1,10 +1,9 @@
 ---
 title: "Python上での簡単なPID制御"
 date: 2023-06-04T21:45:00+09:00
-categories : ["Python"]
-tags : ["Python","utility"]
+categories: ["Python"]
+tags: ["Python", "utility"]
 ---
-
 # Python上での簡単なPID制御
 
 ## 概要
@@ -90,6 +89,3 @@ while abs(setpoint - feedback) > 0.01:  # 目標値に対する誤差が1%以内
 長くなるので以下に記述する
 
 [PIDオートチューニング](PID-Autotuning.md)
-
-
-

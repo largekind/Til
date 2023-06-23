@@ -1,8 +1,8 @@
 ---
 title: "IDS : Intrusion Detection System"
 date: 2023-04-05T00:00:00+09:00
-tags: [InfoEngineer,Security]
-categories: [InfoEngineer]
+tags: ["InfoEngineer", "Security"]
+categories: ["InfoEngineer"]
 ---
 # IDS : Intrusion Detection System
 
@@ -16,4 +16,3 @@ detection : 検出 detectの名刺 de-(取り去る) + tect(覆い) + tion (名�
 
 ネットワークを監視する場合はNIDS(Network-based IDS)
 監視対象のサーバに入れて、そのサーバ内で発生するイベントを監視する場合はHIDS(Host-based IDS)となる
-

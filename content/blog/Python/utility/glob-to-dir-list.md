@@ -1,10 +1,9 @@
 ---
 title: "ファイル群からディレクトリを抽出する"
 date: 2023-06-22T21:15:57+09:00
-categories : ["Python"]
-tags : ["Python","utility"]
+categories: ["Python"]
+tags: ["Python", "utility"]
 ---
-
 # ファイル群からディレクトリの抽出する
 
 ## 概要
@@ -27,4 +26,3 @@ directories = {os.path.dirname(txt_file) for txt_file in txt_files}
 for directory in directories:
     print(directory)
 ```
-

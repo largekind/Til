@@ -1,8 +1,8 @@
 ---
 title: "Image Normalizetion "
 date: 2023-04-05T00:00:00+09:00
-tags: [Python,AI,CNN]
-categories: [AI]
+tags: ["Python", "AI", "CNN"]
+categories: ["AI"]
 ---
 # Image Normalizetion 
 
@@ -85,4 +85,3 @@ def instance_normalization(x):
 
 チャネルをG個でグルーピングしてLayer Normalizatoin/Instance Normalizationの中間的な正規化を行う  
 セグメンテーションなどで利用
-

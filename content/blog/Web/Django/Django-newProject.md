@@ -1,8 +1,8 @@
 ---
 title: "Django 新しいプロジェクトの作成方法"
 date: 2023-04-05T00:00:00+09:00
-tags: [Web,Django]
-categories: [Web]
+tags: ["Web", "Django"]
+categories: ["Web"]
 ---
 # Django 新しいプロジェクトの作成方法
 

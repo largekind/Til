@@ -1,8 +1,8 @@
 ---
 title: "色々な畳み込み計算"
 date: 2023-04-05T00:00:00+09:00
-tags: [Python,AI,CNN]
-categories: [AI]
+tags: ["Python", "AI", "CNN"]
+categories: ["AI"]
 ---
 # 色々な畳み込み計算
 

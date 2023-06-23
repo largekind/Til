@@ -1,10 +1,9 @@
 ---
 title: "Tkinter"
 date: 2023-06-12T23:14:34+09:00
-categories : ["Python"]
-tags : ["Python","GUI"]
+categories: ["Python"]
+tags: ["Python", "GUI", "API"]
 ---
-
 # Tkinter
 
 ## 概要

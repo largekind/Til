@@ -1,10 +1,9 @@
 ---
 title: "Hugoの導入方法"
 date: 2023-04-06T21:13:35+09:00
-tags: [linux, hugo]
-categories: [linux]
+tags: ["linux", "hugo"]
+categories: ["linux"]
 ---
-
 # Hugoの導入方法
 
 ## 概要
@@ -45,7 +44,3 @@ WSL2+ubuntu環境なので以下コマンドを実行する
 ├── themes/
 └── config.toml
 ```
-
-
-
-

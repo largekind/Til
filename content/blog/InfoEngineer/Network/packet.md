@@ -1,8 +1,8 @@
 ---
 title: "パケット通信方式まとめ"
 date: 2023-04-05T00:00:00+09:00
-tags: [InfoEngineer,Network]
-categories: [InfoEngineer]
+tags: ["InfoEngineer", "Network"]
+categories: ["InfoEngineer"]
 ---
 # パケット通信方式まとめ
 

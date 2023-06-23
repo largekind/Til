@@ -1,10 +1,9 @@
 ---
 title: "GPT"
 date: 2023-04-08T22:21:42+09:00
-tags: [Python, AI]
-categories: [AI]
+tags: ["Python", "AI"]
+categories: ["AI"]
 ---
-
 # GPT : Generative Pre-trained Trensformer
 
 最近話題の自然言語モデル

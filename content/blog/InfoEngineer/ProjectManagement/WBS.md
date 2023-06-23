@@ -1,8 +1,8 @@
 ---
 title: "WBS : Work Breakdown Structure"
 date: 2023-04-05T00:00:00+09:00
-tags: [InfoEngineer,ProjectManagement]
-categories: [InfoEngineer]
+tags: ["InfoEngineer", "ProjectManagement"]
+categories: ["InfoEngineer"]
 ---
 # WBS : Work Breakdown Structure
 

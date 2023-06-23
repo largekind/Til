@@ -1,10 +1,9 @@
 ---
 title: "部分的なDataFrameの比較と差分行の抽出"
 date: 2023-06-22T22:02:49+09:00
-categories : ["Python"]
-tags : ["Python","pandas"]
+categories: ["Python"]
+tags: ["Python", "pandas"]
 ---
-
 # 部分的なDataFrameの比較と差分行の抽出
 
 ## 概要

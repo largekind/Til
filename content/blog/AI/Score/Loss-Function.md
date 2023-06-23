@@ -1,8 +1,8 @@
 ---
 title: "損失関数まとめ"
 date: 2023-04-05T00:00:00+09:00
-tags: [Python,AI,Score]
-categories: [AI]
+tags: ["Python", "AI", "Score"]
+categories: ["AI"]
 ---
 # 損失関数まとめ
 

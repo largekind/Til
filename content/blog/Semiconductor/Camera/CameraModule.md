@@ -1,10 +1,9 @@
 ---
 title: "カメラモジュール"
 date: 2023-05-10T22:14:43+09:00
-categories : ["Semiconductor"]
-tags : ["Semiconductor","Camera"]
+categories: ["Semiconductor"]
+tags: ["Semiconductor", "Camera"]
 ---
-
 # カメラモジュール
 
 ## 概要

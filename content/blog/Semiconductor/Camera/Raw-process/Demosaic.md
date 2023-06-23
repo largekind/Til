@@ -1,10 +1,9 @@
 ---
 title: "Demosaic"
 date: 2023-05-23T21:22:37+09:00
-categories : ["Semiconductor"]
-tags : ["Semiconductor","Camera", "Raw-process"]
+categories: ["Semiconductor"]
+tags: ["Semiconductor", "Camera", "Raw-process"]
 ---
-
 # Demosaic
 
 ## 概要

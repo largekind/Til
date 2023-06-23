@@ -1,10 +1,9 @@
 ---
 title: "Sony"
 date: 2023-04-09T22:17:43+09:00
-tags: [Semiconductor]
-categories: [Semiconductor]
+tags: ["Semiconductor", "Industory"]
+categories: ["Semiconductor"]
 ---
-
 # ソニー
 
 超有名な電気メーカ。その会社的な概略をまとめる

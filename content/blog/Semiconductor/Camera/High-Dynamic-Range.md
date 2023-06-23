@@ -1,10 +1,9 @@
 ---
 title: "HDR : High Dynamic Range"
 date: 2023-05-21T22:37:08+09:00
-categories : ["Semiconductor"]
-tags : ["Semiconductor","Camera"]
+categories: ["Semiconductor"]
+tags: ["Semiconductor", "Camera"]
 ---
-
 # High Dynamic Range
 
 ## 概要

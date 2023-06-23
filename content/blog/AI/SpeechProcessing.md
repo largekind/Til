@@ -1,8 +1,8 @@
 ---
 title: "音声処理"
 date: 2023-04-05T00:00:00+09:00
-tags: [Python,AI]
-categories: [AI]
+tags: ["Python", "AI"]
+categories: ["AI"]
 ---
 # 音声処理
 
@@ -150,4 +150,3 @@ Resnetと同じ。入力を別レイヤの層につないで残差を学習さ�
 ### Local COnditioning
 
 一定的な時系列に条件付けを付与するような形式
-

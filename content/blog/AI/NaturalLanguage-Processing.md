@@ -1,8 +1,8 @@
 ---
 title: "自然言語処理 (NLP)"
 date: 2023-04-05T00:00:00+09:00
-tags: [Python,AI]
-categories: [AI]
+tags: ["Python", "AI"]
+categories: ["AI"]
 ---
 # 自然言語処理 (NLP)
 
@@ -207,4 +207,3 @@ BERTを軽量化するためにWord Embedding(単語のベクトル化)にAuto E
 
 言語モデルを用いてプロンプト（適当な文）を生成することで
 事前学習とFine-tuningのギャップを埋める学習法
-

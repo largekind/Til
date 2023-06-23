@@ -1,11 +1,9 @@
 ---
 title: "一定間隔でグラフに凡例を追加する方法"
 date: 2023-04-20T23:56:43+09:00
-tags: [matplotlib, Python, utility]
-categories : [Python]
-
+tags: ["matplotlib", "Python", "utility"]
+categories: ["Python"]
 ---
-
 # 一定間隔でグラフに凡例を追加する方法
 
 ## 概要
@@ -74,4 +72,3 @@ plt.legend()
 
 plt.show()
 ```
-

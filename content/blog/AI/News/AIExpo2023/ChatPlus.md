@@ -1,3 +1,9 @@
+---
+title: "ChatPlus"
+date: 2023-06-23T22:34:35
+categories: ["AI"]
+tags: ["AI", "News", "AIExpo2023"]
+---
 # ChatPlus
 
 ## 気になった理由

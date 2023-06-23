@@ -1,68 +1,56 @@
-# content/blog内にあるmarkdownに対して、日付とtitleを自動追加する
-
-import glob
-import re
 import os
 import datetime
-import itertools
+import pathlib
+import frontmatter
 
-filelist = glob.glob('./content/blog/**/*.md',recursive=True)
-#print(l)
+# './content/blog/'ディレクトリ以下のすべてのmarkdownファイルを取得
+markdown_files = pathlib.Path('./content/blog').rglob('*.md')
 
-# 各ファイルごとに処理
-for path in filelist:
-    # ファイル読み込み
-    print("filepath : ",path)
-    with open(path) as f:
-      lines = f.readlines()
-    # 追加する用のバッファ定義
-    Buf = []
-    UseHugoFirst = False #Hugoが一切使用されてないかチェック用フラグ
-    # 先頭行に"---"が無いなら追記 Hugoが一切使われてない事がわかるのでフラグを立てる
-    if not lines[0] == '---\n':
-      Buf.append('---\n')
-      UseHugoFirst = True
+for md_file in markdown_files:
+    # ファイルを読み込む
+    with open(md_file, 'r', encoding='utf-8') as f:
+        post = frontmatter.load(f)
 
-    # ファイルにHugoで必要なTitleが無いなら追記
-    if not any("title: " in word for word in lines):
-      # markdownのtitle行を取得する
-      l_re_match = [s for s in lines if re.match('^# .*$', s)]
-      Buf.append('title: '+'\"'+l_re_match[0].replace("# ","").replace("\n","") +'\"\n')
+    # ファイルの作成時間を取得
+    creation_time = datetime.datetime.fromtimestamp(md_file.stat().st_ctime)
 
-    # ファイルにHugoで必要なDateが無いなら追記 自動的に後からgitでコミットした更新日が入るので、ここでは適当
-    if not any("date: " in word for word in lines):
-      now = datetime.datetime.today().strftime("%Y-%m-%d")
-      Buf.append('date: '+now+'T00:00:00+09:00'+'\n')
+    # カテゴリとタグの情報を取得
+    relative_path = md_file.relative_to('./content/blog')
+    categories = [relative_path.parts[0]]
+    tags = [part for part in relative_path.parts[:-1]]  # タグの大文字小文字を維持
 
-    # 自分がいる場所のTagがない場合は付与
-    if not any("tags: " in word for word in lines):
-      #blog/以降のディレクトリパスを取得し、必要部分だけ抜粋
-      dirtags = os.path.dirname(path).replace("./content/blog/","").split("/")
-      Buf.append('tags: ['+ ','.join(str(tag) for tag in dirtags) +']\n')
-      print("DirTag:",dirtags)
+    # titleの情報を確認し、なければファイル名をタイトルとする
+    if 'title' not in post.metadata or not post.metadata['title']:
+        title = md_file.stem
+        post.metadata['title'] = f'{title}'
 
-    # 自分がいる場所のcategoriesがない場合は付与
-    if not any("categories: " in word for word in lines):
-      #blog/以降のディレクトリパスを取得し、必要部分だけ抜粋
-      categories = os.path.dirname(path).replace("./content/blog/","").split("/")[0]
-      Buf.append('categories: ['+ categories +']\n')
-      print("categories:",categories)
+    # dateの情報を確認し、なければ作成時間を追加
+    if 'date' not in post.metadata or not post.metadata['date']:
+        post.metadata['date'] = f'{creation_time}'
 
-    # Hugo未使用だった場合は最後の---を追記
-    if UseHugoFirst == True:
-      Buf.append('---\n')
-    print(Buf)
+    # categoriesの情報を更新
+    post.metadata['categories'] = f'["{categories[0]}"]'
 
-    # ファイルの先頭に行追加
-    with open(path,'w') as f:
-      #何かしらBufがあるならHead formatterの最後に追記
-      if len(Buf) != 0:
-        if UseHugoFirst == True:
-          #Hugo初回ならそのままBufを先頭に書き込む
-          f.writelines(Buf)
-        else:
-          #HugoのHeader最後に追記
-          index = [i for i, x in enumerate(lines) if x == '---\n'][1]
-          print("last format index:"+str(index))
-          for buf in Buf: lines.insert(index, buf)
-      f.writelines(lines)
+    # tagsの情報を確認し、なければ追加
+    if 'tags' in post.metadata:
+        existing_tags = [tag.replace(' ', '') for tag in post.metadata['tags']]
+        for tag in tags:
+            if tag not in existing_tags:
+                post.metadata['tags'].append(tag)
+        post.metadata['tags'] = '[' + ', '.join(['"{}"'.format(tag) for tag in post.metadata['tags']]) + ']'
+    else:
+        post.metadata['tags'] = '[' + ', '.join(['"{}"'.format(tag) for tag in tags]) + ']'
+
+    # ファイルに戻す
+    with open(md_file, 'w', encoding='utf-8') as f:
+        f.write('---\n')
+        for key, value in post.metadata.items():
+            if key == "title":
+                f.write(f'{key}: "{value}"\n')  # タイトルは、ダブルクォーテーションで囲む
+            elif isinstance(value, datetime.datetime):
+                value = value.isoformat(timespec='seconds') #時刻情報はHugoの形式(ISO8601)にする
+                f.write(f'{key}: {value}\n')
+            else:
+                f.write(f'{key}: {value}\n')
+        f.write('---\n')
+        f.write(post.content)

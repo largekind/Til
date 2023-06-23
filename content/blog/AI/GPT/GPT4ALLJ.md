@@ -1,10 +1,9 @@
 ---
 title: "GPT4ALLJ"
 date: 2023-06-20T21:49:12+09:00
-categories : ["AI"]
-tags : ["AI","GPT"]
+categories: ["AI"]
+tags: ["AI", "GPT"]
 ---
-
 # GPT4ALLJ
 
 ## 概要

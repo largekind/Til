@@ -1,10 +1,9 @@
 ---
 title: "黒レベル補正"
 date: 2023-05-21T22:31:42+09:00
-categories : ["Semiconductor"]
-tags : ["Semiconductor","Camera","Raw-process"]
+categories: ["Semiconductor"]
+tags: ["Semiconductor", "Camera", "Raw-process"]
 ---
-
 # 黒レベル補正
 
 ## 概要

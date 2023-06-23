@@ -1,8 +1,8 @@
 ---
 title: "Chapger1 分析コンペ"
 date: 2023-04-05T00:00:00+09:00
-tags: [Books,Winning_DataAnalays-Techniquies-with-Kaggle]
-categories: [Books]
+tags: ["Books", "Winning_DataAnalays-Techniquies-with-Kaggle"]
+categories: ["Books"]
 ---
 # Chapger1 分析コンペ
 
@@ -28,4 +28,3 @@ Kaggleのほかにも以下が存在
 ## Kernel
 
 クラウド上でPython動かせるもの。Kaggleも提供をしている
-

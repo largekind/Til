@@ -1,10 +1,9 @@
 ---
 title: "バイナリのような画像を監視、表示するツール"
 date: 2023-06-12T23:32:38+09:00
-categories : ["Python"]
-tags : ["Python","utility","Camera"]
+categories: ["Python"]
+tags: ["Python", "utility", "Camera"]
 ---
-
 # バイナリ画像監視ツール
 
 ## 概要
