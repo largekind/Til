@@ -1,10 +1,9 @@
 ---
 title: "Listの内容からDataFrameを抽出する方法"
 date: 2023-05-29T23:37:29+09:00
-categories : ["Python"]
-tags : ["pandas","Python","utility"]
+categories: ["Python"]
+tags: ["pandas", "Python", "utility"]
 ---
-
 # Listの内容からDataFrameを抽出する方法
 
 ## 概要

@@ -1,10 +1,9 @@
 ---
 title: "Swatch"
 date: 2023-05-24T22:09:55+09:00
-categories : ["Semicondocutor"]
-tags : ["Semiconductor","Camera","Color","Raw-process"]
+categories: ["Semiconductor"]
+tags: ["Semiconductor", "Camera", "Color", "Raw-process"]
 ---
-
 # Swatch
 
 ## 概要

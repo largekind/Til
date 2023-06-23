@@ -1,10 +1,9 @@
 ---
 title: "大量のグラフに色付けする方法"
 date: 2023-04-20T23:18:18+09:00
-tags : [matplotlib, Python, utility]
-categories : [Python]
+tags: ["matplotlib", "Python", "utility"]
+categories: ["Python"]
 ---
-
 # グラフに色付けする方法
 
 ## 概要

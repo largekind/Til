@@ -1,8 +1,8 @@
 ---
 title: "MINE : Multipurpose Internet Mail Extension"
 date: 2023-04-05T00:00:00+09:00
-tags: [InfoEngineer,Network]
-categories: [InfoEngineer]
+tags: ["InfoEngineer", "Network"]
+categories: ["InfoEngineer"]
 ---
 # MINE : Multipurpose Internet Mail Extension
 

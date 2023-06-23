@@ -1,8 +1,8 @@
 ---
 title: "リスクアセスメントにおけるプロセス"
 date: 2023-04-05T00:00:00+09:00
-tags: [InfoEngineer,Security]
-categories: [InfoEngineer]
+tags: ["InfoEngineer", "Security"]
+categories: ["InfoEngineer"]
 ---
 # リスクアセスメントにおけるプロセス
 
@@ -19,4 +19,3 @@ Assessment : ad-(～へl + sedeo(座る) = ～の近くで座る人が評価す�
 
 ---
 5. リスク対応
-

@@ -1,8 +1,8 @@
 ---
 title: "Service Level Agreement"
 date: 2023-04-05T00:00:00+09:00
-tags: [InfoEngineer,Management]
-categories: [InfoEngineer]
+tags: ["InfoEngineer", "Management"]
+categories: ["InfoEngineer"]
 ---
 # Service Level Agreement
 

@@ -1,10 +1,9 @@
 ---
 title: "PID : Proportional-Integral-Differential Controller"
 date: 2023-06-04T21:49:27+09:00
-categories : ["InfoEngineer"]
-tags : ["InfoEngineer","HardWare"]
+categories: ["InfoEngineer"]
+tags: ["InfoEngineer", "HardWare", "Software"]
 ---
-
 # PID : Proportional-Integral-Differential Controller
 
 ## 概要

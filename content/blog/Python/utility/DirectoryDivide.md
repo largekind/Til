@@ -1,10 +1,9 @@
 ---
 title: "DirectoryDivide"
 date: 2023-05-27T21:26:53+09:00
-categories : ["Python"]
-tags : ["Python","utility"]
+categories: ["Python"]
+tags: ["Python", "utility"]
 ---
-
 # ディレクトリごとでのファイル分割方法
 
 ## 概要

@@ -1,8 +1,8 @@
 ---
 title: "AE"
 date: 2023-04-05T00:00:00+09:00
-tags: [Python,AI]
-categories: [AI]
+tags: ["Python", "AI"]
+categories: ["AI"]
 ---
 # AE
 
@@ -47,4 +47,3 @@ VAEの学習で逆伝搬をするために、**ガウシアンノイズを用い
 
 いつもの。Generative Adversal Network(敵生成ネットワーク)  
 GeneratorとDiscriminatorを戦闘させて学習していくニセ札と警察の関係的な発想で生まれたネットワーク
-

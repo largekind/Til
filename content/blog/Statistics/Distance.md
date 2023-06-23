@@ -1,8 +1,8 @@
 ---
 title: "ベクトル距離"
 date: 2023-04-05T00:00:00+09:00
-tags: [Statistics]
-categories: [Statistics]
+tags: ["Statistics"]
+categories: ["Statistics"]
 ---
 # ベクトル距離
 

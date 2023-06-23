@@ -1,8 +1,8 @@
 ---
 title: "SCM : Supply Chain Management"
 date: 2023-04-05T00:00:00+09:00
-tags: [InfoEngineer,strategy]
-categories: [InfoEngineer]
+tags: ["InfoEngineer", "strategy"]
+categories: ["InfoEngineer"]
 ---
 # SCM : Supply Chain Management
 

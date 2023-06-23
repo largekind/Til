@@ -1,8 +1,8 @@
 ---
 title: "Cron"
 date: 2023-04-05T00:00:00+09:00
-tags: [linux]
-categories: [linux]
+tags: ["linux"]
+categories: ["linux"]
 ---
 # Cron
 

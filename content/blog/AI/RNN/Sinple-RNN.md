@@ -1,8 +1,8 @@
 ---
 title: "シンプルなRNNの実装"
 date: 2023-04-05T00:00:00+09:00
-tags: [Python,AI,RNN]
-categories: [AI]
+tags: ["Python", "AI", "RNN"]
+categories: ["AI"]
 ---
 # シンプルなRNNの実装
 
@@ -42,5 +42,3 @@ class SimpleRnnlm:
     affine_b = np.zeros(V).astype('f') #バイアスのアフィン変換。ただ足すだけなので、次元はVになる
     
 ```
-    
-    

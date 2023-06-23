@@ -1,10 +1,9 @@
 ---
 title: "7章 アンサンブル"
 date: 2023-04-25T21:03:35+09:00
-tags: [Books,Winning_DataAnalays-Techniquies-with-Kaggle,AI]
-categories : [Books]
+tags: ["Books", "Winning_DataAnalays-Techniquies-with-Kaggle", "AI"]
+categories: ["Books"]
 ---
-
 # アンサンブル(Ensmble)
 
 ## 概要
@@ -29,5 +28,3 @@ AND/OR特性がある。
 ## スタッキング
 
 複数の学習方法で学習、得られた予測値を特徴量として再度学習すること
-
-

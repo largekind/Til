@@ -1,8 +1,8 @@
 ---
 title: "パラメータチューニング"
 date: 2023-04-05T00:00:00+09:00
-tags: [Books,Winning_DataAnalays-Techniquies-with-Kaggle]
-categories: [Books]
+tags: ["Books", "Winning_DataAnalays-Techniquies-with-Kaggle"]
+categories: ["Books"]
 ---
 # パラメータチューニング
 
@@ -124,7 +124,3 @@ GBDT : 勾配ブースティング木
 正則化になる
 
 Lasso/Ridge/Elastic Net正則化が入る
-
-
-
-

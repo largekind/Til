@@ -1,10 +1,9 @@
 ---
 title: "NIPI : Mobile Industry Processor Interface"
 date: 2023-05-04T22:11:55+09:00
-tags: [Semiconductor, Camera]
-categories: [Semiconductor]
+tags: ["Semiconductor", "Camera"]
+categories: ["Semiconductor"]
 ---
-
 # NIPI : Mobile Industry Processor Interface
 
 ## 概要

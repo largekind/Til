@@ -1,8 +1,8 @@
 ---
 title: "plantuml導入(WSL2)"
 date: 2023-04-05T00:00:00+09:00
-tags: [Web]
-categories: [Web]
+tags: ["Web"]
+categories: ["Web"]
 ---
 # plantuml導入(WSL2)
 

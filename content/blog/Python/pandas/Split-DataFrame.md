@@ -1,10 +1,9 @@
 ---
 title: "DataFrameのデータ分割方法"
 date: 2023-05-01T21:24:00+09:00
-categories : [Python]
-tags : [Python, pandas]
+categories: ["Python"]
+tags: ["Python", "pandas"]
 ---
-
 # DataFrameのデータ分割方法
 
 ## 概要

@@ -1,8 +1,8 @@
 ---
 title: "画像認識"
 date: 2023-04-05T00:00:00+09:00
-tags: [Python,AI,CNN]
-categories: [AI]
+tags: ["Python", "AI", "CNN"]
+categories: ["AI"]
 ---
 # 画像認識
 
@@ -303,4 +303,3 @@ FCN/U-Netが中間層を保存する関係でメモリ効率が悪い問題が�
 中間層の保存部分での工夫。
 
 **プーリング層で選んだ座標の情報だけ保存して渡すことで、Skip Connection時にメモリ効率を大幅に削減する**
-

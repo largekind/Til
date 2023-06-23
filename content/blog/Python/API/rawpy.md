@@ -1,8 +1,8 @@
 ---
 title: "Rawpy"
 date: 2023-05-11T23:37:57+09:00
-categories : ["Python"]
-tags : ["API","Camera", "Semiconductor"]
+categories: ["Python"]
+tags: ["API", "Camera", "Semiconductor", "Python"]
 ---
 # Rawpy
 ## 概要

@@ -1,10 +1,9 @@
 ---
 title: "JavaBeans"
 date: 2023-05-31T21:04:14+09:00
-categories : ["Software"]
-tags : ["Software","Java"]
+categories: ["InfoEngineer"]
+tags: ["Software", "Java", "InfoEngineer"]
 ---
-
 # JavaBeans
 
 ## 概要

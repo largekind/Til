@@ -1,8 +1,8 @@
 ---
 title: "モデルの使用テンソル型の修正方法"
 date: 2023-04-05T00:00:00+09:00
-tags: [Python,pytorch]
-categories: [Python]
+tags: ["Python", "pytorch"]
+categories: ["Python"]
 ---
 # モデルの使用テンソル型の修正方法
 
@@ -23,4 +23,3 @@ device = 'cuda' if cuda.is_available() else 'cpu'
 # Model()の後にメソッドチェーンで変換したい型へ変換してからGPU/CPUへ転送
 model = Model().double().to(device)
 ```
-

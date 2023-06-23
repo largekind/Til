@@ -1,8 +1,8 @@
 ---
 title: "HTML tag一覧"
 date: 2023-04-05T00:00:00+09:00
-tags: [Web,html]
-categories: [Web]
+tags: ["Web", "html"]
+categories: ["Web"]
 ---
 # HTML tag一覧
 
@@ -33,5 +33,3 @@ anchor アンカータグ
 ``` html
 <a href = "URL"> リンク文字 </a>
 ```
-
-

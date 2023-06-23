@@ -1,10 +1,9 @@
 ---
 title: "Sender Policy Framework"
 date: 2023-06-05T23:32:34+09:00
-categories : ["InfoEngineer"]
-tags : ["InfoEngineer","Security"]
+categories: ["InfoEngineer"]
+tags: ["InfoEngineer", "Security"]
 ---
-
 # SPF: Sender Policy Framework
 
 ## 概要

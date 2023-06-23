@@ -1,3 +1,9 @@
+---
+title: "KapitoInc"
+date: 2023-06-23T22:34:35
+categories: ["AI"]
+tags: ["AI", "News", "AIExpo2023"]
+---
 # Kapito Inc.
 
 ## 目的(気になった理由)
@@ -14,4 +20,3 @@
 - 台湾といった海外でのAI事例を間近に見ることができた
 
 ## リンク
-

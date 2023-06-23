@@ -1,8 +1,8 @@
 ---
 title: "IP"
 date: 2023-04-05T00:00:00+09:00
-tags: [Web]
-categories: [Web]
+tags: ["Web"]
+categories: ["Web"]
 ---
 # IP
 Internet Protocolの略

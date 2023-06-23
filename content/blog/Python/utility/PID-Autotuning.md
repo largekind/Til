@@ -1,10 +1,9 @@
 ---
 title: "PID Autotuning"
 date: 2023-06-04T22:02:44+09:00
-categories : ["Python"]
-tags : ["Python","PID"]
+categories: ["Python"]
+tags: ["Python", "PID", "utility"]
 ---
-
 # PID Autotuning
 
 ## 概要

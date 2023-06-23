@@ -1,10 +1,9 @@
 ---
 title: "正規表現のリストを用いてディレクトリ化する方法"
 date: 2023-05-17T00:39:34+09:00
-tags: [Python, Regax, utility]
-categories: [Python]
+tags: ["Python", "Regax", "utility"]
+categories: ["Python"]
 ---
-
 # 正規表現のリストから情報を抽出し辞書に格納する方法
 
 ## 概要
@@ -56,4 +55,3 @@ if match_list:
     print(dirname)
 
 ```
-

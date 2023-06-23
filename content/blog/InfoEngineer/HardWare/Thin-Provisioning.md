@@ -1,8 +1,8 @@
 ---
 title: "Thin-Provisioning"
 date: 2023-04-05T00:00:00+09:00
-tags: [InfoEngineer,Hardware]
-categories: [InfoEngineer]
+tags: ["InfoEngineer", "Hardware"]
+categories: ["InfoEngineer"]
 ---
 # Thin-Provisioning
 
@@ -17,4 +17,3 @@ provisioning :pro-(前を) + vide(見る)+ sion(-こと) + ing(名詞化) = 準�
 利用者の要求に対して仮想ボリュームを提供し、物理ディスクは実際の使用量で割り当てる
 
 薄く準備することから、仮想的なものに対して物理的なものを準備するイメージ
-

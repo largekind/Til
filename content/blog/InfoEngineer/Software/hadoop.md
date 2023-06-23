@@ -1,8 +1,8 @@
 ---
 title: "Hadoop"
 date: 2023-04-05T00:00:00+09:00
-tags: [InfoEngineer,Software]
-categories: [InfoEngineer]
+tags: ["InfoEngineer", "Software"]
+categories: ["InfoEngineer"]
 ---
 # Hadoop
 

@@ -1,8 +1,8 @@
 ---
 title: "固有値・固有ベクトル"
 date: 2023-04-05T00:00:00+09:00
-tags: [Statistics]
-categories: [Statistics]
+tags: ["Statistics"]
+categories: ["Statistics"]
 ---
 # 固有値・固有ベクトル
 

@@ -1,8 +1,8 @@
 ---
 title: "ITサービスマネジメント"
 date: 2023-04-05T00:00:00+09:00
-tags: [InfoEngineer,strategy]
-categories: [InfoEngineer]
+tags: ["InfoEngineer", "strategy"]
+categories: ["InfoEngineer"]
 ---
 # ITサービスマネジメント
 
@@ -34,4 +34,3 @@ IT資産を正確に把握し、不正利用を防止するプロセス
 ## リリース管理
 
 変更管理で承認された変更を本番環境に実装するプロセス
-

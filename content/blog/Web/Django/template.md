@@ -1,8 +1,8 @@
 ---
 title: "テンプレートファイル"
 date: 2023-04-05T00:00:00+09:00
-tags: [Python,pytorch]
-categories: [Python]
+tags: ["Python", "pytorch", "Web", "Django"]
+categories: ["Web"]
 ---
 # テンプレートファイル
 

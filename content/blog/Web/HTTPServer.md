@@ -1,8 +1,8 @@
 ---
 title: "HTTPサーバー建て方(Python + docker)"
 date: 2023-04-05T00:00:00+09:00
-tags: [Web]
-categories: [Web]
+tags: ["Web"]
+categories: ["Web"]
 ---
 # HTTPサーバー建て方(Python + docker)
 
@@ -16,4 +16,3 @@ categories: [Web]
 ```
 3.  作成したディレクトリは以下で以下コマンド実行
 > python -m http.server 8000
-
