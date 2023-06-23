@@ -13,13 +13,6 @@ for md_file in markdown_files:
 
     # ファイルの作成時間を取得
     creation_time = datetime.datetime.fromtimestamp(md_file.stat().st_ctime)
-    formatted_time = creation_time.isoformat(timespec='seconds')
-    #formatted_time = creation_time.strftime('%Y-%m-%dT%H:%M:%S+09:00')
-
-    #date_str = creation_time.strftime('%Y-%m-%d')
-    #time_str = creation_time.strftime('%H:%M:%S+09:00')
-    #formatted_time = f'{date_str}T{time_str}'
-    #print("formattime:",formatted_time)
 
     # カテゴリとタグの情報を取得
     relative_path = md_file.relative_to('./content/blog')
@@ -33,8 +26,7 @@ for md_file in markdown_files:
 
     # dateの情報を確認し、なければ作成時間を追加
     if 'date' not in post.metadata or not post.metadata['date']:
-        post.metadata['date'] = f'"{formatted_time}"'
-        print("post mata:",post.metadata['date'])
+        post.metadata['date'] = f'{creation_time}'
 
     # categoriesの情報を更新
     post.metadata['categories'] = f'["{categories[0]}"]'
@@ -53,11 +45,10 @@ for md_file in markdown_files:
     with open(md_file, 'w', encoding='utf-8') as f:
         f.write('---\n')
         for key, value in post.metadata.items():
-            print("key:",key,"val:",value, "valtype", type(value))
             if key == "title":
                 f.write(f'{key}: "{value}"\n')  # タイトルは、ダブルクォーテーションで囲む
             elif isinstance(value, datetime.datetime):
-                value = value.isoformat(timespec='seconds')
+                value = value.isoformat(timespec='seconds') #時刻情報はHugoの形式(ISO8601)にする
                 f.write(f'{key}: {value}\n')
             else:
                 f.write(f'{key}: {value}\n')
