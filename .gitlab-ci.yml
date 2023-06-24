@@ -48,7 +48,7 @@ update readme:
     - git config --global user.name "GitLab CI/CD"
     - git config --global user.email "noreply+gitlab-migration-bot@gitlab.com"
     - git add .
-    - 'if git diff --cached --quiet; then echo "No changes to commit"; else git commit -m "Update README.md [ci skip]" && git remote set-url origin https://oauth2:$UpdateREADME@gitlab.com/largekind/Til.git && git pull && git merge && git push origin $CI_COMMIT_REF_NAME; fi'
+    - 'if git diff --cached --quiet; then echo "No changes to commit"; else git commit -m "Update README.md [ci skip]" && git remote set-url origin https://oauth2:$UpdateREADME@gitlab.com/largekind/Til.git && git pull && git push origin $CI_COMMIT_REF_NAME; fi'
   only:
     - fix/#9
 
