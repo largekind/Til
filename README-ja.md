@@ -92,8 +92,13 @@ Hugoを使用。テーマは[npqhugo](https://github.com/saadsolimanxyz/npqhugo)
 
 ### SoftWare
 
-- [GitLab Pipeline for Automatic Commits](./content/blog/SoftWare/Gitlab-pipeline-for-automatic-commits.md)
 - [Trunk Base Development](./content/blog/SoftWare/trunk-base-development.md)
+
+### SoftWare/Git
+
+- [GitLab Pipeline for Automatic Commits](./content/blog/SoftWare/Git/Gitlab-pipeline-for-automatic-commits.md)
+- [Determining Whether to Commit in a GitLab CI/CD Job](./content/blog/SoftWare/Git/Check-gitlab-CDCI-commit-check.md)
+- [Pushing to a Repository in a GitLab CI/CD Job](./content/blog/SoftWare/Git/Push-Repo-Gitlab-CDCI-job.md)
 
 ### Semiconductor/HardWare
 
