@@ -2,7 +2,7 @@
 title: "GitLab Pipeline for Automatic Commits"
 date: 2023-06-19T22:22:48+09:00
 categories: ["SoftWare"]
-tags: ["GitLab", "CI/CD", "automatic commit", "Software", "SoftWare", "Git"]
+tags: ["GitLab", "CI/CD", "SoftWare", "Git"]
 ---
 # GitLabのパイプラインでの自動コミット
 
