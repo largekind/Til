@@ -1,9 +1,9 @@
 ---
 title: "Determining Whether to Commit in a GitLab CI/CD Job"
 categories: ["SoftWare"]
-tags: ["GitLab", "CI/CD"]
+tags: ["GitLab", "CI/CD", "SoftWare", "Git"]
+date: 2023-06-24 12:52:19.649067
 ---
-
 # GitLab CI/CDジョブでのコミット有無の判定
 
 ## 概要
@@ -29,5 +29,3 @@ git diff --quiet || git commit -m "Update README.md"
 ```bash
 git diff --quiet || (git commit -m "Update README.md" && git push origin $CI_COMMIT_REF_NAME)
 ```
-
-
