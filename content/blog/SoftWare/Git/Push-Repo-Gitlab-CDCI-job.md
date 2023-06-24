@@ -2,8 +2,8 @@
 title: "Pushing to a Repository in a GitLab CI/CD Job"
 categories: ["SoftWare"]
 date: 2023-06-24T21:56:39+09:00
+tags: ["SoftWare", "Git"]
 ---
-
 # GitLab CI/CDジョブでのリポジトリへのプッシュ
 
 ## 概要

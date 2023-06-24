@@ -2,7 +2,7 @@
 title: "Determining Whether to Commit in a GitLab CI/CD Job"
 categories: ["SoftWare"]
 tags: ["GitLab", "CI/CD", "SoftWare", "Git"]
-date: 2023-06-24T12:52:19+9:00
+date: 2023-06-24T12:52:19+09:00
 ---
 # GitLab CI/CDジョブでのコミット有無の判定
 
