@@ -2,7 +2,7 @@
 title: "Category Dataframe to Xlsx Sheet"
 date: 2023-06-25T22:42:27+09:00
 categories: ["Python"]
-tags: ["", "", "Python", "pandas"]
+tags: ["Python", "pandas"]
 ---
 # カテゴリ分けされたDataframeを色付けしてxlsxのシートに出力する
 
