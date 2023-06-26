@@ -1,8 +1,9 @@
 ---
 title: "Gitlab CI/CD ステージを使用したジョブの順次実行"
 date: 2023-06-26T21:25:59+09:00
+categories: ["SoftWare"]
+tags: ["SoftWare", "Git"]
 ---
-
 # Gitlab CI/CD ステージを使用したジョブの順次実行
 
 ## 概要
@@ -30,4 +31,3 @@ job2:
 この設定では、`job1`が`stage1`ステージ、`job2`が`stage2`ステージに配置されている。
 
 これにより、`job1`が終了した後でなければ`job2`は開始されない。
-
