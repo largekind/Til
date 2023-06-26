@@ -30,6 +30,12 @@ test:
   rules:
     - if: $CI_COMMIT_REF_NAME != $CI_DEFAULT_BRANCH
 
+stages:
+  - test
+  - updateReadme
+  - updateFrontmatter
+  - build
+
 pages:
   script:
     - hugo
@@ -38,6 +44,8 @@ pages:
       - public
   rules:
     - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
+  stage: build
+
 update readme:
   script:
     - apk add --no-cache python3 py3-pip
@@ -49,8 +57,9 @@ update readme:
     - git config --global user.email "noreply+gitlab-migration-bot@gitlab.com"
     - git add .
     - 'if git diff --cached --quiet; then echo "No changes to commit"; else git commit -m "Update README.md [ci skip]" && git remote set-url origin https://oauth2:$UpdateREADME@gitlab.com/largekind/Til.git && git pull --ff-only && git push origin $CI_COMMIT_REF_NAME; fi'
+  stage: updateReadme
   only:
-    - master
+    - fix/#10
 
 update HugoFrontmatter:
   script:
@@ -62,5 +71,6 @@ update HugoFrontmatter:
     - git config --global user.email "noreply+gitlab-migration-bot@gitlab.com"
     - git add .
     - 'if git diff --cached --quiet; then echo "No changes to commit"; else git commit -m "Update Frontmatter [ci skip]" && git remote set-url origin https://oauth2:$UpdateREADME@gitlab.com/largekind/Til.git && git pull --ff-only && git push origin $CI_COMMIT_REF_NAME; fi'
+  stage: updateFrontmatter
   only:
-    - master
+    - fix/#10
