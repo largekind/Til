@@ -59,7 +59,7 @@ update readme:
     - 'if git diff --cached --quiet; then echo "No changes to commit"; else git commit -m "Update README.md [ci skip]" && git remote set-url origin https://oauth2:$UpdateREADME@gitlab.com/largekind/Til.git && git pull --ff-only && git push origin $CI_COMMIT_REF_NAME; fi'
   stage: updateReadme
   only:
-    - fix/#10
+    - master
 
 update HugoFrontmatter:
   script:
@@ -73,4 +73,4 @@ update HugoFrontmatter:
     - 'if git diff --cached --quiet; then echo "No changes to commit"; else git commit -m "Update Frontmatter [ci skip]" && git remote set-url origin https://oauth2:$UpdateREADME@gitlab.com/largekind/Til.git && git pull --ff-only && git push origin $CI_COMMIT_REF_NAME; fi'
   stage: updateFrontmatter
   only:
-    - fix/#10
+    - master
