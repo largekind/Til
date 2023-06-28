@@ -220,6 +220,10 @@ Run command in shell
 
 - [モデルの使用テンソル型の修正方法](./content/blog/Python/pytorch/convert-model-tensor.md)
 
+### Python/NLP
+
+- [Spacy](./content/blog/Python/NLP/spacy.md)
+
 ### Python/API
 
 - [NewsAPI](./content/blog/Python/API/newsapi.md)
