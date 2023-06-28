@@ -77,3 +77,37 @@ def customizing_pipeline_component(nlp: Language):
     print_doc_entities(doc)
 
 ```
+
+## excelで定義したデータセットからtrain_dataの作成を行う方法
+
+以下サンプルコードを参照
+
+``` python
+import pandas as pd
+
+# Excel ファイルを読み込む
+df = pd.read_excel('your_file.xlsx')
+
+# ラベルを取得
+labels = df.columns[1:]
+
+# 空のリストを作成
+train_data = []
+
+# 各行を処理
+for index, row in df.iterrows():
+    # ラベルリストを初期化
+    entity_list = []
+    for label in labels:
+        # エンティティ（抽出パラメータ）を取得
+        entity = row[label]
+        # エンティティが存在し、且つエンティティが元の文字列内に存在する場合、その位置を取得
+        if pd.notna(entity) and entity in row[0]:
+            start = row[0].find(entity)
+            end = start + len(entity)
+            entity_list.append((start, end, label))
+    # トレーニングデータリストに追加
+    train_data.append((row[0], entity_list))
+
+print(train_data)
+```
