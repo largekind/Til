@@ -119,3 +119,40 @@ print(train_data)
 > nlp.to_disk("/path/to/your/model")
 - 読込
 > nlp = spacy.load("/path/to/your/model")
+
+## NLPモデルで取得した情報のdataframe化
+
+NLPモデルで情報を抽出するときのサンプルコード。
+
+重複した情報が出る場合はワーニングを表示する
+
+``` python
+import spacy
+import pandas as pd
+
+# モデルを読み込む
+nlp = spacy.load("/path/to/your/model")
+
+# 新しいテキストデータ 例えばパス群など
+texts = glob.glob("hoge")
+
+# 各テキストに対するエンティティの辞書を格納するリスト
+entities_data = []
+
+# 各テキストに対してモデルを適用
+for text in texts:
+    doc = nlp(text)
+    # エンティティの辞書を作成（エンティティのラベルをキー、エンティティのテキストを値とする）
+    entities_dict = {}
+    for ent in doc.ents:
+        if ent.label_ in entities_dict:
+            print(f"Warning: multiple entities with label '{ent.label_}' detected in text: '{text}'")
+        entities_dict[ent.label_] = ent.text
+    entities_data.append(entities_dict)
+
+# DataFrameを作成
+df = pd.DataFrame(entities_data)
+
+# DataFrameを表示
+print(df)
+```
