@@ -111,3 +111,11 @@ for index, row in df.iterrows():
 
 print(train_data)
 ```
+
+## NLPモデルの保存/読み出し
+
+以下で対応可能
+- 保存
+> nlp.to_disk("/path/to/your/model")
+- 読込
+> nlp = spacy.load("/path/to/your/model")
