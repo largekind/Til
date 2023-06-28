@@ -99,6 +99,7 @@ Hugoを使用。テーマは[npqhugo](https://github.com/saadsolimanxyz/npqhugo)
 - [GitLab Pipeline for Automatic Commits](./content/blog/SoftWare/Git/Gitlab-pipeline-for-automatic-commits.md)
 - [Determining Whether to Commit in a GitLab CI/CD Job](./content/blog/SoftWare/Git/Check-gitlab-CDCI-commit-check.md)
 - [Pushing to a Repository in a GitLab CI/CD Job](./content/blog/SoftWare/Git/Push-Repo-Gitlab-CDCI-job.md)
+- [Gitlab CI/CD ステージを使用したジョブの順次実行](./content/blog/SoftWare/Git/Gitlab-CICD-stage-job.md)
 
 ### Semiconductor/HardWare
 
