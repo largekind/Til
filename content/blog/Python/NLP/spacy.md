@@ -1,10 +1,9 @@
 ---
 title: "Spacy"
 date: 2023-06-28T22:32:08+09:00
-categories : ["Python"]
-tags : ["AI","NLP"]
+categories: ["Python"]
+tags: ["AI", "NLP", "Python"]
 ---
-
 # Spacy
 
 ## 概要
