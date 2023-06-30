@@ -224,6 +224,10 @@ Run command in shell
 
 - [Spacy](./content/blog/Python/NLP/spacy.md)
 
+### Python/image
+
+- [Convert Image 10bit to 8bit](./content/blog/Python/image/Convert-image-10bit-to-8bit.md)
+
 ### Python/API
 
 - [NewsAPI](./content/blog/Python/API/newsapi.md)
