@@ -151,8 +151,8 @@ Run command in shell
 ### AI/CNN
 
 - [CNN](./content/blog/AI/CNN/CNN.md)
-- [色々な畳み込み計算](./content/blog/AI/CNN/ Various-convolution.md)
 - [畳み込み計算での画像サイズの計算](./content/blog/AI/CNN/Calculate-ConvSize.md)
+- [色々な畳み込み計算](./content/blog/AI/CNN/Various-convolution.md)
 - [Image Normalizetion ](./content/blog/AI/CNN/Image-Normalization.md)
 - [画像認識](./content/blog/AI/CNN/ImageRecognition.md)
 
