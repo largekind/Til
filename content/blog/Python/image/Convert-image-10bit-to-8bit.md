@@ -1,8 +1,9 @@
 ---
 title: "Convert Image 10bit to 8bit"
 date: 2023-06-30T23:33:10+09:00
+categories: ["Python"]
+tags: ["Python", "image"]
 ---
-
 # 10ビットデータを8ビットに変換する方法
 
 ## 概要
