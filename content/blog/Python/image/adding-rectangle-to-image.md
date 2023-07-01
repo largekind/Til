@@ -1,8 +1,9 @@
 ---
 title: "Adding Rectangle to Image"
 date: 2023-06-30T23:45:18+09:00
+categories: ["Python"]
+tags: ["Python", "image"]
 ---
-
 # 画像に矩形領域を追加する方法
 
 ## 概要
