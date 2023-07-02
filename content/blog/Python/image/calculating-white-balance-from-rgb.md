@@ -1,8 +1,9 @@
 ---
 title: "Calculating White Balance From Rgb"
 date: 2023-06-30T23:43:19+09:00
+categories: ["Python"]
+tags: ["Python", "image"]
 ---
-
 # RGB値からホワイトバランスを計算する方法
 
 ## 概要
@@ -21,4 +22,3 @@ average_rgb = np.mean(rgb_values, axis=0)
 # Gの値が1になるようにR、Bの比率を計算
 white_balance = average_rgb / average_rgb[1]
 ```
-

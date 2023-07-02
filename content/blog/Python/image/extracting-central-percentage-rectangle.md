@@ -1,8 +1,9 @@
 ---
 title: "Extracting Central Percentage Rectangle"
 date: 2023-06-30T23:41:13+09:00
+categories: ["Python"]
+tags: ["Python", "image"]
 ---
-
 # 画像から中央のN%の矩形領域を取得する方法
 
 ## 概要

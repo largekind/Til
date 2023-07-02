@@ -1,8 +1,9 @@
 ---
 title: "Adding Text to Image"
 date: 2023-06-30T23:47:01+09:00
+categories: ["Python"]
+tags: ["Python", "image"]
 ---
-
 # 画像にテキスト情報を追加する方法
 
 ## 概要
