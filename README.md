@@ -227,6 +227,7 @@ Run command in shell
 ### Python/image
 
 - [Convert Image 10bit to 8bit](./content/blog/Python/image/Convert-image-10bit-to-8bit.md)
+- [Adding Rectangle to Image](./content/blog/Python/image/adding-rectangle-to-image.md)
 
 ### Python/API
 
