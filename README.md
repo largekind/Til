@@ -226,8 +226,11 @@ Run command in shell
 
 ### Python/image
 
+- [Extracting Central Percentage Rectangle](./content/blog/Python/image/extracting-central-percentage-rectangle.md)
 - [Convert Image 10bit to 8bit](./content/blog/Python/image/Convert-image-10bit-to-8bit.md)
+- [Adding Text to Image](./content/blog/Python/image/adding-text-to-image.md)
 - [Adding Rectangle to Image](./content/blog/Python/image/adding-rectangle-to-image.md)
+- [Calculating White Balance From Rgb](./content/blog/Python/image/calculating-white-balance-from-rgb.md)
 
 ### Python/API
 
