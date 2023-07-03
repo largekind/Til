@@ -224,10 +224,12 @@ Hugoを使用。テーマは[npqhugo](https://github.com/saadsolimanxyz/npqhugo)
 ### Python/image
 
 - [Extracting Central Percentage Rectangle](./content/blog/Python/image/extracting-central-percentage-rectangle.md)
+- [Calculating White Balance From Macbeth Colorchecker](./content/blog/Python/image/calculating-white-balance-from-macbeth-colorchecker.md)
 - [Convert Image 10bit to 8bit](./content/blog/Python/image/Convert-image-10bit-to-8bit.md)
 - [Adding Text to Image](./content/blog/Python/image/adding-text-to-image.md)
 - [Adding Rectangle to Image](./content/blog/Python/image/adding-rectangle-to-image.md)
 - [Calculating White Balance From Rgb](./content/blog/Python/image/calculating-white-balance-from-rgb.md)
+- [Reordering Blocks in 2d Array](./content/blog/Python/image/reordering-blocks-in-2d-array.md)
 
 ### Python/API
 
