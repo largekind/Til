@@ -1,8 +1,9 @@
 ---
 title: "Calculating White Balance From Macbeth Colorchecker"
 date: 2023-07-01T21:08:19+09:00
+categories: ["Python"]
+tags: ["Python", "image"]
 ---
-
 # Macbeth ColorCheckerからホワイトバランスを計算する方法
 
 ## 概要

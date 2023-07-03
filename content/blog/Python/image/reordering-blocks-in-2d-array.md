@@ -1,8 +1,9 @@
 ---
 title: "Reordering Blocks in 2d Array"
 date: 2023-07-03T22:01:10+09:00
+categories: ["Python"]
+tags: ["Python", "image"]
 ---
-
 # Reordering Blocks in 2d Array
 
 ## 概要
@@ -62,4 +63,3 @@ rearranged_array = rearrange_array(array, new_order)
 
 print(rearranged_array)
 ```
-
