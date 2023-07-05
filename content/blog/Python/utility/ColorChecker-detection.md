@@ -62,6 +62,9 @@ colour_checkers_coordinates_segmentation(image)
 '''
 ```
 
+大きい画像サイズだとresizeで怒られる。その場合、working_width/heightを以下のように引数で与えて対応する
+> colour_checkers_coordinates_segmentation(image, working_width = 5000)  
+
 ### DataColourCheckersCoordinatesSegmentation
 
 ※ChatGPT4情報
