@@ -41,8 +41,8 @@ for file in files:
     for row in data_range:
         # '#'で始まる行を無視
         if row[0].value is None or not str(row[0].value).startswith('#'):
-            for cell in row:
-                summary_cell = summary_sheet.range((next_row, cell.column))
+            for i, cell in enumerate(row):
+                summary_cell = summary_sheet.range((next_row, i+1))
                 summary_cell.value = cell.value
                 summary_cell.api.Font.Color = cell.api.Font.Color
                 summary_cell.api.Interior.Color = cell.api.Interior.Color
