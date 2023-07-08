@@ -1,8 +1,9 @@
 ---
 title: "Xlwings Created Dataframe"
 date: 2023-07-06T21:28:29+09:00
+categories: ["Python"]
+tags: ["Python", "pandas"]
 ---
-
 #  xlwingsを使用してPandas DataFrameを作成する
 
 ## 概要

@@ -1,8 +1,9 @@
 ---
 title: "Xlwings_excel_integration"
 date: 2023-07-06T21:27:49+09:00
+categories: ["Python"]
+tags: ["Python", "pandas"]
 ---
-
 # xlwingsを使用して複数のExcelファイルを統合する
 ## 概要
 

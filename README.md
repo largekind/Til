@@ -210,6 +210,8 @@ Run command in shell
 
 ### Python/pandas
 
+- [Xlwings Created Dataframe](./content/blog/Python/pandas/xlwings-created-dataframe.md)
+- [Xlwings_excel_integration](./content/blog/Python/pandas/xlwings-excel-integration.md)
 - [部分的なDataFrameの比較と差分行の抽出](./content/blog/Python/pandas/Diff-part-of-data.md)
 - [DataFrameのデータ分割方法](./content/blog/Python/pandas/Split-DataFrame.md)
 - [Listの内容からDataFrameを抽出する方法](./content/blog/Python/pandas/Extract-dataframe-from-list.md)
