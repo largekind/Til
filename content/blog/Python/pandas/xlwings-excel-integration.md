@@ -29,6 +29,21 @@ next_row = 1
 # 読み込むExcelファイルのリスト
 files = ['file1.xlsx', 'file2.xlsx', 'file3.xlsx']
 
+# ヘッダー情報をまとめるExcelファイルに書き込む
+header_book = xw.Book(files[0])
+header_sheet = header_book.sheets['Sheet1']
+header_range = header_sheet.range('1:3')
+
+for row in header_range:
+    for i, cell in enumerate(row):
+        summary_cell = summary_sheet.range((next_row, i+1))
+        summary_cell.value = cell.value
+        summary_cell.api.Font.Color = cell.api.Font.Color
+        summary_cell.api.Interior.Color = cell.api.Interior.Color
+    next_row += 1
+
+header_book.close()
+
 for file in files:
     # Excelファイルを開く
     book = xw.Book(file)
