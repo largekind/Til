@@ -1,8 +1,9 @@
 ---
 title: "Tkinter Drag and Drop"
 date: 2023-07-11T23:45:09+09:00
+categories: ["Python"]
+tags: ["Python", "tkinter"]
 ---
-
 # Tkinterでドラッグ&ドロップを解析する方法
 
 ## 概要
@@ -87,4 +88,3 @@ image_label.bind("<ButtonRelease-1>", on_mouse_up)
 window.mainloop()
 
 ```
-
