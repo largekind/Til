@@ -264,6 +264,7 @@ Hugoを使用。テーマは[npqhugo](https://github.com/saadsolimanxyz/npqhugo)
 ### Python/tkinter
 
 - [Tkinter Drag and Drop](./content/blog/Python/tkinter/tkinter-drag-and-drop.md)
+- [Create Select Area on Image Using Tkinter](./content/blog/Python/tkinter/Create-select-area-on-image-using-tkinter.md)
 
 ### InfoEngineer
 
