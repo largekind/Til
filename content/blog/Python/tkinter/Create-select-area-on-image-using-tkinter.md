@@ -1,9 +1,10 @@
 ---
 title: "Create Select Area on Image Using Tkinter"
 date: 2023-07-11T23:51:39+09:00
-draft: true
+draft: True
+categories: ["Python"]
+tags: ["Python", "tkinter"]
 ---
-
 # Create Select Area on Image Using Tkinter
 
 ## 概要
@@ -139,4 +140,3 @@ image_label.bind("<ButtonRelease-1>", on_mouse_up)
 window.mainloop()
 
 ```
-
