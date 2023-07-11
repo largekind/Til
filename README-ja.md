@@ -261,6 +261,10 @@ Hugoを使用。テーマは[npqhugo](https://github.com/saadsolimanxyz/npqhugo)
 - [正規表現のリストから情報を抽出し辞書に格納する方法](./content/blog/Python/Regax/RegaxList.md)
 - [正規表現のリストを用いてディレクトリ化する方法](./content/blog/Python/Regax/extract-directory-regaxlist.md)
 
+### Python/tkinter
+
+- [Tkinter Drag and Drop](./content/blog/Python/tkinter/tkinter-drag-and-drop.md)
+
 ### InfoEngineer
 
 - [稼働率の計算まとめ](./content/blog/InfoEngineer/operating-ratio.md)
