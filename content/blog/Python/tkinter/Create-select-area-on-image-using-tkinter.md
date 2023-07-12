@@ -127,3 +127,92 @@ if __name__=='__main__':
     root.mainloop()
 
 ```
+
+上記を用いて学習するコードは以下
+
+``` python
+import torch
+from torch import nn
+from torchvision import models, transforms
+from torch.utils.data import Dataset, DataLoader
+import numpy as np
+from PIL import Image
+import json
+
+# データセットの定義
+class MyDataset(Dataset):
+    def __init__(self, image_paths, annotations):
+        self.image_paths = image_paths
+        self.annotations = annotations
+
+        # 画像の前処理を定義
+        self.transform = transforms.Compose([
+            transforms.Resize((224, 224)),  # MobileNetV2の入力サイズに合わせる
+            transforms.ToTensor(),
+            transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),  # ImageNetの平均・標準偏差で正規化
+        ])
+
+    def __len__(self):
+        return len(self.image_paths)
+
+    def __getitem__(self, idx):
+        image_path = self.image_paths[idx]
+        annotation = self.annotations[idx]
+
+        # 画像を読み込み、前処理を行う
+        image = read_image(image_path)
+        original_height, original_width = image.shape
+        image = image * 255
+        image = image.astype(np.uint8)
+        image = np.stack([image, image, image], axis=-1)
+        image = Image.fromarray(image)
+        image = self.transform(image)
+
+        # アノテーションの座標を正規化
+        annotation = {
+            'x1': annotation['x1'] / original_width,
+            'y1': annotation['y1'] / original_height,
+            'x2': annotation['x2'] / original_width,
+            'y2': annotation['y2'] / original_height,
+        }
+
+        return image, annotation
+
+# 学習済みMobileNetV2モデルの読み込み
+model = models.mobilenet_v2(pretrained=True)
+
+# 特徴抽出部分のパラメータをフリーズ（勾配計算しないように設定）
+for param in model.features.parameters():
+    param.requires_grad = False
+
+# 分類部分を新たに定義
+model.classifier = nn.Sequential(
+    nn.Linear(in_features=1280, out_features=512),  # MobileNetV2の出力サイズが1280
+    nn.ReLU(),
+    nn.Dropout(0.2),
+    nn.Linear(in_features=512, out_features=4),  # 出力サイズを4（矩形領域のx1, y1, x2, y2）にする
+    nn.Sigmoid(),  # 出力を0から1の範囲にする
+)
+
+# 学習設定
+criterion = nn.MSELoss()  # 回帰問題なので、損失関数は平均二乗誤差（MSE）を使用
+optimizer = torch.optim.Adam(model.classifier.parameters())  # オプティマイザはAdamを使用
+
+# データセット・データローダの作成（image_pathsとannotationsは適切なリストを使用）
+dataset = MyDataset(image_paths, annotations)
+dataloader = DataLoader(dataset, batch_size=32, shuffle=True)
+
+# 学習ループ
+for epoch in range(100):  # エポック数は適宜調整
+    for images, labels in dataloader:
+        outputs = model(images)
+        loss = criterion(outputs, labels)
+
+        optimizer.zero_grad()
+        loss.backward()
+        optimizer.step()
+
+    print(f'Epoch {epoch + 1}, Loss: {loss.item()}')
+
+```
+
