@@ -14,129 +14,116 @@ tags: ["Python", "tkinter"]
 ## サンプルコード
 
 工事中
-
-```
+``` python
 import cv2
-import os
-import tkinter as tk
-from tkinter import filedialog
-from PIL import Image, ImageTk
+import numpy as np
+from tkinter import filedialog, Tk, Button, Canvas
 import json
+from PIL import Image, ImageTk
 
-# グローバル変数
-image = None
-start_x = None
-start_y = None
-end_x = None
-end_y = None
-image_path = None
-image_index = 0
-image_paths = []
+MAX_HEIGHT = 600
+MAX_WIDTH = 1200
 
-def select_directory():
-    global image_paths, image_index
+# ダイアログから画像ファイルを選択
+def select_files():
+    root = Tk()
+    root.withdraw()
+    file_path = filedialog.askopenfilenames()
+    return file_path
 
-    # ファイルダイアログを開き、ディレクトリを選択
-    dirpath = filedialog.askdirectory()
+# 2d ndarrayで画像を読み込む独自関数
+def read_image(file_path):
+    # 画像読み込み処理を記述
+    # ここでは一時的にランダムな配列を生成しています
+    image = np.random.rand(1024, 1024)
+    return image
 
-    # ディレクトリ内の全ての画像ファイルのパスを取得
-    image_paths = [os.path.join(dirpath, f) for f in os.listdir(dirpath) if f.endswith(('.png', '.jpg', '.jpeg'))]
+# 画像を表示するための関数
+def show_image(image):
+    # 画像のリサイズ（アスペクト比を保つ）
+    height, width = image.shape
+    new_height = MAX_HEIGHT
+    new_width = int(new_height * width / height)
+    if new_width > MAX_WIDTH:
+        new_width = MAX_WIDTH
+        new_height = int(new_width * height / width)
+    image = cv2.resize(image, (new_width, new_height))
 
-    # 最初の画像を表示
-    image_index = 0
-    load_image()
+    # 画像をTkinterのPhotoImage形式に変換
+    image = Image.fromarray(image)
+    photo = ImageTk.PhotoImage(image)
 
-def load_image():
-    global image, image_path
+    # Canvas上に画像を表示
+    canvas.create_image(0, 0, image=photo, anchor='nw')
+    canvas.image = photo  # 参照を保持して画像が消えないようにする
 
-    # 画像ファイルのパスを取得
-    image_path = image_paths[image_index]
-
-    # OpenCVを使用して画像を読み込む
-    image = cv2.imread(image_path)
-
-    # 画像をBGRからRGBに変換
-    image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-
-    # 画像をPIL形式に変換
-    image_pil = Image.fromarray(image)
-
-    # 画像をTkinter形式に変換
-    image_tk = ImageTk.PhotoImage(image_pil)
-
-    # 画像を表示
-    image_label.config(image=image_tk)
-    image_label.image = image_tk
-
-def on_mouse_down(event):
-    global start_x, start_y
-
-    # 開始座標を記録
-    start_x = event.x
-    start_y = event.y
-
-def on_mouse_up(event):
-    global end_x, end_y, image
-
-    # 終了座標を記録
-    end_x = event.x
-    end_y = event.y
-
-    # 座標を出力
-    print(f"開始: ({start_x}, {start_y}), 終了: ({end_x}, {end_y})")
-
-    # 選択した領域を画像上に表示
-    image_with_rectangle = cv2.rectangle(image.copy(), (start_x, start_y), (end_x, end_y), (255, 0, 0), 2)
-    image_pil = Image.fromarray(image_with_rectangle)
-    image_tk = ImageTk.PhotoImage(image_pil)
-    image_label.config(image=image_tk)
-    image_label.image = image_tk
-
-def save_coordinates():
-    global image_path, start_x, start_y, end_x, end_y
-
-    # 座標を保存
-    coordinates = {
-        'start_x': start_x,
-        'start_y': start_y,
-        'end_x': end_x,
-        'end_y': end_y
-    }
-    with open(f'{image_path}_coordinates.json', 'w') as f:
-        json.dump(coordinates, f)
-
-    # 次の画像を表示
-    next_image()
+def save_annotation(file_path, annotations):
+    # アノテーション情報をJSON形式で保存
+    with open(f'{file_path}_annotation.json', 'w') as f:
+        json.dump(annotations, f)
 
 def next_image():
-    global image_index
+    global current_index, files
+    current_index += 1
+    current_index = current_index % len(files)  # リストの範囲内に保つ
 
-    # 次の画像のインデックスを計算
-    image_index = (image_index + 1) % len(image_paths)
+    # 新しい画像を表示
+    show_image(read_image(files[current_index]))
 
-    # 次の画像を表示
-    load_image()
+def previous_image():
+    global current_index, files
+    current_index -= 1
+    current_index = current_index % len(files)  # リストの範囲内に保つ
 
-# Tkinterウィンドウを作成
-window = tk.Tk()
+    # 新しい画像を表示
+    show_image(read_image(files[current_index]))
 
-# 画像を表示するラベルを作成
-image_label = tk.Label(window)
-image_label.pack()
+def start_rectangle(event):
+    # 矩形領域の開始点を記録
+    canvas.start_x = event.x
+    canvas.start_y = event.y
 
-# ディレクトリを選択するボタンを作成
-select_button = tk.Button(window, text="ディレクトリを選択", command=select_directory)
-select_button.pack()
+    # 新しい矩形領域を作成
+    canvas.rectangle = canvas.create_rectangle(event.x, event.y, event.x, event.y)
 
-# 座標を保存するボタンを作成
-save_button = tk.Button(window, text="座標を保存", command=save_coordinates)
-save_button.pack()
+def draw_rectangle(event):
+    # 矩形領域の大きさを更新
+    canvas.coords(canvas.rectangle, canvas.start_x, canvas.start_y, event.x, event.y)
 
-# マウスイベントを画像ラベルにバインド
-image_label.bind("<Button-1>", on_mouse_down)
-image_label.bind("<ButtonRelease-1>", on_mouse_up)
+def end_rectangle(event):
+    # 矩形領域の終点を記録
+    canvas.end_x = event.x
+    canvas.end_y = event.y
 
-# Tkinterのイベントループを開始
-window.mainloop()
+    # アノテーション情報の保存
+    annotations = {'x1': canvas.start_x, 'y1': canvas.start_y, 'x2': canvas.end_x, 'y2': canvas.end_y}
+    save_annotation(files[current_index], annotations)
+
+if __name__=='__main__':
+    # ファイル選択
+    files = select_files()
+    current_index = 0
+
+    # Tkinterウィンドウの作成
+    root = Tk()
+
+    # 前/次ボタンの作成
+    Button(root, text="Next", command=next_image).pack(side="right")
+    Button(root, text="Previous", command=previous_image).pack(side="right")
+
+    # Canvasウィジェットの作成
+    canvas = Canvas(root, width=MAX_WIDTH, height=MAX_HEIGHT)
+    canvas.pack()
+
+    # マウスイベントのバインド
+    canvas.bind("<Button-1>", start_rectangle)
+    canvas.bind("<B1-Motion>", draw_rectangle)
+    canvas.bind("<ButtonRelease-1>", end_rectangle)
+
+    # 初期画像の表示
+    show_image(read_image(files[current_index]))
+
+    # イベントループ開始
+    root.mainloop()
 
 ```
