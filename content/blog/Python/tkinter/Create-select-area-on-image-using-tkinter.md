@@ -216,3 +216,112 @@ for epoch in range(100):  # エポック数は適宜調整
 
 ```
 
+学習したモデルを用いた推論は以下
+
+``` python
+def predict(image_path, model):
+    # 画像の読み込みと前処理
+    image = read_image(image_path)
+    original_height, original_width = image.shape
+    image = image * 255
+    image = image.astype(np.uint8)
+    image = np.stack([image, image, image], axis=-1)
+    image = Image.fromarray(image)
+    transform = transforms.Compose([
+        transforms.Resize((224, 224)),  # MobileNetV2の入力サイズに合わせる
+        transforms.ToTensor(),
+        transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),  # ImageNetの平均・標準偏差で正規化
+    ])
+    image = transform(image)
+    image = image.unsqueeze(0)  # バッチ次元の追加
+
+    # 推論
+    model.eval()  # モデルを評価モードに設定
+    with torch.no_grad():
+        outputs = model(image)
+    
+    # 出力を元の画像のサイズにスケールアップ
+    outputs = outputs.squeeze(0)  # バッチ次元の削除
+    outputs = {
+        'x1': int(outputs[0].item() * original_width),
+        'y1': int(outputs[1].item() * original_height),
+        'x2': int(outputs[2].item() * original_width),
+        'y2': int(outputs[3].item() * original_height),
+    }
+
+    return outputs
+```
+
+``` python
+import matplotlib.pyplot as plt
+import matplotlib.patches as patches
+
+# 直接表示
+def display_prediction(image_path, prediction):
+    # 画像の読み込みとリサイズ
+    image = read_image(image_path)
+    image = image * 255
+    image = image.astype(np.uint8)
+    image = np.stack([image, image, image], axis=-1)
+    image = Image.fromarray(image)
+    image = image.resize((600, 1200))  # リサイズ
+
+    # 予測された矩形領域の座標をリサイズに合わせてスケーリング
+    scale_x, scale_y = 600 / original_width, 1200 / original_height
+    prediction = {
+        'x1': int(prediction['x1'] * scale_x),
+        'y1': int(prediction['y1'] * scale_y),
+        'x2': int(prediction['x2'] * scale_x),
+        'y2': int(prediction['y2'] * scale_y),
+    }
+
+    # 予測された矩形領域を画像に描画
+    fig, ax = plt.subplots(1)
+    ax.imshow(image)
+    rect = patches.Rectangle((prediction['x1'], prediction['y1']), prediction['x2'] - prediction['x1'], prediction['y2'] - prediction['y1'], linewidth=2, edgecolor='r', facecolor='none')
+    ax.add_patch(rect)
+
+    plt.show()
+
+# 保存する場合
+def save_prediction(image_path, prediction, save_path):
+    # 画像の読み込みとリサイズ
+    image = read_image(image_path)
+    image = image * 255
+    image = image.astype(np.uint8)
+    image = np.stack([image, image, image], axis=-1)
+    image = Image.fromarray(image)
+    image = image.resize((600, 1200))  # リサイズ
+
+    # 予測された矩形領域の座標をリサイズに合わせてスケーリング
+    scale_x, scale_y = 600 / original_width, 1200 / original_height
+    prediction = {
+        'x1': int(prediction['x1'] * scale_x),
+        'y1': int(prediction['y1'] * scale_y),
+        'x2': int(prediction['x2'] * scale_x),
+        'y2': int(prediction['y2'] * scale_y),
+    }
+
+    # 予測された矩形領域を画像に描画
+    fig, ax = plt.subplots(1)
+    ax.imshow(image)
+    rect = patches.Rectangle((prediction['x1'], prediction['y1']), prediction['x2'] - prediction['x1'], prediction['y2'] - prediction['y1'], linewidth=2, edgecolor='r', facecolor='none')
+    ax.add_patch(rect)
+
+    # 画像の保存
+    plt.savefig(save_path)
+    plt.close(fig)  # フィギュアをクローズ
+
+
+```
+
+
+``` python
+# 推論
+image_path = 'path_to_your_image'
+prediction = predict(image_path, model)
+
+# 矩形領域の描画と表示
+display_prediction(image_path, prediction)
+
+```
