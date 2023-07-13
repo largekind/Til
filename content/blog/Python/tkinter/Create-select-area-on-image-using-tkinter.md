@@ -17,114 +17,201 @@ tags: ["Python", "tkinter"]
 ``` python
 import cv2
 import numpy as np
-from tkinter import filedialog, Tk, Button, Canvas
+from tkinter import filedialog, Tk, Button, Canvas, Label, StringVar
 import json
 from PIL import Image, ImageTk
+import os
+import glob
+import struct
 
 MAX_HEIGHT = 600
 MAX_WIDTH = 1200
 
-# ダイアログから画像ファイルを選択
-def select_files():
-    root = Tk()
-    root.withdraw()
-    file_path = filedialog.askopenfilenames()
-    return file_path
+class Model:
+    def __init__(self):
+        # 初期化処理
+        self.files = []
+        self.current_index = 0
+        self.annotations = {}
+        self.original_height = 0
+        self.original_width = 0
+        self.photo = None
 
-# 2d ndarrayで画像を読み込む独自関数
-def read_image(file_path):
-    # 画像読み込み処理を記述
-    # ここでは一時的にランダムな配列を生成しています
-    image = np.random.rand(1024, 1024)
-    return image
+    def select_files(self):
+        # ダイアログから画像ファイルを選択
+        root = Tk()
+        root.withdraw()
+        dir_path = filedialog.askdirectory()
+        self.files = glob.glob(os.path.join(dir_path, "*.bin"))
 
-# 画像を表示するための関数
-def show_image(image):
-    # 画像のリサイズ（アスペクト比を保つ）
-    height, width = image.shape
-    new_height = MAX_HEIGHT
-    new_width = int(new_height * width / height)
-    if new_width > MAX_WIDTH:
-        new_width = MAX_WIDTH
-        new_height = int(new_width * height / width)
-    image = cv2.resize(image, (new_width, new_height))
+    def read_image(self, file_path):
+        # ファイルをバイナリとして読み込む
+        with open(file_path, 'rb') as f:
+            # 先頭の32bitから画像の高さと幅を取得
+            width = struct.unpack('H', f.read(2))[0]
+            height = struct.unpack('H', f.read(2))[0]
+            # 残りのデータを8ビットの画素データとして読み込む
+            data = np.fromfile(f, dtype=np.uint16)
 
-    # 画像をTkinterのPhotoImage形式に変換
-    image = Image.fromarray(image)
-    photo = ImageTk.PhotoImage(image)
+        # データを2Dのndarrayに変換
+        image = data.reshape((height, width))
+        return image
 
-    # Canvas上に画像を表示
-    canvas.create_image(0, 0, image=photo, anchor='nw')
-    canvas.image = photo  # 参照を保持して画像が消えないようにする
+    def load_annotations(self):
+        # アノテーション情報をJSON形式で読み込む
+        try:
+            with open('annotations.json', 'r') as f:
+                self.annotations = json.load(f)
+        except FileNotFoundError:
+            self.annotations = {}
 
-def save_annotation(file_path, annotations):
-    # アノテーション情報をJSON形式で保存
-    with open(f'{file_path}_annotation.json', 'w') as f:
-        json.dump(annotations, f)
+    def save_annotations(self):
+        # アノテーション情報をJSON形式で保存
+        with open('annotations.json', 'w') as f:
+            json.dump(self.annotations, f)
 
-def next_image():
-    global current_index, files
-    current_index += 1
-    current_index = current_index % len(files)  # リストの範囲内に保つ
+class View:
+    def __init__(self, controller):
+        # 初期化処理
+        self.controller = controller
+        self.root = Tk()
 
-    # 新しい画像を表示
-    show_image(read_image(files[current_index]))
+        # ファイル選択ボタンの作成
+        Button(self.root, text="Select Files", command=self.controller.select_files).pack(side="top")
 
-def previous_image():
-    global current_index, files
-    current_index -= 1
-    current_index = current_index % len(files)  # リストの範囲内に保つ
+        # ラベルの作成
+        self.file_info = StringVar()
+        self.file_info.set('No file selected')
+        Label(self.root, textvariable=self.file_info).pack(side="top")
 
-    # 新しい画像を表示
-    show_image(read_image(files[current_index]))
+        # 矩形領域の座標表示ラベル
+        self.rect_info = StringVar()
+        Label(self.root, textvariable=self.rect_info).pack()
 
-def start_rectangle(event):
-    # 矩形領域の開始点を記録
-    canvas.start_x = event.x
-    canvas.start_y = event.y
+        # Canvasウィジェットの作成
+        self.canvas = Canvas(self.root, width=MAX_WIDTH, height=MAX_HEIGHT)
+        self.canvas.pack()
 
-    # 新しい矩形領域を作成
-    canvas.rectangle = canvas.create_rectangle(event.x, event.y, event.x, event.y)
 
-def draw_rectangle(event):
-    # 矩形領域の大きさを更新
-    canvas.coords(canvas.rectangle, canvas.start_x, canvas.start_y, event.x, event.y)
+        # 前/次ボタンの作成
+        self.next_button = Button(self.root, text="Next", command=self.controller.next_image, state='disabled')
+        self.next_button.pack(side="bottom")
+        self.prev_button = Button(self.root, text="Previous", command=self.controller.previous_image, state='disabled')
+        self.prev_button.pack(side="bottom")
 
-def end_rectangle(event):
-    # 矩形領域の終点を記録
-    canvas.end_x = event.x
-    canvas.end_y = event.y
+        # マウスイベントのバインド
+        self.canvas.bind("<Button-1>", self.controller.start_rectangle)
+        self.canvas.bind("<B1-Motion>", self.controller.draw_rectangle)
+        self.canvas.bind("<ButtonRelease-1>", self.controller.end_rectangle)
 
-    # アノテーション情報の保存
-    annotations = {'x1': canvas.start_x, 'y1': canvas.start_y, 'x2': canvas.end_x, 'y2': canvas.end_y}
-    save_annotation(files[current_index], annotations)
+    def enable_buttons(self):
+        # 前/次ボタンを有効化
+        self.next_button.config(state='normal')
+        self.prev_button.config(state='normal')
+
+    def show_image(self, image, original_height, original_width):
+      # 画像のリサイズ（アスペクト比を保つ）
+      screen_width = self.root.winfo_screenwidth()
+      screen_height = self.root.winfo_screenheight()
+      new_width = screen_width
+      new_height = int(new_width * original_height / original_width)
+      if new_height > screen_height:
+          new_height = screen_height
+          new_width = int(new_height * original_width / original_height)
+      image = cv2.resize(image, (new_width, new_height))
+
+      # 画像をTkinterのPhotoImage形式に変換
+      image = Image.fromarray(image)
+      self.photo = ImageTk.PhotoImage(image)
+
+      # Canvas上に画像を表示
+      self.canvas.config(width=new_width, height=new_height)  # Canvasのサイズを画像に合わせる
+      self.canvas.create_image(0, 0, image=self.photo, anchor='nw')
+      self.canvas.image = self.photo  # 参照を保持して画像が消えないようにする
+
+    def draw_annotation(self, annotation, original_height, original_width):
+        # アノテーションを描画
+        x1, y1, x2, y2 = annotation
+        x1 = int(x1 * MAX_WIDTH / original_width)
+        y1 = int(y1 * MAX_HEIGHT / original_height)
+        x2 = int(x2 * MAX_WIDTH / original_width)
+        y2 = int(y2 * MAX_HEIGHT / original_height)
+        if hasattr(self.canvas, 'rectangle'):
+            self.canvas.delete(self.canvas.rectangle)
+        self.canvas.rectangle = self.canvas.create_rectangle(x1, y1, x2, y2)
+
+class Controller:
+    def __init__(self):
+        # 初期化処理
+        self.model = Model()
+        self.view = View(self)
+
+    def select_files(self):
+        # ファイル選択処理
+        self.model.select_files()
+        self.model.load_annotations()
+        self.view.enable_buttons()
+        self.show_image()
+
+    def next_image(self):
+        # 次の画像を表示
+        self.model.current_index += 1
+        self.model.current_index = self.model.current_index % len(self.model.files)  # リストの範囲内に保つ
+        self.show_image()
+
+    def previous_image(self):
+        # 前の画像を表示
+        self.model.current_index -= 1
+        self.model.current_index = self.model.current_index % len(self.model.files)  # リストの範囲内に保つ
+        self.show_image()
+
+    def show_image(self):
+        # 画像を読み込んで表示する
+        file_path = self.model.files[self.model.current_index]
+        image = self.model.read_image(file_path)
+        original_height, original_width = image.shape
+        self.view.show_image(image, original_height, original_width)
+        self.view.file_info.set(f'File: {file_path}\nSize: {original_width}x{original_height}')
+        if file_path in self.model.annotations:
+            self.view.draw_annotation(self.model.annotations[file_path], original_height, original_width)
+
+    def start_rectangle(self, event):
+        # 矩形領域の開始点を記録
+        self.view.canvas.start_x = event.x
+        self.view.canvas.start_y = event.y
+
+        # 新しい矩形領域を作成
+        if hasattr(self.view.canvas, 'rectangle'):
+            self.view.canvas.delete(self.view.canvas.rectangle)
+        self.view.canvas.rectangle = self.view.canvas.create_rectangle(event.x, event.y, event.x, event.y)
+
+    def draw_rectangle(self, event):
+        # 矩形領域の大きさを更新
+        self.view.canvas.coords(self.view.canvas.rectangle, self.view.canvas.start_x, self.view.canvas.start_y, event.x, event.y)
+
+    def end_rectangle(self, event):
+        # 矩形領域の終点を記録
+        self.view.canvas.end_x = event.x
+        self.view.canvas.end_y = event.y
+
+        # アノテーション情報の保存
+        image = self.model.read_image(self.model.files[self.model.current_index])
+        original_height, original_width = image.shape
+        x1 = self.view.canvas.start_x * original_width / MAX_WIDTH
+        y1 = self.view.canvas.start_y * original_height / MAX_HEIGHT
+        x2 = self.view.canvas.end_x * original_width / MAX_WIDTH
+        y2 = self.view.canvas.end_y * original_height / MAX_HEIGHT
+        annotations = [x1, y1, x2, y2]
+        self.model.annotations[self.model.files[self.model.current_index]] = annotations
+        self.model.save_annotations()
+
+        # 選択した矩形領域の座標を表示
+        self.view.rect_info.set(f'Rectangle: {x1:.2f},{y1:.2f} to {x2:.2f},{y2:.2f}')
 
 if __name__=='__main__':
-    # ファイル選択
-    files = select_files()
-    current_index = 0
+    controller = Controller()
+    controller.view.root.mainloop()
 
-    # Tkinterウィンドウの作成
-    root = Tk()
-
-    # 前/次ボタンの作成
-    Button(root, text="Next", command=next_image).pack(side="right")
-    Button(root, text="Previous", command=previous_image).pack(side="right")
-
-    # Canvasウィジェットの作成
-    canvas = Canvas(root, width=MAX_WIDTH, height=MAX_HEIGHT)
-    canvas.pack()
-
-    # マウスイベントのバインド
-    canvas.bind("<Button-1>", start_rectangle)
-    canvas.bind("<B1-Motion>", draw_rectangle)
-    canvas.bind("<ButtonRelease-1>", end_rectangle)
-
-    # 初期画像の表示
-    show_image(read_image(files[current_index]))
-
-    # イベントループ開始
-    root.mainloop()
 
 ```
 
