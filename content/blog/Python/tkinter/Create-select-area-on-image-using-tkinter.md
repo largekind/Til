@@ -1,7 +1,6 @@
 ---
 title: "Create Select Area on Image Using Tkinter"
 date: 2023-07-11T23:51:39+09:00
-draft: True
 categories: ["Python"]
 tags: ["Python", "tkinter"]
 ---
@@ -13,11 +12,13 @@ tags: ["Python", "tkinter"]
 
 ## サンプルコード
 
-工事中
+クラス整理等はされてないので、また必要になったら行う。
+
 ``` python
 import cv2
 import numpy as np
 from tkinter import filedialog, Tk, Button, Canvas, Label, StringVar
+from tkinter import ttk
 import json
 from PIL import Image, ImageTk
 import os
@@ -35,6 +36,7 @@ class Model:
         self.annotations = {}
         self.original_height = 0
         self.original_width = 0
+        self.image = None
         self.photo = None
 
     def select_files(self):
@@ -54,8 +56,27 @@ class Model:
             data = np.fromfile(f, dtype=np.uint16)
 
         # データを2Dのndarrayに変換
-        image = data.reshape((height, width))
-        return image
+        self.image = data.reshape((height, width))
+        return self.image
+
+    # WBおよびRGBの平均を計算
+    def calculate_wb(self, annotation):
+        # アノテーションから矩形領域を取得
+        x1, y1, x2, y2 = map(int, annotation)
+        region = self.image[y1:y2, x1:x2]
+
+        # 各色チャンネルの平均値を取得
+        r = np.mean(region[::2, ::2])  # R
+        gr = np.mean(region[::2, 1::2])  # Gr
+        gb = np.mean(region[1::2, ::2])  # Gb
+        b = np.mean(region[1::2, 1::2])  # B
+
+        # R:G:B = R':1:B' となる R' と B' を計算
+        g = (gr + gb) / 2  # G
+        r_ratio = g / r
+        b_ratio = g / b
+
+        return r, gr, gb, b, r_ratio, b_ratio
 
     def load_annotations(self):
         # アノテーション情報をJSON形式で読み込む
@@ -69,6 +90,61 @@ class Model:
         # アノテーション情報をJSON形式で保存
         with open('annotations.json', 'w') as f:
             json.dump(self.annotations, f)
+    def rearrange_array(self, array, new_order):
+        # new_orderが2次元配列でなければエラーを返す
+        if len(new_order.shape) != 2:
+            raise ValueError("new_order must be a 2D array")
+
+        # ブロックの高さと幅を取得
+        block_height, block_width = new_order.shape
+
+        # 入力配列の高さと幅を取得
+        height, width = array.shape
+
+        # 並び替え後の配列を格納するための配列を作成
+        rearranged_array = np.empty_like(array)
+
+        # 割り切れないことが分かっている場合は先に警告
+        if (height % block_height != 0) or (width % block_width != 0):
+            print(f"This image is not divisible by the specified ordinal array ({height},{width}) % ({block_height},{block_width}) = ({height % block_height}, {width % block_width})")
+
+        # 入力配列をブロックごとに処理
+        for i in range(0, height, block_height):
+            for j in range(0, width, block_width):
+                # ブロックを取得
+                block = array[i:i+block_height, j:j+block_width]
+
+                # ブロックの形状がnew_orderの形状と一致しない場合、new_orderを調整
+                if block.shape != new_order.shape:
+                    new_order_resized = new_order[:block.shape[0], :block.shape[1]].copy()
+                    #print("new_order resize:",new_order_resized)
+                    unique_elements = new_order_resized.flatten()
+                    unique_elements.sort()
+                    for idx, element in enumerate(unique_elements):
+                        new_order_resized[new_order_resized == element] = idx
+                else:
+                    new_order_resized = new_order
+
+                # ブロックの要素を新しい順序に並べ替え
+                rearranged_block = block.flatten()[new_order_resized.flatten()]
+
+                # 並べ替えたブロックを新しい配列に戻す
+                rearranged_array[i:i+block_height, j:j+block_width] = rearranged_block.reshape(block.shape)
+
+        return rearranged_array
+    # bayerへの変換処理
+    def rearrange_bayer(self, bayer_order):
+        # ベイヤー配列の順番に基づいて画素の並び替えを行う処理
+        if bayer_order == "Bayer":
+            return
+        elif bayer_order == "Quad":
+            new_order = np.array([[0, 2, 1, 3], [8, 10, 9, 11], [4, 6, 5, 7], [12, 14, 13, 15]])
+        else:
+            raise ValueError("Invalid Bayer order")
+
+        # 画像更新
+        self.image = self.rearrange_array(self.image, new_order)
+
 
 class View:
     def __init__(self, controller):
@@ -88,10 +164,22 @@ class View:
         self.rect_info = StringVar()
         Label(self.root, textvariable=self.rect_info).pack()
 
+        # WB情報を表示する Label ウィジェットの作成
+        self.wb_info = StringVar()
+        Label(self.root, textvariable=self.wb_info, justify='left').pack(side="top")
+
         # Canvasウィジェットの作成
         self.canvas = Canvas(self.root, width=MAX_WIDTH, height=MAX_HEIGHT)
         self.canvas.pack()
 
+        # ベイヤー配列の順番を選択するためのコンボボックスを作成
+        self.bayer_order = StringVar()
+        self.bayer_order.set("Bayer")  # デフォルト値を設定
+
+        self.bayer_order_combobox = ttk.Combobox(self.root, values=["Bayer","Quad"], state='disabled', textvariable=self.bayer_order)
+        self.bayer_order_combobox.pack()
+
+        self.bayer_order.trace('w', self.bayer_order_changed)  # 選択が変更されたときにコールバック関数を呼び出す
 
         # 前/次ボタンの作成
         self.next_button = Button(self.root, text="Next", command=self.controller.next_image, state='disabled')
@@ -109,36 +197,51 @@ class View:
         self.next_button.config(state='normal')
         self.prev_button.config(state='normal')
 
-    def show_image(self, image, original_height, original_width):
+    def scale_box(self, img, width, height):
+        """指定した大きさに収まるように、アスペクト比を固定して、リサイズする。"""
+        h, w = img.shape[:2]
+        aspect = w / h
+        if width / height >= aspect:
+            nh = height
+            nw = round(nh * aspect)
+        else:
+            nw = width
+            nh = round(nw / aspect)
+
+        dst = cv2.resize(img, dsize=(nw, nh))
+        self.scale_w = nw / w
+        self.scale_h = nh / h
+        return dst
+
+
+    def show_image(self, image):
+      #コンボボックス有効化
+      self.bayer_order_combobox.config(state= 'normal')
       # 画像のリサイズ（アスペクト比を保つ）
-      screen_width = self.root.winfo_screenwidth()
-      screen_height = self.root.winfo_screenheight()
-      new_width = screen_width
-      new_height = int(new_width * original_height / original_width)
-      if new_height > screen_height:
-          new_height = screen_height
-          new_width = int(new_height * original_width / original_height)
-      image = cv2.resize(image, (new_width, new_height))
+      image = self.scale_box(image, MAX_HEIGHT, MAX_WIDTH)
 
       # 画像をTkinterのPhotoImage形式に変換
       image = Image.fromarray(image)
       self.photo = ImageTk.PhotoImage(image)
 
       # Canvas上に画像を表示
-      self.canvas.config(width=new_width, height=new_height)  # Canvasのサイズを画像に合わせる
+      self.canvas.config(width=image.width, height=image.height)  # Canvasのサイズを画像に合わせる
       self.canvas.create_image(0, 0, image=self.photo, anchor='nw')
       self.canvas.image = self.photo  # 参照を保持して画像が消えないようにする
 
-    def draw_annotation(self, annotation, original_height, original_width):
+    def draw_annotation(self, annotation):
         # アノテーションを描画
         x1, y1, x2, y2 = annotation
-        x1 = int(x1 * MAX_WIDTH / original_width)
-        y1 = int(y1 * MAX_HEIGHT / original_height)
-        x2 = int(x2 * MAX_WIDTH / original_width)
-        y2 = int(y2 * MAX_HEIGHT / original_height)
+        x1, x2 = sorted([int(x1 * self.scale_w), int(x2 * self.scale_w)])
+        y1, y2 = sorted([int(y1 * self.scale_h), int(y2 * self.scale_h)])
         if hasattr(self.canvas, 'rectangle'):
             self.canvas.delete(self.canvas.rectangle)
         self.canvas.rectangle = self.canvas.create_rectangle(x1, y1, x2, y2)
+
+    def bayer_order_changed(self, *args):
+        # Viewから直接Modelのメソッドを呼び出す
+        self.controller.model.rearrange_bayer(self.bayer_order.get())
+        self.show_image(self.controller.model.image)
 
 class Controller:
     def __init__(self):
@@ -170,16 +273,16 @@ class Controller:
         file_path = self.model.files[self.model.current_index]
         image = self.model.read_image(file_path)
         original_height, original_width = image.shape
-        self.view.show_image(image, original_height, original_width)
+        self.view.show_image(image)
         self.view.file_info.set(f'File: {file_path}\nSize: {original_width}x{original_height}')
         if file_path in self.model.annotations:
-            self.view.draw_annotation(self.model.annotations[file_path], original_height, original_width)
+            self.view.draw_annotation(self.model.annotations[file_path])
+        self.model.rearrange_bayer(self.view.bayer_order.get())  # 新たな画像に対して並び替えを実行
 
     def start_rectangle(self, event):
         # 矩形領域の開始点を記録
-        self.view.canvas.start_x = event.x
-        self.view.canvas.start_y = event.y
-
+        self.view.canvas.start_x = min(max(event.x, 0), self.view.canvas.winfo_width())
+        self.view.canvas.start_y = min(max(event.y, 0), self.view.canvas.winfo_height())
         # 新しい矩形領域を作成
         if hasattr(self.view.canvas, 'rectangle'):
             self.view.canvas.delete(self.view.canvas.rectangle)
@@ -187,26 +290,39 @@ class Controller:
 
     def draw_rectangle(self, event):
         # 矩形領域の大きさを更新
-        self.view.canvas.coords(self.view.canvas.rectangle, self.view.canvas.start_x, self.view.canvas.start_y, event.x, event.y)
+        self.view.canvas.coords(self.view.canvas.rectangle, self.view.canvas.start_x, self.view.canvas.start_y, min(max(event.x, 0), self.view.canvas.winfo_width()), min(max(event.y, 0), self.view.canvas.winfo_height()))
 
     def end_rectangle(self, event):
         # 矩形領域の終点を記録
-        self.view.canvas.end_x = event.x
-        self.view.canvas.end_y = event.y
-
+        self.view.canvas.end_x = min(max(event.x, 0), self.view.canvas.winfo_width())
+        self.view.canvas.end_y = min(max(event.y, 0), self.view.canvas.winfo_height())
         # アノテーション情報の保存
-        image = self.model.read_image(self.model.files[self.model.current_index])
-        original_height, original_width = image.shape
-        x1 = self.view.canvas.start_x * original_width / MAX_WIDTH
-        y1 = self.view.canvas.start_y * original_height / MAX_HEIGHT
-        x2 = self.view.canvas.end_x * original_width / MAX_WIDTH
-        y2 = self.view.canvas.end_y * original_height / MAX_HEIGHT
-        annotations = [x1, y1, x2, y2]
+        x1, x2 = sorted([self.view.canvas.start_x / self.view.scale_w, self.view.canvas.end_x / self.view.scale_w])
+        y1, y2 = sorted([self.view.canvas.start_y / self.view.scale_h, self.view.canvas.end_y / self.view.scale_h])
+        annotations = [int(x1), int(y1), int(x2), int(y2)]
         self.model.annotations[self.model.files[self.model.current_index]] = annotations
         self.model.save_annotations()
 
-        # 選択した矩形領域の座標を表示
+        # WB情報の表示
+        r, gr, gb , b ,r_prime, b_prime = self.model.calculate_wb(annotations)
+        self.view.wb_info.set(f'Avg RGB = (R: {r:.3f}, Gr: {gr:.3f}, Gb: {gb:.3f} , B: {b:.3f})\n WB RGB = (R: {r_prime:.2f} ,G : 1, B: {b_prime:.2f})')
+
+    # 選択した矩形領域の座標を表示
         self.view.rect_info.set(f'Rectangle: {x1:.2f},{y1:.2f} to {x2:.2f},{y2:.2f}')
+
+    # 画素配列入れ替えイベント
+    def bayer_order_changed(self, *args):
+        # コンボボックスで選択されたベイヤー配列の順番を取得
+        bayer_order = self.view.bayer_order.get()
+        file_path = self.model.files[self.model.current_index]
+
+        # 並び替えた画像を取得
+        image = self.model.rearrange_image(file_path, bayer_order)
+        original_height, original_width = image.shape
+
+        # 並び替えた画像を表示
+        self.view.show_image(image, original_height, original_width)
+
 
 if __name__=='__main__':
     controller = Controller()
