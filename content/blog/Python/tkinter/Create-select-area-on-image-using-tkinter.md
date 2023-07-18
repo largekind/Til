@@ -335,125 +335,117 @@ if __name__=='__main__':
 
 ``` python
 import torch
-from torch import nn
-from torchvision import models, transforms
 from torch.utils.data import Dataset, DataLoader
+from torchvision import transforms, models
+from torch import nn, optim
 import numpy as np
 from PIL import Image
+import os
 import json
 
-# データセットの定義
-# データセットの定義
-class MyDataset(Dataset):
-    def __init__(self, image_paths, annotations):
-        self.image_paths = image_paths
-        self.annotations = annotations
+# モデルクラス
+class MobileNetV2WithCoordinates(nn.Module):
+    def __init__(self):
+        super(MobileNetV2WithCoordinates, self).__init__()
+        self.mobilenet = models.mobilenet_v2(pretrained=True)
+        self.mobilenet.classifier[1] = nn.Linear(self.mobilenet.last_channel, 4)
 
-        # 画像の前処理を定義
-        self.transform = transforms.Compose([
-            transforms.Resize((224, 224)),  # MobileNetV2の入力サイズに合わせる
-            transforms.ToTensor(),
-            transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),  # ImageNetの平均・標準偏差で正規化
-        ])
+    def forward(self, x):
+        return self.mobilenet(x)
+
+# データセットクラス
+class RectangleDataset(Dataset):
+    def __init__(self, img_folder, annotations, transform=None):
+        self.img_folder = img_folder
+        self.annotations = annotations
+        self.transform = transform
+        self.model = Model()
 
     def __len__(self):
-        return len(self.image_paths)
+        return len(self.annotations)
 
     def __getitem__(self, idx):
-        image_path = self.image_paths[idx]
-        annotation = self.annotations[image_path]  # image_pathをキーとしてアノテーションを取得
-
-        # 画像を読み込み、前処理を行う
-        image = read_image(image_path)
-        image = image * 255
-        image = image.astype(np.uint8)
-        image = np.stack([image, image, image], axis=-1)
+        img_path = os.path.join(self.img_folder, list(self.annotations.keys())[idx])
+        image = self.model.read_image(img_path)
         image = Image.fromarray(image)
-        image = self.transform(image)
 
-        return image, annotation
+        if self.transform:
+            image = self.transform(image)
 
-# アノテーション情報を読み込む
+        coords = np.array(self.annotations[list(self.annotations.keys())[idx]])
+        coords = coords / np.array([image.width, image.height, image.width, image.height])
+
+        return image, coords
+
+# データ変換用の関数
+data_transforms = transforms.Compose([
+    transforms.Resize((224, 224)),
+    transforms.ToTensor(),
+    transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+])
+
+# アノテーションの読み込み
 with open('annotations.json', 'r') as f:
     annotations = json.load(f)
 
-# データセット・データローダの作成
-image_paths = list(annotations.keys())  # アノテーション情報から画像パスを取得
-dataset = MyDataset(image_paths, annotations)
-dataloader = DataLoader(dataset, batch_size=32, shuffle=True)
+# データセットの作成
+dataset = RectangleDataset('path_to_images', annotations, transform=data_transforms)
 
-# 学習済みMobileNetV2モデルの読み込み
-model = models.mobilenet_v2(pretrained=True)
+# データローダの作成
+dataloader = DataLoader(dataset, batch_size=4, shuffle=True)
 
-# 特徴抽出部分のパラメータをフリーズ（勾配計算しないように設定）
-for param in model.features.parameters():
-    param.requires_grad = False
+# モデルの作成
+model = MobileNetV2WithCoordinates()
+model = model.to('cuda')
 
-# 分類部分を新たに定義
-model.classifier = nn.Sequential(
-    nn.Linear(in_features=1280, out_features=512),  # MobileNetV2の出力サイズが1280
-    nn.ReLU(),
-    nn.Dropout(0.2),
-    nn.Linear(in_features=512, out_features=4),  # 出力サイズを4（矩形領域のx1, y1, x2, y2）にする
-    nn.Identity()  # 出力をそのまま返す
-)
-
-# 学習設定
-criterion = nn.MSELoss()  # 回帰問題なので、損失関数は平均二乗誤差（MSE）を使用
-optimizer = torch.optim.Adam(model.classifier.parameters())  # オプティマイザはAdamを使用
-
-# データセット・データローダの作成（image_pathsとannotationsは適切なリストを使用）
-dataset = MyDataset(image_paths, annotations)
-dataloader = DataLoader(dataset, batch_size=32, shuffle=True)
+# 損失関数と最適化手法の設定
+criterion = nn.MSELoss()
+optimizer = optim.Adam(model.parameters(), lr=0.001)
 
 # 学習ループ
-for epoch in range(100):  # エポック数は適宜調整
-    for images, labels in dataloader:
-        outputs = model(images)
-        loss = criterion(outputs, labels)
+num_epochs = 10
+for epoch in range(num_epochs):
+    for images, coords in dataloader:
+        images = images.to('cuda')
+        coords = coords.to('cuda')
 
         optimizer.zero_grad()
+
+        outputs = model(images)
+        loss = criterion(outputs, coords)
+
         loss.backward()
         optimizer.step()
 
-    print(f'Epoch {epoch + 1}, Loss: {loss.item()}')
+    print('Epoch [{}/{}], Loss: {:.4f}'.format(epoch+1, num_epochs, loss.item()))
+
+# モデルの保存
+torch.save(model.state_dict(), 'model.ckpt')
 
 ```
 
 学習したモデルを用いた推論は以下
 
 ``` python
-def predict(image_path, model):
-    # 画像の読み込みと前処理
-    image = read_image(image_path)
-    original_height, original_width = image.shape
-    image = image * 255
-    image = image.astype(np.uint8)
-    image = np.stack([image, image, image], axis=-1)
-    image = Image.fromarray(image)
-    transform = transforms.Compose([
-        transforms.Resize((224, 224)),  # MobileNetV2の入力サイズに合わせる
-        transforms.ToTensor(),
-        transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),  # ImageNetの平均・標準偏差で正規化
-    ])
-    image = transform(image)
-    image = image.unsqueeze(0)  # バッチ次元の追加
+# 画像の読み込み
+img_path = 'test.bin'  # 予測したい画像のパス
+model_instance = Model()
+image = model_instance.read_image(img_path)
+original_height, original_width = image.shape
+image = Image.fromarray(image)
+image = data_transforms(image).unsqueeze(0)
 
-    # 推論
-    model.eval()  # モデルを評価モードに設定
-    with torch.no_grad():
-        outputs = model(image)
-    
-    # 出力を元の画像のサイズにスケールアップ
-    outputs = outputs.squeeze(0)  # バッチ次元の削除
-    outputs = {
-        'x1': int(outputs[0].item() * original_width),
-        'y1': int(outputs[1].item() * original_height),
-        'x2': int(outputs[2].item() * original_width),
-        'y2': int(outputs[3].item() * original_height),
-    }
+# 推論
+model.eval()
+with torch.no_grad():
+    outputs = model(image)
+    outputs = outputs.numpy()
 
-    return outputs
+# 座標を元のスケールに戻す
+outputs_rescaled = outputs * np.array([original_width, original_height, original_width, original_height])
+
+print(outputs_rescaled)
+
 ```
 
 ``` python
