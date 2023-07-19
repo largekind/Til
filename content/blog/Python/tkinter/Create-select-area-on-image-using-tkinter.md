@@ -36,6 +36,7 @@ class Model:
         self.annotations = {}
         self.original_height = 0
         self.original_width = 0
+        self.black_level = 64
         self.image = None
         self.photo = None
 
@@ -62,8 +63,10 @@ class Model:
     # WBおよびRGBの平均を計算
     def calculate_wb(self, annotation):
         # アノテーションから矩形領域を取得
-        x1, y1, x2, y2 = map(int, annotation)
-        region = self.image[y1:y2, x1:x2]
+        x1, y1, x2, y2 = map(float,annotation)
+        height, width = self.image.shape
+        region = self.image[int(y1*height):int(y2*height), int(x1*width):int(x2*width)] - self.black_level
+        print("(w,h):",width, height, "reg:",region.shape)
 
         # 各色チャンネルの平均値を取得
         r = np.mean(region[::2, ::2])  # R
@@ -230,10 +233,10 @@ class View:
       self.canvas.image = self.photo  # 参照を保持して画像が消えないようにする
 
     def draw_annotation(self, annotation):
-        # アノテーションを描画
+        # アノテーションを描画（相対座標から絶対座標への変換を含む）
         x1, y1, x2, y2 = annotation
-        x1, x2 = sorted([int(x1 * self.scale_w), int(x2 * self.scale_w)])
-        y1, y2 = sorted([int(y1 * self.scale_h), int(y2 * self.scale_h)])
+        x1, x2 = sorted([int(x1 * self.canvas.winfo_width()), int(x2 * self.canvas.winfo_width())])
+        y1, y2 = sorted([int(y1 * self.canvas.winfo_height()), int(y2 * self.canvas.winfo_height())])
         if hasattr(self.canvas, 'rectangle'):
             self.canvas.delete(self.canvas.rectangle)
         self.canvas.rectangle = self.canvas.create_rectangle(x1, y1, x2, y2)
@@ -299,16 +302,15 @@ class Controller:
         # アノテーション情報の保存
         x1, x2 = sorted([self.view.canvas.start_x / self.view.canvas.winfo_width(), self.view.canvas.end_x / self.view.canvas.winfo_width()])
         y1, y2 = sorted([self.view.canvas.start_y / self.view.canvas.winfo_height(), self.view.canvas.end_y / self.view.canvas.winfo_height()])
-        annotations = [int(x1), int(y1), int(x2), int(y2)]
+        annotations = [x1, y1, x2, y2]
         self.model.annotations[self.model.files[self.model.current_index]] = annotations
         self.model.save_annotations()
 
         # WB情報の表示
         r, gr, gb , b ,r_prime, b_prime = self.model.calculate_wb(annotations)
         self.view.wb_info.set(f'Avg RGB = (R: {r:.3f}, Gr: {gr:.3f}, Gb: {gb:.3f} , B: {b:.3f})\n WB RGB = (R: {r_prime:.2f} ,G : 1, B: {b_prime:.2f})')
-
-    # 選択した矩形領域の座標を表示
-        self.view.rect_info.set(f'Rectangle: {x1:.2f},{y1:.2f} to {x2:.2f},{y2:.2f}')
+        # 選択した矩形領域の座標を表示
+        self.view.rect_info.set(f'Rectangle: {self.view.canvas.start_x:.2f},{y1*self.view.canvas.start_y:.2f} to {x2*self.view.canvas.end_x:.2f},{y2*self.view.canvas.end_y:.2f}')
 
     # 画素配列入れ替えイベント
     def bayer_order_changed(self, *args):
@@ -322,13 +324,6 @@ class Controller:
 
         # 並び替えた画像を表示
         self.view.show_image(image, original_height, original_width)
-
-
-if __name__=='__main__':
-    controller = Controller()
-    controller.view.root.mainloop()
-
-
 ```
 
 上記を用いて学習するコードは以下
