@@ -343,6 +343,15 @@ import json
 import os
 import matplotlib.pyplot as plt
 
+# モデルの定義
+class RegressionModel(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.mobilenet = torch.hub.load('pytorch/vision:v0.6.0', 'mobilenet_v2', pretrained=True)
+        self.mobilenet.classifier[1] = nn.Linear(self.mobilenet.last_channel, 4)
+
+    def forward(self, x):
+        return self.mobilenet(x)
 # データセットの定義
 class RectangleDataset(Dataset):
     def __init__(self, root_dir, annotations):
