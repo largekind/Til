@@ -297,8 +297,8 @@ class Controller:
         self.view.canvas.end_x = min(max(event.x, 0), self.view.canvas.winfo_width())
         self.view.canvas.end_y = min(max(event.y, 0), self.view.canvas.winfo_height())
         # アノテーション情報の保存
-        x1, x2 = sorted([self.view.canvas.start_x / self.view.scale_w, self.view.canvas.end_x / self.view.scale_w])
-        y1, y2 = sorted([self.view.canvas.start_y / self.view.scale_h, self.view.canvas.end_y / self.view.scale_h])
+        x1, x2 = sorted([self.view.canvas.start_x / self.view.canvas.winfo_width(), self.view.canvas.end_x / self.view.canvas.winfo_width()])
+        y1, y2 = sorted([self.view.canvas.start_y / self.view.canvas.winfo_height(), self.view.canvas.end_y / self.view.canvas.winfo_height()])
         annotations = [int(x1), int(y1), int(x2), int(y2)]
         self.model.annotations[self.model.files[self.model.current_index]] = annotations
         self.model.save_annotations()
@@ -334,94 +334,128 @@ if __name__=='__main__':
 上記を用いて学習するコードは以下
 
 ``` python
+
+from sklearn.model_selection import train_test_split
 import torch
+import torch.nn as nn
+import torch.optim as optim
 from torch.utils.data import Dataset, DataLoader
-from torchvision import transforms, models
-from torch import nn, optim
-import numpy as np
+from torchvision import transforms, utils
 from PIL import Image
-import os
+import struct
+import numpy as np
 import json
+import os
+import matplotlib.pyplot as plt
 
-# モデルクラス
-class MobileNetV2WithCoordinates(nn.Module):
-    def __init__(self):
-        super(MobileNetV2WithCoordinates, self).__init__()
-        self.mobilenet = models.mobilenet_v2(pretrained=True)
-        self.mobilenet.classifier[1] = nn.Linear(self.mobilenet.last_channel, 4)
-
-    def forward(self, x):
-        return self.mobilenet(x)
-
-# データセットクラス
+# データセットの定義
 class RectangleDataset(Dataset):
-    def __init__(self, img_folder, annotations, transform=None):
-        self.img_folder = img_folder
+    def __init__(self, root_dir, annotations):
+        self.root_dir = root_dir
         self.annotations = annotations
-        self.transform = transform
-        self.model = Model()
+        self.file_paths = list(self.annotations.keys())
 
     def __len__(self):
-        return len(self.annotations)
+        return len(self.file_paths)
 
     def __getitem__(self, idx):
-        img_path = os.path.join(self.img_folder, list(self.annotations.keys())[idx])
-        image = self.model.read_image(img_path)
-        image = Image.fromarray(image)
+        img_name = self.file_paths[idx]
+        image = self.read_image(img_name)
+        image = transforms.ToTensor()(image)
 
-        if self.transform:
-            image = self.transform(image)
-
-        coords = np.array(self.annotations[list(self.annotations.keys())[idx]])
+        coords = np.array(self.annotations[img_name])
         coords = coords / np.array([image.width, image.height, image.width, image.height])
 
         return image, coords
 
-# データ変換用の関数
-data_transforms = transforms.Compose([
-    transforms.Resize((224, 224)),
-    transforms.ToTensor(),
-    transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
-])
+    def read_image(self, file_path):
+        with open(file_path, 'rb') as f:
+            width = struct.unpack('H', f.read(2))[0]
+            height = struct.unpack('H', f.read(2))[0]
+            data = np.fromfile(f, dtype=np.uint16)
 
-# アノテーションの読み込み
-with open('annotations.json', 'r') as f:
-    annotations = json.load(f)
+        return data.reshape((height, width))
 
-# データセットの作成
-dataset = RectangleDataset('path_to_images', annotations, transform=data_transforms)
+# 学習の定義
+def train_model():
+    # データセットの準備
+    with open('annotations.json', 'r') as f:
+        annotations = json.load(f)
+    
+    # データを訓練データと検証データに分割
+    train_files, valid_files = train_test_split(list(annotations.keys()), test_size=0.3, random_state=42)
+    train_annotations = {file: annotations[file] for file in train_files}
+    valid_annotations = {file: annotations[file] for file in valid_files}
 
-# データローダの作成
-dataloader = DataLoader(dataset, batch_size=4, shuffle=True)
+    train_dataset = RectangleDataset('./', train_annotations)
+    valid_dataset = RectangleDataset('./', valid_annotations)
 
-# モデルの作成
-model = MobileNetV2WithCoordinates()
-model = model.to('cuda')
+    train_dataloader = DataLoader(train_dataset, batch_size=4, shuffle=True, num_workers=4)
+    valid_dataloader = DataLoader(valid_dataset, batch_size=4, shuffle=False, num_workers=4)
 
-# 損失関数と最適化手法の設定
-criterion = nn.MSELoss()
-optimizer = optim.Adam(model.parameters(), lr=0.001)
+    # モデルの準備
+    model = RegressionModel()
+    criterion = nn.MSELoss()
+    optimizer = optim.SGD(model.parameters(), lr=0.001, momentum=0.9)
 
-# 学習ループ
-num_epochs = 10
-for epoch in range(num_epochs):
-    for images, coords in dataloader:
-        images = images.to('cuda')
-        coords = coords.to('cuda')
+    # EarlyStoppingの定義
+    patience = 3
+    min_val_loss = float('inf')
+    no_improve_epoch = 0
 
-        optimizer.zero_grad()
+    # 学習の実行
+    train_loss_values = []
+    valid_loss_values = []
+    for epoch in range(100):  # 仮に最大100エポックまでとする
+        running_loss = 0.0
+        for images, coords in train_dataloader:
+            optimizer.zero_grad()
 
-        outputs = model(images)
-        loss = criterion(outputs, coords)
+            outputs = model(images)
+            loss = criterion(outputs, coords)
 
-        loss.backward()
-        optimizer.step()
+            loss.backward()
+            optimizer.step()
 
-    print('Epoch [{}/{}], Loss: {:.4f}'.format(epoch+1, num_epochs, loss.item()))
+            running_loss += loss.item()
+        train_epoch_loss = running_loss / len(train_dataloader)
+        train_loss_values.append(train_epoch_loss)
 
-# モデルの保存
-torch.save(model.state_dict(), 'model.ckpt')
+        # 検証データに対する損失を計算
+        running_loss = 0.0
+        for images, coords in valid_dataloader:
+            outputs = model(images)
+            loss = criterion(outputs, coords)
+            running_loss += loss.item()
+        valid_epoch_loss = running_loss / len(valid_dataloader)
+        valid_loss_values.append(valid_epoch_loss)
 
+        print(f'Epoch {epoch+1}/{100} Train Loss: {train_epoch_loss:.4f} Valid Loss: {valid_epoch_loss:.4f}')
+
+        # EarlyStopping
+        if valid_epoch_loss < min_val_loss:
+            min_val_loss = valid_epoch_loss
+            no_improve_epoch = 0
+        else:
+            no_improve_epoch += 1
+
+        if no_improve_epoch > patience:
+            print('Early stopping')
+            break
+
+    # モデルの保存
+    torch.save(model.state_dict(), 'model.pt')
+
+    # 学習の推移を表示
+    plt.plot(train_loss_values, label='Train')
+    plt.plot(valid_loss_values, label='Valid')
+    plt.xlabel('Epoch')
+    plt.ylabel('Loss')
+    plt.legend()
+    plt.show()
+
+if __name__ == '__main__':
+    train_model()
 ```
 
 学習したモデルを用いた推論は以下
