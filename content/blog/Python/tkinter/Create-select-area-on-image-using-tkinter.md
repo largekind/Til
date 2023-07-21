@@ -397,6 +397,36 @@ class RegressionModel(nn.Module):
 
     def forward(self, x):
         return self.mobilenet(x)
+
+class RectangleDataset(Dataset):
+    def __init__(self, root_dir, annotations):
+        self.root_dir = root_dir
+        self.annotations = annotations
+        self.files = list(annotations.keys())
+        self.max_pixel_value = 1024
+
+        # transformsを定義
+        self.transform = transforms.Compose([
+            transforms.ToPILImage(),
+            transforms.Resize((500, 500)),
+            transforms.ToTensor(),
+            transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
+        ])
+
+    def __len__(self):
+        return len(self.files)
+
+    def __getitem__(self, idx):
+        file_path = os.path.join(self.root_dir, self.files[idx])
+        image = self.read_image(file_path)
+
+        # ここで画像を正規化
+        image = image / self.max_pixel_value  # 定数を使用して正規化
+
+        image = self.transform(image)  # ここでtransformを適用
+
+        coords = np.array(self.annotations[self.files[idx]], dtype=np.float32)
+        return image, coords
 # データセットの定義
 class RectangleDataset(Dataset):
     def __init__(self, root_dir, annotations):
@@ -445,7 +475,7 @@ def train_model():
     # モデルの準備
     model = RegressionModel()
     criterion = nn.MSELoss()
-    optimizer = optim.SGD(model.parameters(), lr=0.001, momentum=0.9)
+    optimizer = optim.Adam(model.parameters(), lr=0.001)
 
     # EarlyStoppingの定義
     patience = 3
