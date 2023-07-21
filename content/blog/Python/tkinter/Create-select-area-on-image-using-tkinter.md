@@ -17,7 +17,7 @@ tags: ["Python", "tkinter"]
 ``` python
 import cv2
 import numpy as np
-from tkinter import filedialog, Tk, Button, Canvas, Label, StringVar
+from tkinter import filedialog, Tk, Button, Canvas, Label, StringVar, IntVar, Checkbutton
 from tkinter import ttk
 import json
 from PIL import Image, ImageTk
@@ -39,6 +39,7 @@ class Model:
         self.black_level = 64
         self.image = None
         self.photo = None
+        self.last_annotation = None
 
     def select_files(self):
         # ダイアログから画像ファイルを選択
@@ -92,7 +93,29 @@ class Model:
     def save_annotations(self):
         # アノテーション情報をJSON形式で保存
         with open('annotations.json', 'w') as f:
-            json.dump(self.annotations, f)
+            f.write("{\n")
+            for i, (k, v) in enumerate(self.annotations.items()):
+                if i != 0:
+                    f.write(",\n")
+                f.write(f'  "{os.path.relpath(k)}" : {v}')  # Convert to relative path and format manually
+            f.write("\n}")
+
+    def get_annotation(self, file_path):
+        # アノテーションの取得処理
+        if file_path in self.annotations:
+            return self.annotations[file_path]
+        elif self.last_annotation is not None:
+            return self.last_annotation
+        else:
+            return None
+
+    # 単一のアノテーション保存処理
+    def save_annotation(self, file_path, annotation, retain):
+        self.annotations[file_path] = annotation
+        if retain:
+            self.last_annotation = annotation
+        self.save_annotations()
+
     def rearrange_array(self, array, new_order):
         # new_orderが2次元配列でなければエラーを返す
         if len(new_order.shape) != 2:
@@ -190,6 +213,11 @@ class View:
         self.prev_button = Button(self.root, text="Previous", command=self.controller.previous_image, state='disabled')
         self.prev_button.pack(side="bottom")
 
+        # 続けて記載の処理ボタン作成
+        self.retain_last_rectangle_var = IntVar()
+        self.retain_last_rectangle_checkbutton = Checkbutton(self.root, text="Retain last rectangle", variable=self.retain_last_rectangle_var)
+        self.retain_last_rectangle_checkbutton.pack(side="bottom")
+
         # マウスイベントのバインド
         self.canvas.bind("<Button-1>", self.controller.start_rectangle)
         self.canvas.bind("<B1-Motion>", self.controller.draw_rectangle)
@@ -217,7 +245,7 @@ class View:
         return dst
 
 
-    def show_image(self, image):
+    def show_image(self, image, file_path):
       #コンボボックス有効化
       self.bayer_order_combobox.config(state= 'normal')
       # 画像のリサイズ（アスペクト比を保つ）
@@ -231,6 +259,9 @@ class View:
       self.canvas.config(width=image.width, height=image.height)  # Canvasのサイズを画像に合わせる
       self.canvas.create_image(0, 0, image=self.photo, anchor='nw')
       self.canvas.image = self.photo  # 参照を保持して画像が消えないようにする
+      annotation = self.controller.model.get_annotation(file_path)
+      if annotation is not None:
+        self.draw_annotation(annotation)
 
     def draw_annotation(self, annotation):
         # アノテーションを描画（相対座標から絶対座標への変換を含む）
@@ -276,11 +307,19 @@ class Controller:
         file_path = self.model.files[self.model.current_index]
         image = self.model.read_image(file_path)
         original_height, original_width = image.shape
-        self.view.show_image(image)
+        self.view.show_image(image, file_path)
         self.view.file_info.set(f'File: {file_path}\nSize: {original_width}x{original_height}')
+
+        # アノテーション描画
         if file_path in self.model.annotations:
             self.view.draw_annotation(self.model.annotations[file_path])
-        self.model.rearrange_bayer(self.view.bayer_order.get())  # 新たな画像に対して並び替えを実行
+        elif self.view.retain_last_rectangle_var.get() == 1 and self.model.last_annotation is not None:
+            # 前回のアノテーションを維持するパターン。アノテーションがなく、機能有効時に実行
+            self.view.draw_annotation(self.model.last_annotation)
+            self.model.save_annotation(self.model.files[self.model.current_index], self.model.last_annotation, True)
+
+         # 新たな画像に対して並び替えを実行
+        self.model.rearrange_bayer(self.view.bayer_order.get())
 
     def start_rectangle(self, event):
         # 矩形領域の開始点を記録
@@ -304,7 +343,9 @@ class Controller:
         y1, y2 = sorted([self.view.canvas.start_y / self.view.canvas.winfo_height(), self.view.canvas.end_y / self.view.canvas.winfo_height()])
         annotations = [x1, y1, x2, y2]
         self.model.annotations[self.model.files[self.model.current_index]] = annotations
-        self.model.save_annotations()
+        # 続けて保存に応じて処理を変化
+        retain = self.view.retain_last_rectangle_var.get() == 1
+        self.model.save_annotation(self.model.files[self.model.current_index], annotations, retain)
 
         # WB情報の表示
         r, gr, gb , b ,r_prime, b_prime = self.model.calculate_wb(annotations)
@@ -320,10 +361,14 @@ class Controller:
 
         # 並び替えた画像を取得
         image = self.model.rearrange_image(file_path, bayer_order)
-        original_height, original_width = image.shape
 
         # 並び替えた画像を表示
-        self.view.show_image(image, original_height, original_width)
+        self.view.show_image(image)
+
+
+if __name__=='__main__':
+    controller = Controller()
+    controller.view.root.mainloop()
 ```
 
 上記を用いて学習するコードは以下
