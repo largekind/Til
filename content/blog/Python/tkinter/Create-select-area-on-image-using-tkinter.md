@@ -427,33 +427,6 @@ class RectangleDataset(Dataset):
 
         coords = np.array(self.annotations[self.files[idx]], dtype=np.float32)
         return image, coords
-# データセットの定義
-class RectangleDataset(Dataset):
-    def __init__(self, root_dir, annotations):
-        self.root_dir = root_dir
-        self.annotations = annotations
-        self.file_paths = list(self.annotations.keys())
-
-    def __len__(self):
-        return len(self.file_paths)
-
-    def __getitem__(self, idx):
-        img_name = self.file_paths[idx]
-        image = self.read_image(img_name)
-        image = transforms.ToTensor()(image)
-
-        coords = np.array(self.annotations[img_name])
-        coords = coords / np.array([image.width, image.height, image.width, image.height])
-
-        return image, coords
-
-    def read_image(self, file_path):
-        with open(file_path, 'rb') as f:
-            width = struct.unpack('H', f.read(2))[0]
-            height = struct.unpack('H', f.read(2))[0]
-            data = np.fromfile(f, dtype=np.uint16)
-
-        return data.reshape((height, width))
 
 # 学習の定義
 def train_model():
