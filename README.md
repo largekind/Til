@@ -233,6 +233,7 @@ Run command in shell
 - [Convert Image 10bit to 8bit](./content/blog/Python/image/Convert-image-10bit-to-8bit.md)
 - [Adding Text to Image](./content/blog/Python/image/adding-text-to-image.md)
 - [Adding Rectangle to Image](./content/blog/Python/image/adding-rectangle-to-image.md)
+- [Create Select Area on Image Using Tkinter](./content/blog/Python/image/Create-select-area-on-image-using-tkinter.md)
 - [Calculating White Balance From Rgb](./content/blog/Python/image/calculating-white-balance-from-rgb.md)
 - [Reordering Blocks in 2d Array](./content/blog/Python/image/reordering-blocks-in-2d-array.md)
 
@@ -267,7 +268,6 @@ Run command in shell
 ### Python/tkinter
 
 - [Tkinter Drag and Drop](./content/blog/Python/tkinter/tkinter-drag-and-drop.md)
-- [Create Select Area on Image Using Tkinter](./content/blog/Python/tkinter/Create-select-area-on-image-using-tkinter.md)
 - [Create_comboBox](./content/blog/Python/tkinter/create_comboBox.md)
 
 ### InfoEngineer

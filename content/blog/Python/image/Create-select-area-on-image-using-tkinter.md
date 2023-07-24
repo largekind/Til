@@ -2,7 +2,7 @@
 title: "Create Select Area on Image Using Tkinter"
 date: 2023-07-11T23:51:39+09:00
 categories: ["Python"]
-tags: ["Python", "tkinter"]
+tags: ["Python", "tkinter", "image"]
 ---
 # Create Select Area on Image Using Tkinter
 
