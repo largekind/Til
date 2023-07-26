@@ -98,7 +98,7 @@ class Model:
             for i, (k, v) in enumerate(self.annotations.items()):
                 if i != 0:
                     f.write(",\n")
-                f.write(f'  "./{os.path.relpath(k)}" : {v}')  # Convert to relative path and format manually
+                f.write(f'  "./{Path(k).relative_to(Path.cwd()).as_posix()}" : {v}')  # Convert to relative path and format manually
             f.write("\n}")
 
     def get_annotation(self, file_path):
