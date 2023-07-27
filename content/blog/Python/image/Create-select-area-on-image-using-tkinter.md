@@ -86,8 +86,8 @@ class Model:
         # アノテーション情報をJSON形式で読み込む
         try:
             with open('annotations.json', 'r') as f:
-                # annotationsのキー（ファイルパス）が存在するか確認し、存在しないものはスキップ
-                self.annotations = {k: v for k, v in annotations.items() if Path(k).exists()}
+                # annotationsのキー（ファイルパス）が存在するか確認し、存在しないものはスキップ linux形式のパスに置換しておく
+                self.annotations = {k.replace('\\', '/'): v for k, v in loaded_annotations.items() if Path(k.replace('\\', '/')).exists()}
         except FileNotFoundError:
             self.annotations = {}
 
