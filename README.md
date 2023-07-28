@@ -131,6 +131,10 @@ Run command in shell
 
 - [Sony](./content/blog/Semiconductor/Industory/Sony.md)
 
+### DXQuest/DXLiteracy
+
+- [DX Beginner](./content/blog/DXQuest/DXLiteracy/DX-Beginner.md)
+
 ### AI
 
 - [docker](./content/blog/AI/docker.md)

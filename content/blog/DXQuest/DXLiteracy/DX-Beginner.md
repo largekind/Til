@@ -1,8 +1,9 @@
 ---
 title: "DX Beginner"
 date: 2023-07-28T21:35:34+09:00
+categories: ["DXQuest"]
+tags: ["DXQuest", "DXLiteracy"]
 ---
-
 # DX Beginner
 
 ## 概要
