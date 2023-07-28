@@ -128,6 +128,10 @@ Hugoを使用。テーマは[npqhugo](https://github.com/saadsolimanxyz/npqhugo)
 
 - [Sony](./content/blog/Semiconductor/Industory/Sony.md)
 
+### DXQuest/DXLiteracy
+
+- [DX Beginner](./content/blog/DXQuest/DXLiteracy/DX-Beginner.md)
+
 ### AI
 
 - [docker](./content/blog/AI/docker.md)
