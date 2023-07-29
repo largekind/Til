@@ -2,7 +2,7 @@
 title: "DX入門_Why編"
 date: 2023-07-28T21:35:34+09:00
 categories: ["DXQuest"]
-tags: ["DXQuest", "DXLiteracy"]
+tags: ["DXQuest", "DXLiteracy", "DX_Beginner"]
 ---
 # DX入門 Why編
 

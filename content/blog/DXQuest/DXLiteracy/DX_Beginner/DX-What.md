@@ -1,8 +1,9 @@
 ---
 title: "DX What"
 date: 2023-07-29T21:44:24+09:00
+categories: ["DXQuest"]
+tags: ["DXQuest", "DXLiteracy", "DX_Beginner"]
 ---
-
 # DX What
 
 ## 概要
