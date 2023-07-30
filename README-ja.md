@@ -136,6 +136,10 @@ Hugoを使用。テーマは[npqhugo](https://github.com/saadsolimanxyz/npqhugo)
 - [データ分析 概要](./content/blog/DXQuest/DX_Beginner/DX-DataAnalysis.md)
 - [DX入門 マインドスタンス編](./content/blog/DXQuest/DX_Beginner/DX-MindStance.md)
 
+### DXQuest/AI_Beginner
+
+- [AI入門](./content/blog/DXQuest/AI_Beginner/AI-Intoroduction.md)
+
 ### AI
 
 - [docker](./content/blog/AI/docker.md)
