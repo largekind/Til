@@ -1,8 +1,9 @@
 ---
 title: "DX入門 マインドスタンス編"
 date: 2023-07-30T15:12:38+09:00
+categories: ["DXQuest"]
+tags: ["DXQuest", "DXLiteracy", "DX_Beginner"]
 ---
-
 # DX入門 マインドスタンス編
 
 ## 概要
