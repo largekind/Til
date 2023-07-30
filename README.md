@@ -133,6 +133,7 @@ Run command in shell
 
 ### DXQuest/DXLiteracy/DX_Beginner
 
+- [DX How](./content/blog/DXQuest/DXLiteracy/DX_Beginner/DX-How.md)
 - [DX入門_Why編](./content/blog/DXQuest/DXLiteracy/DX_Beginner/DX-Why.md)
 - [DX What](./content/blog/DXQuest/DXLiteracy/DX_Beginner/DX-What.md)
 
