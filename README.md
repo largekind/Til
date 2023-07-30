@@ -131,13 +131,13 @@ Run command in shell
 
 - [Sony](./content/blog/Semiconductor/Industory/Sony.md)
 
-### DXQuest/DXLiteracy/DX_Beginner
+### DXQuest/DX_Beginner
 
-- [DX How](./content/blog/DXQuest/DXLiteracy/DX_Beginner/DX-How.md)
-- [DX入門_Why編](./content/blog/DXQuest/DXLiteracy/DX_Beginner/DX-Why.md)
-- [DX What](./content/blog/DXQuest/DXLiteracy/DX_Beginner/DX-What.md)
-- [データ分析 概要](./content/blog/DXQuest/DXLiteracy/DX_Beginner/DX-DataAnalysis.md)
-- [DX入門 マインドスタンス編](./content/blog/DXQuest/DXLiteracy/DX_Beginner/DX-MindStance.md)
+- [DX How](./content/blog/DXQuest/DX_Beginner/DX-How.md)
+- [DX入門_Why編](./content/blog/DXQuest/DX_Beginner/DX-Why.md)
+- [DX What](./content/blog/DXQuest/DX_Beginner/DX-What.md)
+- [データ分析 概要](./content/blog/DXQuest/DX_Beginner/DX-DataAnalysis.md)
+- [DX入門 マインドスタンス編](./content/blog/DXQuest/DX_Beginner/DX-MindStance.md)
 
 ### AI
 
