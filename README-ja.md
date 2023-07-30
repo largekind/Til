@@ -133,6 +133,7 @@ Hugoを使用。テーマは[npqhugo](https://github.com/saadsolimanxyz/npqhugo)
 - [DX How](./content/blog/DXQuest/DXLiteracy/DX_Beginner/DX-How.md)
 - [DX入門_Why編](./content/blog/DXQuest/DXLiteracy/DX_Beginner/DX-Why.md)
 - [DX What](./content/blog/DXQuest/DXLiteracy/DX_Beginner/DX-What.md)
+- [データ分析 概要](./content/blog/DXQuest/DXLiteracy/DX_Beginner/DX-DataAnalysis.md)
 - [DX入門 マインドスタンス編](./content/blog/DXQuest/DXLiteracy/DX_Beginner/DX-MindStance.md)
 
 ### AI
