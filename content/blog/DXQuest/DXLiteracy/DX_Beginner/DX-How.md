@@ -1,8 +1,9 @@
 ---
 title: "DX How"
 date: 2023-07-30T14:55:48+09:00
+categories: ["DXQuest"]
+tags: ["DXQuest", "DXLiteracy", "DX_Beginner"]
 ---
-
 # DX How
 
 ## 概要
