@@ -1,8 +1,9 @@
 ---
 title: "データ分析 概要"
 date: 2023-07-30T15:55:11+09:00
+categories: ["DXQuest"]
+tags: ["DXQuest", "DXLiteracy", "DX_Beginner"]
 ---
-
 # DX DataAnalysis
 
 ## 概要
