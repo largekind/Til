@@ -1,8 +1,9 @@
 ---
 title: "AI入門"
 date: 2023-07-30T16:44:36+09:00
+categories: ["DXQuest"]
+tags: ["DXQuest", "AI_Beginner"]
 ---
-
 # AI入門
 
 ## 概要
