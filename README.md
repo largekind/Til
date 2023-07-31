@@ -141,6 +141,7 @@ Run command in shell
 
 ### DXQuest/AI_Beginner
 
+- [DeepLearning Introduction](./content/blog/DXQuest/AI_Beginner/DeepLearning-introduction.md)
 - [AI入門](./content/blog/DXQuest/AI_Beginner/AI-Intoroduction.md)
 
 ### AI
