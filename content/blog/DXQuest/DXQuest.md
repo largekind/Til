@@ -1,9 +1,10 @@
 ---
 title: "DXQuest"
 date: 2023-08-05T14:02:16+09:00
-draft: true
+draft: True
+categories: ["DXQuest"]
+tags: ["DXQuest"]
 ---
-
 # DXQuest
 
 ## 概要
