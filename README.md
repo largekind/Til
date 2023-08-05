@@ -131,6 +131,10 @@ Run command in shell
 
 - [Sony](./content/blog/Semiconductor/Industory/Sony.md)
 
+### DXQuest
+
+- [DXQuest](./content/blog/DXQuest/DXQuest.md)
+
 ### DXQuest/DX_Beginner
 
 - [DX How](./content/blog/DXQuest/DX_Beginner/DX-How.md)
