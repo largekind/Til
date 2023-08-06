@@ -145,6 +145,7 @@ Run command in shell
 
 ### DXQuest/AI_Beginner
 
+- [AIプロジェクトテーマ選定法](./content/blog/DXQuest/AI_Beginner/AI-Project-theme.md)
 - [DeepLearning Introduction](./content/blog/DXQuest/AI_Beginner/DeepLearning-introduction.md)
 - [AI入門](./content/blog/DXQuest/AI_Beginner/AI-Intoroduction.md)
 
