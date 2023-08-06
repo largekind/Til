@@ -1,8 +1,9 @@
 ---
 title: "AIプロジェクトテーマ選定法"
 date: 2023-08-05T21:21:04+09:00
+categories: ["DXQuest"]
+tags: ["DXQuest", "AI_Beginner"]
 ---
-
 # AI Project Theme
 
 ## 概要
