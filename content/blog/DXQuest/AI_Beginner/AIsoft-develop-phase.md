@@ -1,8 +1,9 @@
 ---
 title: "AIソフト開発フェーズ"
 date: 2023-08-06T23:36:09+09:00
+categories: ["DXQuest"]
+tags: ["DXQuest", "AI_Beginner"]
 ---
-
 # AIsoft Develop Overview
 
 ## 概要
@@ -34,4 +35,3 @@ AI開発におけるフェーズの概要の開設動画を簡略にまとめる
     3. 開発
       - UI作成など
     4. 追加学習(運用・再学習)
-
