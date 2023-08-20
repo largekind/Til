@@ -150,6 +150,7 @@ Run command in shell
 - [DeepLearning Introduction](./content/blog/DXQuest/AI_Beginner/DeepLearning-introduction.md)
 - [AI関連法律](./content/blog/DXQuest/AI_Beginner/AI-related-laws.md)
 - [AI入門](./content/blog/DXQuest/AI_Beginner/AI-Intoroduction.md)
+- [評価関数](./content/blog/DXQuest/AI_Beginner/Evalution-function.md)
 
 ### AI
 
