@@ -49,4 +49,4 @@ tags: ["DXQuest", "AI_Beginner"]
 
 - 学んだこと
   - 混合行列(Confution Matrix)
-    - TF/PNで出せる例の図 
+    - TF/PNで出せる例の図
