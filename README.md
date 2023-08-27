@@ -241,6 +241,7 @@ Run command in shell
 
 ### Python/pytorch
 
+- [Basic AI Model Building](./content/blog/Python/pytorch/Basic-AI-model-building.md)
 - [モデルの使用テンソル型の修正方法](./content/blog/Python/pytorch/convert-model-tensor.md)
 
 ### Python/NLP
