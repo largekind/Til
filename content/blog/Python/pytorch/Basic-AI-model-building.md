@@ -20,7 +20,32 @@ tags: ["Python", "pytorch"]
 
 当然、学習するにはデータセットが必要なため、その定義方法を簡単にまとめる
 
-``` python
+構造が以下のようにクラスがディレクトリで分類されている場合はImageFolderで適用可能
+``` tree
+train
+├─A
+├─B
+├─C
+└─D
+```
 
-工事中
+``` python
+dataset = datasets.ImageFolder('Path')
+```
+
+その後、以下のようにデータ分割 今回であればtrain/val/testを0.7/0.15/0.15にした場合、以下のような感じ
+``` python
+# 訓練データ、検証データ、テストデータに分割
+num_data = len(dataset)
+train_size = int(0.7 * num_data)
+val_size = int(0.15 * num_data)
+test_size = num_data - train_size - val_size
+
+train_dataset, val_dataset, test_dataset = random_split(dataset, [train_size, val_size, test_size])
+
+# データローダの作成
+train_loader = DataLoader(train_dataset, batch_size=batch_size)
+val_loader = DataLoader(val_dataset, batch_size=batch_size)
+test_loader = DataLoader(test_dataset, batch_size=batch_size)
+
 ```
