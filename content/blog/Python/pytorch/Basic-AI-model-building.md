@@ -1,10 +1,26 @@
 ---
-title: "Basic AI Model Building"
+title: "基本的なAIモデルの処理作成の流れ"
 date: 2023-08-27T22:12:02+09:00
-draft: True
 categories: ["Python"]
 tags: ["Python", "pytorch"]
 ---
-# Basic AI Model Building
+# 基本的なAIモデルの処理作成の流れ
 
 ## 概要
+
+毎回忘れてしまう、pytorchを用いた基本的なAI処理（画像分類）の作成の流れを列挙する
+
+基本的には以下の流れである
+1. データセットを定義
+2. modelの定義
+3. 学習処理の作成
+4. 推論処理の作成
+
+## データセットの定義
+
+当然、学習するにはデータセットが必要なため、その定義方法を簡単にまとめる
+
+``` python
+
+工事中
+```
