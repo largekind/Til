@@ -49,3 +49,31 @@ val_loader = DataLoader(val_dataset, batch_size=batch_size)
 test_loader = DataLoader(test_dataset, batch_size=batch_size)
 
 ```
+
+### Tips : WeightedRandomSampler
+
+クラスなどが傾いている状態（極端に特定のクラスの写真が少ないなど）がある場合、上手くその情報が学習できない場合がある。
+
+そういった状況の時に、学習時の割り当てされる確率を操作することで特定のクラスの学習をよくする手法としてpytorchに提供されている
+
+使い方は以下のコードの通りである
+
+``` python
+# 各クラスのデータポイントに適用する重みを計算
+num_samples = sum(class_counts.values())
+class_weights = {cls: num_samples / count for cls, count in class_counts.items()}
+
+# すべてのデータポイントに対する重みのリストを作成
+sample_weights = [class_weights[dataset.classes[label]] for _, label in train_dataset]
+
+# WeightedRandomSamplerを作成
+sampler = WeightedRandomSampler(weights=sample_weights, num_samples=len(sample_weights), replacement=True)
+
+# DataLoaderの設定
+train_loader = DataLoader(train_dataset, batch_size=batch_size, sampler=sampler)
+val_loader = DataLoader(val_dataset, batch_size=batch_size, shuffle=False)
+test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False)
+```
+
+上記samplerで定義することで、特定のクラスの重みづけを行うことが可能。
+ただし、samplerを用いた場合shuffleはできないので注意
