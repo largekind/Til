@@ -77,3 +77,21 @@ test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False)
 
 上記samplerで定義することで、特定のクラスの重みづけを行うことが可能。
 ただし、samplerを用いた場合shuffleはできないので注意
+
+## モデルの作成
+
+学習させるためのモデルを作成していく。
+
+よほどの理由がない限りは既存のモデルを流用し、出力層だけ変えれば良いはず
+
+``` python
+# モデルの定義
+model = efficientnet_b5(pretrained=True)
+# 最終層を取得
+num_ftrs = model.classifier[1].in_features
+# 出力層を置き換え
+model.classifier[1] = nn.Sequential(
+    nn.Linear(num_ftrs, 4), # 4クラス分類のための出力層を追加
+    nn.Dropout(0.5),       # 50%の確率でドロップアウトを適用
+)  
+```
