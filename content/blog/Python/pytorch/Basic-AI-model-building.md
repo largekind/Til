@@ -95,3 +95,11 @@ model.classifier[1] = nn.Sequential(
     nn.Dropout(0.5),       # 50%の確率でドロップアウトを適用
 )  
 ```
+
+## 学習用コードの作成
+
+学習を行うためのコードを作成する
+
+``` python
+工事中
+```
