@@ -99,7 +99,88 @@ model.classifier[1] = nn.Sequential(
 ## 学習用コードの作成
 
 学習を行うためのコードを作成する
+以下一例
 
 ``` python
-工事中
+
+# 訓練処理
+def train_model(train_loader, val_loader, num_epochs=100, patience=5):
+    """ 
+    Parameters:
+    - train_loader: 訓練データのデータローダ
+    - val_loader: 検証データのデータローダ
+    - num_epochs: エポック数
+    
+    Returns:
+    - model: 訓練されたモデル
+    """
+    # モデルの定義
+    model = Model
+    model = model.to(device)
+    
+   # 損失関数と最適化手法の定義
+    criterion = nn.CrossEntropyLoss()
+    optimizer = optim.Adam(model.parameters(), lr=0.0005, weight_decay=1e-5)
+    scheduler = optim.lr_scheduler.StepLR(optimizer, step_size=7, gamma=0.1)
+    
+    # early stopping用の値
+    best_val_loss = float('inf')
+    epochs_without_improvement = 0
+    
+    for epoch in range(num_epochs):
+        model.train()
+        running_loss = 0.0
+        
+        # 訓練フェーズ
+        for inputs, labels in tqdm(train_loader, desc=f"Epoch {epoch + 1}/{num_epochs} - Training"):
+            inputs, labels = inputs.to(device), labels.to(device)
+            
+            optimizer.zero_grad()
+            outputs = model(inputs)
+            loss = criterion(outputs, labels)
+            loss.backward()
+            optimizer.step()
+            running_loss += loss.item() * inputs.size(0)
+        
+        train_loss = running_loss / len(train_loader.dataset)
+        
+        # 検証フェーズ
+        model.eval()
+        running_loss = 0.0
+        all_preds = []
+        all_labels = []
+        for inputs, labels in val_loader:
+            inputs, labels = inputs.to(device), labels.to(device)
+            
+            with torch.no_grad():
+                outputs = model(inputs)
+                _, preds = torch.max(outputs, 1)
+                loss = criterion(outputs, labels)
+                running_loss += loss.item() * inputs.size(0)
+                all_preds.extend(preds.cpu().numpy())
+                all_labels.extend(labels.cpu().numpy())
+        
+        val_loss = running_loss / len(val_loader.dataset)
+        f1 = f1_score(all_labels, all_preds, average='weighted')
+        
+        print(f"Epoch {epoch + 1}/{num_epochs} - Training loss: {train_loss:.4f}")
+        print(f"Epoch {epoch + 1}/{num_epochs} - Validation loss: {val_loss:.4f}, Validation F1-score: {f1:.4f}")
+        
+        # 学習率の更新
+        scheduler.step()
+        
+        # Early stoppingの判定
+        if val_loss < best_val_loss:
+            best_val_loss = val_loss
+            epochs_without_improvement = 0
+        else:
+            epochs_without_improvement += 1
+            if epochs_without_improvement >= patience:
+                print(f"Early stopping after {epoch + 1} epochs!")
+                break
+    
+    return model
+
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+print(device)
 ```
