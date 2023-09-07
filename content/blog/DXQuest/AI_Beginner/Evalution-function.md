@@ -49,4 +49,8 @@ tags: ["DXQuest", "AI_Beginner"]
 
 - 学んだこと
   - 混合行列(Confution Matrix)
-    - TF/PNで出せる例の図
+    - TF/PNで出せる例の図 以下のようなもの
+|positiveな予測結果|negativeな予測結果| |
+|:----|:----|:----|
+|実際のpositiveな結果|True Positive (TP)|False Ngative (FN)|
+|実際のnegativeな結果|False Positive (FP)|True Negative (TN)|
