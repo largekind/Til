@@ -49,8 +49,23 @@ tags: ["DXQuest", "AI_Beginner"]
 
 - 学んだこと
   - 混合行列(Confution Matrix)
-    - TF/PNで出せる例の図 以下のようなもの
-|positiveな予測結果|negativeな予測結果| |
-|:----|:----|:----|
-|実際のpositiveな結果|True Positive (TP)|False Ngative (FN)|
-|実際のnegativeな結果|False Positive (FP)|True Negative (TN)|
+    - TF/PNで出せる次のような図[^ConfutionMatrix]
+  - Accuracy(正解率)
+    - 予測結果が実際にあたっていた割合
+    - 欠陥検出といった、negativeの割合が少ない予測には使えない
+  - Precision(適合率)
+    - 予測してPositiveだったもののうち、実際にPositiveだったもの
+    - スパムメールなど、誤判定はなくしたいものに使われる
+  - Recall(再現率)
+    - 実際にPositiveのもののうち、予測がPositiveだったもの
+    - 見落としなどを無くしたい場合に使われるもの。欠陥検出など
+    - Precisionとはトレードオフの関係
+  - F値
+    - Precision/Recallの両方を加味したもの。1のほうがよい
+  
+
+[^ConfutionMatrix]:
+    |  |positiveな予測結果|negativeな予測結果| 
+    |:----|:----|:----|
+    |実際のpositiveな結果|True Positive (TP)|False Ngative (FN)|
+    |実際のnegativeな結果|False Positive (FP)|True Negative (TN)|
