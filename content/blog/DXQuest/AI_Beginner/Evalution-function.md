@@ -62,8 +62,14 @@ tags: ["DXQuest", "AI_Beginner"]
     - Precisionとはトレードオフの関係
   - F値
     - Precision/Recallの両方を加味したもの。1のほうがよい
+  - ROC曲線
+    - 二値分類で閾値を変化したとき、モデル性能がどう変わるかを可視化するもの
+      - 縦軸をRecall/横軸をFPR(偽陽性率)として算出する
+  - AUC
+    - Area Under the Curve
+    - ROC曲線の下側の面積を値とするもの。1.0が理想だが基本ない
+    - AUCが0.5だと完全ランダムとなる
   
-
 [^ConfutionMatrix]:
     |  |positiveな予測結果|negativeな予測結果| 
     |:----|:----|:----|
