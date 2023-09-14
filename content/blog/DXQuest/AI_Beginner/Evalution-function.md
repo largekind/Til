@@ -75,3 +75,22 @@ tags: ["DXQuest", "AI_Beginner"]
     |:----|:----|:----|
     |実際のpositiveな結果|True Positive (TP)|False Ngative (FN)|
     |実際のnegativeな結果|False Positive (FP)|True Negative (TN)|
+
+## 推薦・検索問題における評価関数
+
+- 学んだこと
+  - 検索エンジンといったもので用いる評価関数がある
+    - よくある評価値やGood/Badなどのものもこちら
+  - Precision@k
+    - 検索したとき、上位k件に実際に適合したアイテムが入ってる割合
+  - Recall@k
+    - 全適合アイテムから、実際に適合したk件のアイテムの割合
+  - AP(Average Precision)
+    - 適合アイテムが得られた時点での適合率の平均をとった値
+  - MAP (Mean Average Precision)
+    - 全ユーザーでのAP値
+  - DCG(Discounted Cumulate Gain)
+    - 推薦したアイテムの関連度に重みづけして合計したもの
+  - nDCG(normalized DCG)
+    - DCGに対して理想的な順位付けを行ったときのDCG_perfectで割った値
+    - ただのDCGに正規化しただけのもの
