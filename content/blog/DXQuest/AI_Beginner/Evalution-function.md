@@ -94,3 +94,11 @@ tags: ["DXQuest", "AI_Beginner"]
   - nDCG(normalized DCG)
     - DCGに対して理想的な順位付けを行ったときのDCG_perfectで割った値
     - ただのDCGに正規化しただけのもの
+
+## 物体検出での評価関数
+
+- 学んだこと
+  - IoU(Intersection over Union)
+    - 検出領域と真の領域を用いて、一致度を図る指標
+  - Map
+    - 物体検出したものに対して各々IoUを算出し、その情報の平均からAPを求める
