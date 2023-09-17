@@ -148,6 +148,7 @@ Run command in shell
 - [AIプロジェクトテーマ選定法](./content/blog/DXQuest/AI_Beginner/AI-Project-theme.md)
 - [AIソフト開発フェーズ](./content/blog/DXQuest/AI_Beginner/AIsoft-develop-phase.md)
 - [DeepLearning Introduction](./content/blog/DXQuest/AI_Beginner/DeepLearning-introduction.md)
+- [Strategy and Management](./content/blog/DXQuest/AI_Beginner/Strategy-and-Management.md)
 - [AI関連法律](./content/blog/DXQuest/AI_Beginner/AI-related-laws.md)
 - [AI入門](./content/blog/DXQuest/AI_Beginner/AI-Intoroduction.md)
 - [評価関数](./content/blog/DXQuest/AI_Beginner/Evalution-function.md)
