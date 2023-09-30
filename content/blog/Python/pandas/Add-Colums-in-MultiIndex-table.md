@@ -1,8 +1,9 @@
 ---
 title: "Add Colums in MultiIndex table"
 date: 2023-09-30T21:17:10+09:00
+categories: ["Python"]
+tags: ["Python", "pandas"]
 ---
-
 # マルチインデックスを持つテーブルへ列を追加する方法
 
 ## 概要
