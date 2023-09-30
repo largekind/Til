@@ -229,6 +229,7 @@ Hugoを使用。テーマは[npqhugo](https://github.com/saadsolimanxyz/npqhugo)
 
 ### Python/pandas
 
+- [Usage Pivottable](./content/blog/Python/pandas/usage-pivottable.md)
 - [Xlwings Created Dataframe](./content/blog/Python/pandas/xlwings-created-dataframe.md)
 - [Xlwings_excel_integration](./content/blog/Python/pandas/xlwings-excel-integration.md)
 - [部分的なDataFrameの比較と差分行の抽出](./content/blog/Python/pandas/Diff-part-of-data.md)
@@ -236,6 +237,7 @@ Hugoを使用。テーマは[npqhugo](https://github.com/saadsolimanxyz/npqhugo)
 - [Listの内容からDataFrameを抽出する方法](./content/blog/Python/pandas/Extract-dataframe-from-list.md)
 - [Excel Group to Dataframe](./content/blog/Python/pandas/Excel-group-to-dataframe.md)
 - [Category Dataframe to Xlsx Sheet](./content/blog/Python/pandas/Category-dataframe-to-xlsx-sheet.md)
+- [Add Colums in MultiIndex table](./content/blog/Python/pandas/Add-Colums-in-MultiIndex-table.md)
 
 ### Python/pytorch
 
