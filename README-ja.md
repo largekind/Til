@@ -239,6 +239,7 @@ Hugoを使用。テーマは[npqhugo](https://github.com/saadsolimanxyz/npqhugo)
 - [Excel Group to Dataframe](./content/blog/Python/pandas/Excel-group-to-dataframe.md)
 - [Category Dataframe to Xlsx Sheet](./content/blog/Python/pandas/Category-dataframe-to-xlsx-sheet.md)
 - [Add Colums in MultiIndex table](./content/blog/Python/pandas/Add-Colums-in-MultiIndex-table.md)
+- [Merge Single to MultiIndex](./content/blog/Python/pandas/merge-single-to-multiIndex.md)
 
 ### Python/pytorch
 
