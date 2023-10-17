@@ -1,7 +1,6 @@
 ---
 title: "Merge Single to MultiIndex"
 date: 2023-10-16T21:21:02+09:00
-draft: True
 categories: ["Python"]
 tags: ["Python", "pandas"]
 ---
