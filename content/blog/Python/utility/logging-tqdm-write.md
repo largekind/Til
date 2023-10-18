@@ -1,8 +1,9 @@
 ---
 title: "ログ出力中にtqdmでの進捗表示を行う"
 date: 2023-10-18T22:54:42+09:00
+categories: ["Python"]
+tags: ["Python", "utility"]
 ---
-
 # ログ出力中にtqdmでの進捗表示を行う
 
 ## 概要
