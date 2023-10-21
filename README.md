@@ -262,6 +262,7 @@ Run command in shell
 - [Adding Rectangle to Image](./content/blog/Python/image/adding-rectangle-to-image.md)
 - [Create Select Area on Image Using Tkinter](./content/blog/Python/image/Create-select-area-on-image-using-tkinter.md)
 - [Calculating White Balance From Rgb](./content/blog/Python/image/calculating-white-balance-from-rgb.md)
+- [Crop and Concat Direction](./content/blog/Python/image/crop-and-concat-direction.md)
 - [Reordering Blocks in 2d Array](./content/blog/Python/image/reordering-blocks-in-2d-array.md)
 
 ### Python/API
