@@ -1,8 +1,9 @@
 ---
 title: "Crop and Concat Direction"
 date: 2023-10-21T23:40:44+09:00
+categories: ["Python"]
+tags: ["Python", "image"]
 ---
-
 # Crop and Concat Direction
 
 ## 概要
