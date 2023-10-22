@@ -1,8 +1,9 @@
 ---
 title: "Func Table Register and Exec"
 date: 2023-10-22T22:48:11+09:00
+categories: ["Python"]
+tags: ["Python", "utility"]
 ---
-
 # 関数テーブルの使用法とテーブルへの自動登録
 
 ## 概要
