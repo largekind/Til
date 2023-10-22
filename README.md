@@ -288,6 +288,7 @@ Run command in shell
 - [画像比較用のスライド自動作成方法](./content/blog/Python/utility/Auto-ImageDiff-slide.md)
 - [大量のグラフに色付けする方法](./content/blog/Python/utility/Add-plot-Colorbar.md)
 - [Excel to PatternLislinlist](./content/blog/Python/utility/Excel-To-patternLislinlist.md)
+- [Func Table Register and Exec](./content/blog/Python/utility/func-table-register-and-exec.md)
 
 ### Python/Regax
 
