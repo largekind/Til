@@ -239,6 +239,7 @@ Run command in shell
 - [部分的なDataFrameの比較と差分行の抽出](./content/blog/Python/pandas/Diff-part-of-data.md)
 - [DataFrameのデータ分割方法](./content/blog/Python/pandas/Split-DataFrame.md)
 - [Listの内容からDataFrameを抽出する方法](./content/blog/Python/pandas/Extract-dataframe-from-list.md)
+- [Extract MultiLine Cell in Excel](./content/blog/Python/pandas/extract-multiLine-cell-in-excel.md)
 - [Excel Group to Dataframe](./content/blog/Python/pandas/Excel-group-to-dataframe.md)
 - [Category Dataframe to Xlsx Sheet](./content/blog/Python/pandas/Category-dataframe-to-xlsx-sheet.md)
 - [Add Colums in MultiIndex table](./content/blog/Python/pandas/Add-Colums-in-MultiIndex-table.md)
