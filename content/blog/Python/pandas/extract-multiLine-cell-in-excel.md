@@ -1,8 +1,9 @@
 ---
 title: "Extract MultiLine Cell in Excel"
 date: 2023-10-25T21:28:23+09:00
+categories: ["Python"]
+tags: ["Python", "pandas"]
 ---
-
 # セル内に複数行を持つ場合のDataframe化
 
 ## 概要
@@ -49,4 +50,3 @@ wb.close()
 print(df)
 
 ```
-
