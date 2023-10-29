@@ -3,7 +3,6 @@ title: "LAN : Local Area Network"
 date: 2023-06-08T21:49:43+09:00
 categories: ["InfoEngineer"]
 tags: ["InfoEngineer", "Network"]
-draft: True
 ---
 # LAN : Local Area Network
 
