@@ -1,7 +1,6 @@
 ---
 title: "Usage Pivottable"
 date: 2023-09-30T21:17:42+09:00
-draft: True
 categories: ["Python"]
 tags: ["Python", "pandas"]
 ---
