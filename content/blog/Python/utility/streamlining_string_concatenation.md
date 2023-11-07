@@ -1,8 +1,9 @@
 ---
 title: "Streamlining_string_concatenation"
 date: 2023-11-07T21:27:36+09:00
+categories: ["Python"]
+tags: ["Python", "utility"]
 ---
-
 # 条件分岐なしでの文字列結合
 
 ## 概要
