@@ -286,6 +286,7 @@ Hugoを使用。テーマは[npqhugo](https://github.com/saadsolimanxyz/npqhugo)
 - [画像比較用のスライド自動作成方法](./content/blog/Python/utility/Auto-ImageDiff-slide.md)
 - [大量のグラフに色付けする方法](./content/blog/Python/utility/Add-plot-Colorbar.md)
 - [Excel to PatternLislinlist](./content/blog/Python/utility/Excel-To-patternLislinlist.md)
+- [Streamlining_string_concatenation](./content/blog/Python/utility/streamlining_string_concatenation.md)
 - [Func Table Register and Exec](./content/blog/Python/utility/func-table-register-and-exec.md)
 
 ### Python/Regax
