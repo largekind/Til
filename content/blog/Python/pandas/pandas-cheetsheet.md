@@ -1,8 +1,9 @@
 ---
 title: "Pandas Cheetsheet"
 date: 2023-11-08T21:30:03+09:00
+categories: ["Python"]
+tags: ["Python", "pandas"]
 ---
-
 # Pandas Cheetsheet
 
 ## 概要
