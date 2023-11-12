@@ -54,3 +54,19 @@ df['column'] = df['column'].map(replace_dict)
 # replaceメソッドの使用例
 df['column'] = df['column'].replace(replace_dict)
 ```
+
+## 特定の条件に基づいて、値を設定する
+
+基本はwhere関数を用いる
+
+以下のような構成をしている
+
+> np.where(条件,真の場合に入れたい値,負の場合に入れたい値)
+
+また、pd上で納めたい場合はapplyとlambdaを用いて、以下のように値を設定することが可能
+
+具体的には以下のようなコード
+
+``` python
+df.apply(lambda x: 1 if x == 'A' else 0)
+```
