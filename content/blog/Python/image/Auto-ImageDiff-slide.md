@@ -2,7 +2,7 @@
 title: "画像比較用のスライド自動作成方法"
 date: 2023-06-16T23:46:59+09:00
 categories: ["Python"]
-tags: ["Python", "utility"]
+tags: ["Python", "utility", "image"]
 ---
 # 画像比較用のスライド自動作成方法
 

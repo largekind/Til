@@ -1,8 +1,9 @@
 ---
 title: "Lambda"
 date: 2023-11-10T23:27:28+09:00
+categories: ["Python"]
+tags: ["Python", "utility"]
 ---
-
 # Lambda
 
 ## 概要

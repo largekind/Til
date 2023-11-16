@@ -1,8 +1,9 @@
 ---
 title: "ISP Guide"
 date: 2023-11-14T21:21:02+09:00
+categories: ["ISP"]
+tags: ["ISP"]
 ---
-
 # ISP Guide
 
 ## 概要
@@ -34,5 +35,3 @@ ISPについて包括的に学べる次のgithub [ISP-Guide](https://github.com/
   - Python開発
   - Scala開発
   - R開発
-
-
