@@ -90,6 +90,10 @@ Hugoを使用。テーマは[npqhugo](https://github.com/saadsolimanxyz/npqhugo)
 
 - [PowerAutomate](./content/blog/PowerAutomate/PowerAutomate.md)
 
+### ISP
+
+- [ISP Guide](./content/blog/ISP/ISP-Guide.md)
+
 ### SoftWare
 
 - [Trunk Base Development](./content/blog/SoftWare/trunk-base-development.md)
@@ -261,6 +265,8 @@ Hugoを使用。テーマは[npqhugo](https://github.com/saadsolimanxyz/npqhugo)
 - [Adding Rectangle to Image](./content/blog/Python/image/adding-rectangle-to-image.md)
 - [Create Select Area on Image Using Tkinter](./content/blog/Python/image/Create-select-area-on-image-using-tkinter.md)
 - [Calculating White Balance From Rgb](./content/blog/Python/image/calculating-white-balance-from-rgb.md)
+- [バイナリのような画像を監視、表示するツール](./content/blog/Python/image/Bin-Image-Checker.md)
+- [画像比較用のスライド自動作成方法](./content/blog/Python/image/Auto-ImageDiff-slide.md)
 - [Crop and Concat Direction](./content/blog/Python/image/crop-and-concat-direction.md)
 - [Reordering Blocks in 2d Array](./content/blog/Python/image/reordering-blocks-in-2d-array.md)
 
@@ -278,13 +284,12 @@ Hugoを使用。テーマは[npqhugo](https://github.com/saadsolimanxyz/npqhugo)
 - [PID Autotuning](./content/blog/Python/utility/PID-Autotuning.md)
 - [一定間隔でグラフに凡例を追加する方法](./content/blog/Python/utility/Add-Labels-at-Regular-Intervals.md)
 - [Python上での簡単なPID制御](./content/blog/Python/utility/Python-PID.md)
+- [Lambda](./content/blog/Python/utility/lambda.md)
 - [ログ出力中にtqdmでの進捗表示を行う](./content/blog/Python/utility/logging-tqdm-write.md)
 - [DirectoryDivide](./content/blog/Python/utility/DirectoryDivide.md)
 - [ファイル群からディレクトリを抽出する](./content/blog/Python/utility/glob-to-dir-list.md)
 - [ColorChecker Detection](./content/blog/Python/utility/ColorChecker-detection.md)
 - [Regax File Sorting](./content/blog/Python/utility/regax-file-sorting.md)
-- [バイナリのような画像を監視、表示するツール](./content/blog/Python/utility/Bin-Image-Checker.md)
-- [画像比較用のスライド自動作成方法](./content/blog/Python/utility/Auto-ImageDiff-slide.md)
 - [大量のグラフに色付けする方法](./content/blog/Python/utility/Add-plot-Colorbar.md)
 - [Excel to PatternLislinlist](./content/blog/Python/utility/Excel-To-patternLislinlist.md)
 - [Streamlining_string_concatenation](./content/blog/Python/utility/streamlining_string_concatenation.md)
