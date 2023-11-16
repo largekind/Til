@@ -70,3 +70,12 @@ df['column'] = df['column'].replace(replace_dict)
 ``` python
 df.apply(lambda x: 1 if x == 'A' else 0)
 ```
+
+## ソート
+
+indexでのソートはdf.sort_index()、値でのソートはdf.sort_values()になる
+
+sort_values()であれば以下のようなコード リストで渡せばソートの優先度が決められる
+``` python
+df.sort_values(by=["hoge","fuga"])
+```
