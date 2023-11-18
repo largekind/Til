@@ -79,3 +79,10 @@ sort_values()であれば以下のようなコード リストで渡せばソー
 ``` python
 df.sort_values(by=["hoge","fuga"])
 ```
+
+## インデックスの初期化
+
+reset_index()を使用。引数のdrop=Trueを入れておかないと、元のインデックスが"index"の名前を持つ列として追加される
+```
+df.reset_index(drop=True)
+```
