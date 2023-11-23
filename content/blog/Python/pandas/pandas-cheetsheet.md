@@ -115,3 +115,10 @@ df = df.query('data == "Friday"')
 
 条件式には&や|を用いるが、現状はor/andでもよい模様
 
+## 時刻(datetime)での抽出
+
+以下のようにdate_timeに条件式をかませることで可能
+
+```python
+filtered_df = train_df.query('date >= datetime.datetime(2011, 7, 20)  & date <= datetime.datetime(2011, 8, 31)')
+```
