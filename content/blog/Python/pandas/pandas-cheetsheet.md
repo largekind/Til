@@ -122,3 +122,11 @@ df = df.query('data == "Friday"')
 ```python
 filtered_df = train_df.query('date >= datetime.datetime(2011, 7, 20)  & date <= datetime.datetime(2011, 8, 31)')
 ```
+
+## groupbyを用いた収集
+
+以下のようなもので収集可能。複数指定したい場合はaggを用いる
+
+''' python
+train_df.groupby('day_of_week')['count'].agg(['mean', 'median']).reset_index()
+'''
