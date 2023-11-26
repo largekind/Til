@@ -1,8 +1,9 @@
 ---
 title: "Devops"
 date: 2023-11-26T21:30:55+09:00
+categories: ["SoftWare"]
+tags: ["SoftWare"]
 ---
-
 # Devops
 
 ## 概要
