@@ -99,6 +99,7 @@ Run command in shell
 
 ### SoftWare
 
+- [Devops](./content/blog/SoftWare/devops.md)
 - [Trunk Base Development](./content/blog/SoftWare/trunk-base-development.md)
 
 ### SoftWare/Git

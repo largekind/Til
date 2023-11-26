@@ -96,6 +96,7 @@ Hugoを使用。テーマは[npqhugo](https://github.com/saadsolimanxyz/npqhugo)
 
 ### SoftWare
 
+- [Devops](./content/blog/SoftWare/devops.md)
 - [Trunk Base Development](./content/blog/SoftWare/trunk-base-development.md)
 
 ### SoftWare/Git
