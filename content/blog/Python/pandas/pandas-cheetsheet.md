@@ -130,3 +130,19 @@ filtered_df = train_df.query('date >= datetime.datetime(2011, 7, 20)  & date <= 
 ''' python
 train_df.groupby('day_of_week')['count'].agg(['mean', 'median']).reset_index()
 '''
+
+## 複数の集約関数をカラムごとに使用
+
+以下のようにaggを用いると可能
+
+``` python
+df.agg['sum','mean']
+```
+
+groupbyと組み合わせると、特定の値ごとに対して適用も可能
+``` python
+df.groupby('month').agg({
+    'count': 'median',
+    'temperature': 'mean'
+}).reset_index()
+```
