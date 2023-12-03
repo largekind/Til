@@ -14,6 +14,12 @@ tags: ["Python", "pandas"]
 
 > pandas.Series.value_counts()
 
+ちなみに図も出力できる模様  
+例えばヒストグラムであれば以下のようにする
+``` python
+ pandas.Series.value_counts().plot(kind='hist')
+```
+
 ## カラムの名前を辞書に基づいて変更する
 
 ```python
@@ -145,4 +151,20 @@ df.groupby('month').agg({
     'count': 'median',
     'temperature': 'mean'
 }).reset_index()
+```
+
+## 棒グラフの表示
+
+plt.bar()を使う
+
+``` python
+plt.bar(ユニーク配列、ユニーク要素の出現回数)
+```
+
+例えばdf.value_counts()で得たものを出力したいのであれば以下
+```
+df_plot = df.value_counts()
+plt.bar(df_plot.index, df_plot.values)
+```
+
 ```
