@@ -153,6 +153,13 @@ df.groupby('month').agg({
 }).reset_index()
 ```
 
+## 特定カラムの欠損をサンプルごと削除
+
+df.dropna()を用いれば可能。subset引数を用いれば、カラムも指定できる
+``` python
+df.dropna(subset=['A'])
+```
+
 ## 棒グラフの表示
 
 plt.bar()を使う
