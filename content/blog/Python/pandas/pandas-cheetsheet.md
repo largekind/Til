@@ -174,4 +174,12 @@ df_plot = df.value_counts()
 plt.bar(df_plot.index, df_plot.values)
 ```
 
+## 要約情報の表示
+
+df.info()を使う
+
+行数、列数、各列の非欠損値の数、各列のデータ型、使用メモリ数が出力される
+
+``` python
+df.info()
 ```
