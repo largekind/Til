@@ -183,3 +183,13 @@ df.info()を使う
 ``` python
 df.info()
 ```
+
+## 欠損の穴埋め
+
+fillna()を用いる
+
+最頻値であればmode()を用いて以下のように穴埋めが可能
+
+```python
+df.fillna(df.mode()[0])
+```
