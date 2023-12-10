@@ -193,3 +193,11 @@ fillna()を用いる
 ```python
 df.fillna(df.mode()[0])
 ```
+
+## インデックス,カラム名にアクセス
+
+df.locを用いる
+
+``` python
+df.loc['インデックス名', 'カラム名']
+```
