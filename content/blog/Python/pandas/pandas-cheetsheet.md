@@ -201,3 +201,16 @@ df.locを用いる
 ``` python
 df.loc['インデックス名', 'カラム名']
 ```
+
+## 正規表現に一致する行を抽出する
+
+df.str.contains("正規表現",オプション)で可能
+
+例えば以下なら大文字小文字を区別しない、Jから始まるbook_authorを取得できる。
+
+``` python
+filtered_df_without_query = books_df[books_df['book_author'].str.contains("^J", regex=True, case=False)]
+```
+
+- regax : 正規表現有効無効 デフォルトTrue
+- case : 大文字小文字識別するか デフォルトTrue
