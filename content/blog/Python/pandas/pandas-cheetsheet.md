@@ -133,6 +133,8 @@ filtered_df = train_df.query('date >= datetime.datetime(2011, 7, 20)  & date <= 
 
 以下のようなもので収集可能。複数指定したい場合はaggを用いる
 
+> mean_by_group = データフレーム型.groupby('カラム1')['カラム2'].mean()
+
 ''' python
 train_df.groupby('day_of_week')['count'].agg(['mean', 'median']).reset_index()
 '''
