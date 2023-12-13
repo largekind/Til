@@ -176,6 +176,21 @@ df_plot = df.value_counts()
 plt.bar(df_plot.index, df_plot.values)
 ```
 
+## 箱ひげ図の表示
+
+plt.boxplot(df)あるいはplot.box()で箱ひげ図が作成できる
+
+```python 
+import matplotlib.pyplot as plt
+
+# カラム「age」の値について箱ひげ図を描画する
+plt.boxplot(users['age']) # 方法1
+df['age'].plot.box() # 方法2
+users['age'].plot(kind="box") #方法3
+plt.show()
+
+```
+
 ## 要約情報の表示
 
 df.info()を使う
