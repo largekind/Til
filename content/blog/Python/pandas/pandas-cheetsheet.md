@@ -242,4 +242,3 @@ pd.mergeを使う
 - inner : 内部結合（default）
 - left : 左外部結合
 - right : 右外部結合
-
