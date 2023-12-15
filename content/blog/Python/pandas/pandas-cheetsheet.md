@@ -231,3 +231,15 @@ filtered_df_without_query = books_df[books_df['book_author'].str.contains("^J", 
 
 - regax : 正規表現有効無効 デフォルトTrue
 - case : 大文字小文字識別するか デフォルトTrue
+
+## データフレームの共通するカラムを結合する
+
+pd.mergeを使う
+
+> pd.merge(df1,df2,on='カラム名', how='結合方法')
+
+結合方法は以下の通り
+- inner : 内部結合（default）
+- left : 左外部結合
+- right : 右外部結合
+
