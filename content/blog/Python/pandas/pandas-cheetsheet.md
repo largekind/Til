@@ -242,3 +242,11 @@ pd.mergeを使う
 - inner : 内部結合（default）
 - left : 左外部結合
 - right : 右外部結合
+
+## データーフレームを任意の割合で分割する
+
+scikit-learnライブラリにあるtrain_test_splitを使用する
+
+``` python
+    train_df, test_df = train_test_split(データフレーム, test_size=テストデータの割合)
+```
