@@ -127,6 +127,7 @@ Hugoを使用。テーマは[npqhugo](https://github.com/saadsolimanxyz/npqhugo)
 ### Semiconductor/Camera/Raw-process
 
 - [Demosaic](./content/blog/Semiconductor/Camera/Raw-process/Demosaic.md)
+- [Detection Macbeth](./content/blog/Semiconductor/Camera/Raw-process/detection-Macbeth.md)
 - [黒レベル補正](./content/blog/Semiconductor/Camera/Raw-process/black-level-correction.md)
 
 ### Semiconductor/Industory
