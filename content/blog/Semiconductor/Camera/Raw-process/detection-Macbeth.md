@@ -1,9 +1,10 @@
 ---
 title: "Detection Macbeth"
 date: 2023-12-17T20:03:09+09:00
-draft: true
+draft: True
+categories: ["Semiconductor"]
+tags: ["Semiconductor", "Camera", "Raw-process"]
 ---
-
 # Detection Macbeth
 
 ## 概要
