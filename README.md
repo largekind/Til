@@ -282,6 +282,7 @@ Run command in shell
 - [Tkinter](./content/blog/Python/API/tkinter.md)
 - [Tsfresh](./content/blog/Python/API/tsfresh.md)
 - [PandasGUI](./content/blog/Python/API/pandasGUI.md)
+- [Poetry](./content/blog/Python/API/poetry.md)
 - [Pillow](./content/blog/Python/API/Pillow.md)
 
 ### Python/utility
