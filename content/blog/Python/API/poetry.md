@@ -1,9 +1,10 @@
 ---
 title: "Poetry"
 date: 2023-12-18T21:03:02+09:00
-draft: true
+draft: True
+categories: ["Python"]
+tags: ["Python", "API"]
 ---
-
 # Poetry
 
 ## 概要
