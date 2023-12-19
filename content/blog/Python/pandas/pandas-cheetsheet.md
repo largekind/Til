@@ -250,3 +250,8 @@ scikit-learnライブラリにあるtrain_test_splitを使用する
 ``` python
     train_df, test_df = train_test_split(データフレーム, test_size=テストデータの割合)
 ```
+
+stratifyパラメータを使うと、指定したdataframeの分布を崩さずに分割することができる(層化抽出法)
+``` python
+    train_df, test_df = train_test_split(データフレーム, test_size=テストデータの割合, stratify='層化抽出に使用するカラムの名前')
+```
