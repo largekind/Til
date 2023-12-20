@@ -255,3 +255,15 @@ stratifyパラメータを使うと、指定したdataframeの分布を崩さず
 ``` python
     train_df, test_df = train_test_split(データフレーム, test_size=テストデータの割合, stratify='層化抽出に使用するカラムの名前')
 ```
+
+## 正規化を行う
+
+正規化の式は以下になるので、その形になるように処理を書く
+
+> (元の値 - 変数の最小値) / (変数の最大値 - 変数の最小値)
+
+pythonなら以下の通り
+
+``` python
+df = (df - df.min()) / (df.max() - df.min())
+```
