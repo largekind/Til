@@ -267,3 +267,14 @@ pythonなら以下の通り
 ``` python
 df = (df - df.min()) / (df.max() - df.min())
 ```
+
+## 標準化を行う
+
+標準化の式は以下になる
+
+> (元の値 - 変数の平均) / 標準偏差
+
+pythonなら以下の通り
+``` python
+df = df - df.mean() / df.std()
+```
