@@ -160,6 +160,10 @@ Run command in shell
 - [AI入門](./content/blog/DXQuest/AI_Beginner/AI-Intoroduction.md)
 - [評価関数](./content/blog/DXQuest/AI_Beginner/Evalution-function.md)
 
+### DXQuest/utility
+
+- [Market Research](./content/blog/DXQuest/utility/market-research.md)
+
 ### AI
 
 - [docker](./content/blog/AI/docker.md)
