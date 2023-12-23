@@ -1,8 +1,9 @@
 ---
 title: "Market Research"
 date: 2023-12-22T21:54:28+09:00
+categories: ["DXQuest"]
+tags: ["DXQuest", "utility"]
 ---
-
 # Market Research
 
 ## 概要
