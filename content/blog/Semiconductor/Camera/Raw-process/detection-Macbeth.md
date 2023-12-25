@@ -189,3 +189,84 @@ cv2.waitKey(0)
 cv2.destroyAllWindows()
 
 ```
+
+```
+import cv2
+import numpy as np
+
+def detect_macbeth_chart_with_surf(image, template):
+    # SURF検出器の初期化
+    surf = cv2.xfeatures2d.SURF_create(400)
+
+    # テンプレートと画像のキーポイントとディスクリプタを検出
+    keypoints_template, descriptors_template = surf.detectAndCompute(template, None)
+    keypoints_image, descriptors_image = surf.detectAndCompute(image, None)
+
+    # FLANNマッチャーを使用してディスクリプタ間のマッチングを行う
+    FLANN_INDEX_KDTREE = 1
+    index_params = dict(algorithm=FLANN_INDEX_KDTREE, trees=5)
+    search_params = dict(checks=50)
+    flann = cv2.FlannBasedMatcher(index_params, search_params)
+    matches = flann.knnMatch(descriptors_template, descriptors_image, k=2)
+
+    # レシオテストを使用して良いマッチングを選択
+    good_matches = []
+    for m, n in matches:
+        if m.distance < 0.7 * n.distance:
+            good_matches.append(m)
+
+    # ホモグラフィを計算
+    if len(good_matches) > 4:
+        src_pts = np.float32([keypoints_template[m.queryIdx].pt for m in good_matches]).reshape(-1, 1, 2)
+        dst_pts = np.float32([keypoints_image[m.trainIdx].pt for m in good_matches]).reshape(-1, 1, 2)
+
+        H, _ = cv2.findHomography(src_pts, dst_pts, cv2.RANSAC, 5.0)
+
+        # ホモグラフィを使用して各パッチの位置を計算
+        h, w = template.shape[:2]
+        patch_coords = []
+        patch_width = w / 6
+        patch_height = h / 4
+        for i in range(6):
+            for j in range(4):
+                pt1 = np.array([i * patch_width, j * patch_height, 1]).reshape(-1, 1)
+                pt2 = np.array([(i + 1) * patch_width, j * patch_height, 1]).reshape(-1, 1)
+                pt3 = np.array([(i + 1) * patch_width, (j + 1) * patch_height, 1]).reshape(-1, 1)
+                pt4 = np.array([i * patch_width, (j + 1) * patch_height, 1]).reshape(-1, 1)
+                dst_pt1 = np.matmul(H, pt1)
+                dst_pt2 = np.matmul(H, pt2)
+                dst_pt3 = np.matmul(H, pt3)
+                dst_pt4 = np.matmul(H, pt4)
+                dst_pt1 /= dst_pt1[2]
+                dst_pt2 /= dst_pt2[2]
+                dst_pt3 /= dst_pt3[2]
+                dst_pt4 /= dst_pt4[2]
+                patch_coords.append((dst_pt1[:2], dst_pt2[:2], dst_pt3[:2], dst_pt4[:2]))
+
+        return patch_coords
+    else:
+        # 十分なマッチングが見つからない場合
+        return None
+
+# ダミーの画像とテンプレートを生成（テスト用）
+image = np.random.rand(800, 600) * 255
+image = image.astype(np.uint8)
+template = np.random.rand(100, 150) * 255
+template = template.astype(np.uint8)
+
+# マクベスチャートのパッチ座標を検出
+macbeth_patches = detect_macbeth_chart_with_surf(image, template)
+
+# 結果の表示
+if macbeth_patches is not None:
+    for patch in macbeth_patches:
+        pts = np.array([patch[0][0], patch[1][0], patch[2][0], patch[3][0]], np.int32)
+        pts = pts.reshape((-1, 1, 2))
+        cv2.polylines(image, [pts], True, (0, 255, 0), 3)
+    cv2.imshow('Detected Macbeth Chart', image)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
+else:
+    print("マクベスチャートは検出されませんでした。")
+
+```
