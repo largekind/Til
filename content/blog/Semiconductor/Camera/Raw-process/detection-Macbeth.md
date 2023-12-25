@@ -69,3 +69,75 @@ def auto_canny(image, sigma=0.33):
     return edged
 
 ```
+
+watershedを用いた版
+
+``` python
+import cv2
+import numpy as np
+
+def apply_watershed(grayscale_image):
+    # ノイズ除去のための平滑化
+    blurred = cv2.GaussianBlur(grayscale_image, (5, 5), 0)
+
+    # Sure background areaの特定
+    dilated = cv2.dilate(blurred, np.ones((7, 7), np.uint8), iterations=2)
+
+    # Sure foreground area（前景）の特定
+    dist_transform = cv2.distanceTransform(blurred, cv2.DIST_L2, 5)
+    _, sure_fg = cv2.threshold(dist_transform, 0.7 * dist_transform.max(), 255, 0)
+
+    # Unknown region（不明な領域）の特定
+    sure_fg = np.uint8(sure_fg)
+    unknown = cv2.subtract(dilated, sure_fg)
+
+    # ラベリング
+    _, markers = cv2.connectedComponents(sure_fg)
+
+    # ウォーターシェッドのマーカーとして1を足す（背景は0のため）
+    markers = markers + 1
+
+    # Unknown regionに対して0のマーカーを設定
+    markers[unknown == 255] = 0
+
+    # ウォーターシェッド変換を適用
+    markers = cv2.watershed(cv2.cvtColor(grayscale_image, cv2.COLOR_GRAY2BGR), markers)
+
+    return markers
+
+def detect_macbeth_chart(grayscale_image):
+    markers = apply_watershed(grayscale_image)
+    
+    # マクベスチャートの領域を見つけるための輪郭検出
+    macbeth_contours = []
+    for label in np.unique(markers):
+        if label == 0 or label == -1:
+            continue
+
+        mask = np.zeros(grayscale_image.shape, dtype="uint8")
+        mask[markers == label] = 255
+
+        cnts, _ = cv2.findContours(mask.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+        if cnts:
+            largest_contour = max(cnts, key=cv2.contourArea)
+            macbeth_contours.append(largest_contour)
+
+    return macbeth_contours
+
+# 画像を読み込む
+# 実際には画像ファイルから読み込んだグレースケール画像データを使用します。
+grayscale_image = np.random.rand(800, 600) * 255
+grayscale_image = grayscale_image.astype(np.uint8)
+
+# マクベスチャートの検出
+macbeth_contours = detect_macbeth_chart(grayscale_image)
+
+# 結果の表示
+for contour in macbeth_contours:
+    cv2.drawContours(grayscale_image, [contour], -1, (255), 2)
+
+cv2.imshow('Detected Macbeth Chart', grayscale_image)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
+```
