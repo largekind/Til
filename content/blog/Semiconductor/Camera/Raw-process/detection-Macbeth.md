@@ -17,46 +17,55 @@ tags: ["Semiconductor", "Camera", "Raw-process"]
 import cv2
 import numpy as np
 
-def detect_macbeth_chart(image):
-    # グレースケール画像に変換
-    grayscale = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+def detect_macbeth_chart(grayscale_image):
+    # 平滑化を行い、誤判定を減らす
+    blurred = cv2.GaussianBlur(grayscale_image, (5, 5), 0)
     
     # エッジ検出
-    edges = cv2.Canny(grayscale, 50, 150)
+    edges = cv2.Canny(blurred, 50, 150)
     
     # 輪郭検出
     contours, _ = cv2.findContours(edges, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
     
-    # マクベスチャートの検出
+    # マクベスチャートの輪郭を見つける
     macbeth_contours = []
     for contour in contours:
-        # 近似輪郭を取得
-        approx = cv2.approxPolyDP(contour, 0.01 * cv2.arcLength(contour, True), True)
-        # 四角形（マクベスチャートは通常24のスウォッチを持つ矩形）
-        if len(approx) == 4:
-            # 比率チェック (例: 4:6)
+        # 近似した輪郭を取得
+        approx = cv2.approxPolyDP(contour, 0.02 * cv2.arcLength(contour, True), True)
+        # 四角形かつ直線的な輪郭を探す
+        if len(approx) == 4 and cv2.isContourConvex(approx):
             _, _, w, h = cv2.boundingRect(approx)
             aspect_ratio = float(w) / h
             if 1.3 < aspect_ratio < 1.7:  # マクベスチャートのおおよそのアスペクト比
                 macbeth_contours.append(approx)
     
-    # 検出されたマクベスチャートの輪郭を画像に描画
-    if macbeth_contours:
-        for contour in macbeth_contours:
-            cv2.drawContours(image, [contour], -1, (0, 255, 0), 2)
+    return macbeth_contours
+
+# グレースケール画像の読み込み
+grayscale_image = load_grayscale_image('path_to_raw_image.raw')
+
+# 2次元データを扱うために適切な形状に変換
+grayscale_image = grayscale_image.reshape((*grayscale_image.shape, 1))
+
+# マクベスチャートの検出
+macbeth_contours = detect_macbeth_chart(grayscale_image[..., 0])
+
+# 検出結果の表示
+for contour in macbeth_contours:
+    # 検出された輪郭を元の画像に描画
+    cv2.polylines(grayscale_image, [contour], True, (255), 2)
+
+def auto_canny(image, sigma=0.33):
+    # 画像の中央値を計算
+    v = np.median(image)
     
-    return image, macbeth_contours
-
-# 画像を読み込み
-image = cv2.imread('/mnt/data/IMG_1967.png')
-
-# マクベスチャートを検出
-processed_image, macbeth_contours = detect_macbeth_chart(image)
-
-# 結果を表示
-if macbeth_contours:  # マクベスチャートが見つかった場合のみ
-    cv2.imshow('Detected Macbeth Chart', processed_image)
-    cv2.waitKey(0)
-    cv2.destroyAllWindows()
+    # 閾値を自動的に決定
+    lower = int(max(0, (1.0 - sigma) * v))
+    upper = int(min(255, (1.0 + sigma) * v))
+    
+    # Cannyエッジ検出を適用
+    edged = cv2.Canny(image, lower, upper)
+    
+    return edged
 
 ```
