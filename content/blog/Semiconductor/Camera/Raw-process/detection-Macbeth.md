@@ -147,36 +147,60 @@ template matchingを使う版テスト
 import cv2
 import numpy as np
 
+def match_template(image, template):
+    best_match = None
+    best_value = 0
+    best_scale = 1
+    best_angle = 0
+
+    for scale in np.linspace(0.5, 1.5, 20):
+        for angle in range(0, 360, 10):
+            resized_template = cv2.resize(template, None, fx=scale, fy=scale, interpolation=cv2.INTER_AREA)
+            rows, cols = resized_template.shape[:2]
+            M = cv2.getRotationMatrix2D((cols / 2, rows / 2), angle, 1)
+            rotated_template = cv2.warpAffine(resized_template, M, (cols, rows))
+
+            result = cv2.matchTemplate(image, rotated_template, cv2.TM_CCOEFF_NORMED)
+            _, max_val, _, max_loc = cv2.minMaxLoc(result)
+
+            if max_val > best_value:
+                best_value = max_val
+                best_match = max_loc
+                best_scale = scale
+                best_angle = angle
+
+    return best_match, best_scale, best_angle, best_value
+
 def find_macbeth_patches(image, template):
-    # テンプレートマッチングでマクベスチャートの位置を特定
-    result = cv2.matchTemplate(image, template, cv2.TM_CCOEFF_NORMED)
-    _, _, _, max_loc = cv2.minMaxLoc(result)
+    best_match, best_scale, best_angle, _ = match_template(image, template)
 
-    # テンプレートのサイズ
+    # マクベスチャートの各パッチの座標を計算
     t_height, t_width = template.shape[:2]
+    patch_width = t_width / 6 * best_scale
+    patch_height = t_height / 4 * best_scale
 
-    # パッチのサイズを計算（マクベスチャートは通常6x4のグリッド）
-    patch_width = t_width / 6
-    patch_height = t_height / 4
-
-    # 各パッチの座標を計算
     patches = []
     for i in range(6):
         for j in range(4):
-            top_left = (max_loc[0] + i * patch_width, max_loc[1] + j * patch_height)
-            bottom_right = (top_left[0] + patch_width, top_left[1] + patch_height)
+            top_left_x = best_match[0] + i * patch_width
+            top_left_y = best_match[1] + j * patch_height
+            bottom_right_x = top_left_x + patch_width
+            bottom_right_y = top_left_y + patch_height
+
+            top_left = (int(top_left_x), int(top_left_y))
+            bottom_right = (int(bottom_right_x), int(bottom_right_y))
+
             patches.append((top_left, bottom_right))
 
     return patches
 
-# テンプレートと画像の読み込み
-# ここではダミーデータを生成しています
+# ダミーの画像とテンプレートを生成（テスト用）
 image = np.random.rand(800, 600) * 255
 image = image.astype(np.uint8)
 template = np.random.rand(100, 150) * 255
 template = template.astype(np.uint8)
 
-# マクベスチャートの各パッチの座標を見つける
+# マクベスチャートの各パッチの座標を検出
 macbeth_patches = find_macbeth_patches(image, template)
 
 # 各パッチを描画
