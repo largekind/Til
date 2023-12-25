@@ -141,3 +141,51 @@ cv2.waitKey(0)
 cv2.destroyAllWindows()
 
 ```
+template matchingを使う版テスト
+
+``` python
+import cv2
+import numpy as np
+
+def find_macbeth_patches(image, template):
+    # テンプレートマッチングでマクベスチャートの位置を特定
+    result = cv2.matchTemplate(image, template, cv2.TM_CCOEFF_NORMED)
+    _, _, _, max_loc = cv2.minMaxLoc(result)
+
+    # テンプレートのサイズ
+    t_height, t_width = template.shape[:2]
+
+    # パッチのサイズを計算（マクベスチャートは通常6x4のグリッド）
+    patch_width = t_width / 6
+    patch_height = t_height / 4
+
+    # 各パッチの座標を計算
+    patches = []
+    for i in range(6):
+        for j in range(4):
+            top_left = (max_loc[0] + i * patch_width, max_loc[1] + j * patch_height)
+            bottom_right = (top_left[0] + patch_width, top_left[1] + patch_height)
+            patches.append((top_left, bottom_right))
+
+    return patches
+
+# テンプレートと画像の読み込み
+# ここではダミーデータを生成しています
+image = np.random.rand(800, 600) * 255
+image = image.astype(np.uint8)
+template = np.random.rand(100, 150) * 255
+template = template.astype(np.uint8)
+
+# マクベスチャートの各パッチの座標を見つける
+macbeth_patches = find_macbeth_patches(image, template)
+
+# 各パッチを描画
+for top_left, bottom_right in macbeth_patches:
+    cv2.rectangle(image, top_left, bottom_right, (0, 255, 0), 2)
+
+# 結果の表示
+cv2.imshow('Macbeth Chart Patches', image)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
+```
