@@ -1,8 +1,9 @@
 ---
 title: "Express Line"
 date: 2023-12-24T22:05:20+09:00
+categories: ["DXQuest"]
+tags: ["DXQuest", "utility"]
 ---
-
 # Express Line in Service Industry
 
 ## 概要
