@@ -160,6 +160,7 @@ Hugoを使用。テーマは[npqhugo](https://github.com/saadsolimanxyz/npqhugo)
 ### DXQuest/utility
 
 - [Market Research](./content/blog/DXQuest/utility/market-research.md)
+- [Express Line](./content/blog/DXQuest/utility/Express-Line.md)
 
 ### AI
 
