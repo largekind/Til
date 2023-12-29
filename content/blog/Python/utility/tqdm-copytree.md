@@ -1,8 +1,9 @@
 ---
 title: "Tqdm Copytree"
 date: 2023-12-29T10:33:13+09:00
+categories: ["Python"]
+tags: ["Python", "utility"]
 ---
-
 # Tqdm Copytree
 
 ## 概要
