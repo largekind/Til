@@ -238,6 +238,7 @@ Hugoを使用。テーマは[npqhugo](https://github.com/saadsolimanxyz/npqhugo)
 - [Winget](./content/blog/Windows/winget.md)
 - [Windows Storeでインストールができなくなったトラブルシューティング](./content/blog/Windows/StoreInstall-trobule.md)
 - [Bat上でファイルを選択させる方法](./content/blog/Windows/Select-file-on-bat.md)
+- [Pyenv Install Bat](./content/blog/Windows/pyenv-install-bat.md)
 - [WSLのドライブ変更法](./content/blog/Windows/WSL-change-dirve.md)
 
 ### Python/pandas
