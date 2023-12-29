@@ -1,9 +1,10 @@
 ---
 title: "Pyenv Install Bat"
 date: 2023-12-29T09:48:22+09:00
-draft: true
+draft: True
+categories: ["Windows"]
+tags: ["Windows"]
 ---
-
 # Pyenv Install Bat
 
 ## 概要
