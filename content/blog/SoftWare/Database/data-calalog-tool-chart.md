@@ -1,9 +1,10 @@
 ---
 title: "Data Calalog Tool Chart"
 date: 2024-01-18T23:37:41+09:00
-draft: true
+draft: True
+categories: ["SoftWare"]
+tags: ["SoftWare", "Database"]
 ---
-
 # データカタログツールの比較
 
 ## 概要

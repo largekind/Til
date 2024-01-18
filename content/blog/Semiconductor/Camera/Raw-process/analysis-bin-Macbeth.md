@@ -1,9 +1,10 @@
 ---
 title: "Analysis Bin Macbeth"
 date: 2024-01-09T22:58:38+09:00
-draft: true
+draft: True
+categories: ["Semiconductor"]
+tags: ["Semiconductor", "Camera", "Raw-process"]
 ---
-
 # Analysis Bin Macbeth
 
 ## 概要

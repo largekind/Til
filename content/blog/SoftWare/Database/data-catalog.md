@@ -1,8 +1,9 @@
 ---
 title: "Data Catalog"
 date: 2024-01-18T23:21:33+09:00
+categories: ["SoftWare"]
+tags: ["SoftWare", "Database"]
 ---
-
 # データカタログ
 
 ## 概要
