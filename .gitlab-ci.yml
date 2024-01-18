@@ -64,7 +64,7 @@ update readme:
 update HugoFrontmatter:
   script:
     - apk add --no-cache python3 py3-pip
-    - pip3 install pyyaml python-frontmatter
+    - pip3 install pyyaml python-frontmatter --break-system-packages
     - git checkout $CI_COMMIT_REF_NAME
     - python3 setHugoMd.py
     - git config --global user.name "GitLab CI/CD"
