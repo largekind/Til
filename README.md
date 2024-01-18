@@ -109,6 +109,11 @@ Run command in shell
 - [Pushing to a Repository in a GitLab CI/CD Job](./content/blog/SoftWare/Git/Push-Repo-Gitlab-CDCI-job.md)
 - [Gitlab CI/CD ステージを使用したジョブの順次実行](./content/blog/SoftWare/Git/Gitlab-CICD-stage-job.md)
 
+### SoftWare/Database
+
+- [Data Catalog](./content/blog/SoftWare/Database/data-catalog.md)
+- [Data Calalog Tool Chart](./content/blog/SoftWare/Database/data-calalog-tool-chart.md)
+
 ### Semiconductor/HardWare
 
 - [PLL(Palse Lock Loop)](./content/blog/Semiconductor/HardWare/PLL.md)
@@ -131,6 +136,7 @@ Run command in shell
 
 - [Demosaic](./content/blog/Semiconductor/Camera/Raw-process/Demosaic.md)
 - [Detection Macbeth](./content/blog/Semiconductor/Camera/Raw-process/detection-Macbeth.md)
+- [Analysis Bin Macbeth](./content/blog/Semiconductor/Camera/Raw-process/analysis-bin-Macbeth.md)
 - [黒レベル補正](./content/blog/Semiconductor/Camera/Raw-process/black-level-correction.md)
 
 ### Semiconductor/Industory
