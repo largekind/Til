@@ -21,3 +21,30 @@ tags: ["SoftWare", "Database"]
 | Metabase        | 中         | 中                    | 高             | 中             | 中               | 中              | 中                          | 低             | 低         | AGPL-3.0   |
 | DataHub         | 中         | 中                    | 中             | 高             | 高               | 中              | 中                          | 低             | 中         | Apache 2.0 |
 | OpenMetadata    | 中         | 中                    | 中             | 高             | 高               | 中              | 中                          | 低             | 中         | Apache 2.0 |
+
+## 比較情報
+
+調査中
+
+### Apache Atlas
+
+- Python連携 : 低
+  - もともとJavaとして記載されており、Python APIの提供はあるが限定的らしいが…情報不足
+  - ぱっと見る限りは使いやすそうに見えるので、何を根拠にしているか不明
+  - [Python API](https://github.com/apache/atlas/tree/master/intg/src/main/python)
+- データ追加/削除の簡易性 
+- 環境構築の簡易性 
+- スケーラビリティ 
+- 拡張性とカスタマイズ 
+- コミュニティサポート 
+- テキストベースのデータ統合の容易さ 
+- 日本語サポート 
+  - 皆無
+- 学習コスト
+  - [Document](https://atlas.apache.org/#/)
+
+### Amundsen
+### CKAN
+### Metabase
+### DataHub
+### OpenMetadata
