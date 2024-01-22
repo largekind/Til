@@ -214,7 +214,9 @@ cv2.destroyAllWindows()
 
 ```
 
-```
+SURF版
+
+``` python
 import cv2
 import numpy as np
 
@@ -292,5 +294,130 @@ if macbeth_patches is not None:
     cv2.destroyAllWindows()
 else:
     print("マクベスチャートは検出されませんでした。")
+
+```
+
+bmp検出
+
+``` python
+import cv2
+import numpy as np
+from colour_checker_detection.detection.common import (
+    DTYPE_FLOAT_DEFAULT,
+    SETTINGS_DETECTION_COLORCHECKER_CLASSIC,
+    DataDetectionColourChecker,
+    as_int32_array,
+    quadrilateralise_contours,
+    sample_colour_checker,
+)
+from colour_checker_detection.detection.inference import SETTINGS_INFERENCE_COLORCHECKER_CLASSIC, inferencer_default
+from colour.utilities import (
+    Structure,
+    as_int_scalar,
+    is_string,
+)
+
+from colour.hints import (
+    Any,
+    ArrayLike,
+    Callable,
+    Dict,
+    NDArrayFloat,
+    NDArrayInt,
+    Tuple,
+    Union,
+    cast,
+)
+from colour.io import convert_bit_depth, read_image, write_image
+
+def calculate_checker_size_from_contour(contour):
+    rect = cv2.minAreaRect(contour)
+    box = cv2.boxPoints(rect)
+    box = np.int0(box)
+
+    width = np.linalg.norm(box[0] - box[1])
+    height = np.linalg.norm(box[1] - box[2])
+
+    return width, height
+
+def calculate_swatch_areas(color_checker_contour, settings):
+    checker_width, checker_height = calculate_checker_size_from_contour(color_checker_contour)
+    swatch_width = checker_width / settings["swatches_horizontal"]
+    swatch_height = checker_height / settings["swatches_vertical"]
+
+    swatch_areas = []
+    for row in range(settings["swatches_vertical"]):
+        for col in range(settings["swatches_horizontal"]):
+            top_left = (col * swatch_width, row * swatch_height)
+            bottom_right = ((col + 1) * swatch_width, (row + 1) * swatch_height)
+            swatch_areas.append((top_left, bottom_right))
+
+    return swatch_areas
+
+INFERRED_CLASSES: Dict = {0: "ColorCheckerClassic24"}
+
+def detect_colour_checkers_inference_modified(image, settings):
+    if inferencer_kwargs is None:
+        inferencer_kwargs = {}
+
+    settings = Structure(**SETTINGS_INFERENCE_COLORCHECKER_CLASSIC)
+
+    swatches_horizontal = settings.swatches_horizontal
+    swatches_vertical = settings.swatches_vertical
+    working_width = settings.working_width
+    working_height = settings.working_height
+
+    results = inferencer_default(image, **inferencer_kwargs)
+
+    if is_string(image):
+        image = read_image(cast(str, image))
+    else:
+        image = convert_bit_depth(
+            image, DTYPE_FLOAT_DEFAULT.__name__  # pyright: ignore
+        )
+
+    image = cast(Union[NDArrayInt, NDArrayFloat], image)
+
+    rectangle = as_int32_array(
+        [
+            [0, 0],
+            [0, working_height],
+            [working_width, working_height],
+            [working_width, 0],
+        ]
+    )
+
+
+
+    colour_checkers_data = []
+    for result_confidence, result_class, result_mask in results:
+        if result_confidence < settings.inferred_confidence:
+            continue
+
+        if settings.inferred_class != INFERRED_CLASSES[int(result_class)]:
+            continue
+
+        mask = cv2.resize(
+            result_mask,
+            image.shape[:2][::-1],
+            interpolation=cv2.INTER_BITS,
+        )
+
+        contours, _hierarchy = cv2.findContours(
+            mask.astype(np.uint8), cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE
+        )
+
+        for quadrilateral in quadrilateralise_contours(contours):
+            # ここで、`sample_colour_checker` 関数の代わりに、
+            # 輪郭の座標情報を直接取得
+            checker_contour = quadrilateral
+            swatch_areas = calculate_swatch_areas(checker_contour)
+
+            colour_checkers_data.append({
+                "contour": checker_contour,
+                "swatch_areas": swatch_areas
+            })
+
+    return colour_checkers_data
 
 ```
