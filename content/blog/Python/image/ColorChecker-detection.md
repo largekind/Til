@@ -2,7 +2,7 @@
 title: "ColorChecker Detection"
 date: 2023-05-24T21:34:24+09:00
 categories: ["Python"]
-tags: ["utility", "Camera", "Raw-process", "Python"]
+tags: ["utility", "Camera", "Raw-process", "Python", "image"]
 ---
 # ColorChecker Detection
 
