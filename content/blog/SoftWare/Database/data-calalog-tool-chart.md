@@ -29,18 +29,26 @@ tags: ["SoftWare", "Database"]
 ### Apache Atlas
 
 - Python連携 : 低
-  - もともとJavaとして記載されており、Python APIの提供はあるが限定的らしいが…情報不足
-  - ぱっと見る限りは使いやすそうに見えるので、何を根拠にしているか不明
+  - もともとJavaとして記載されており、Python APIの提供はあるが全機能の網羅はされておらず限定的
   - [Python API](https://github.com/apache/atlas/tree/master/intg/src/main/python)
-- データ追加/削除の簡易性 
+- データ追加/削除の簡易性 : 高
+  - 情報不足
 - 環境構築の簡易性 
+  - Apacheのインストールは、多くのOSで簡単に行うことができる
 - スケーラビリティ 
+  - スケーラブルなデータベースをサポート
 - 拡張性とカスタマイズ 
+  - Apacheはモジュールを通じて機能を追加したり拡張したりすることができる
+  - [Apache Atlas | Cloudera.](https://jp.cloudera.com/products/open-source/apache-hadoop/apache-atlas.html.)
 - コミュニティサポート 
+  - Apache Atlas コミュニティが一応存在するらしいが、提供されたURLは全然違う製品だったりして信憑性不明
 - テキストベースのデータ統合の容易さ 
+  - 情報なし
 - 日本語サポート 
   - 皆無
 - 学習コスト
+  - Qiitaなどで一部だけ情報があったりするが、余り良いものではない
+  - 公式ドキュメントは存在するが、独特な動作等があるらしくコスト高
   - [Document](https://atlas.apache.org/#/)
 
 ### Amundsen
