@@ -282,6 +282,7 @@ Run command in shell
 - [Convert Image 10bit to 8bit](./content/blog/Python/image/Convert-image-10bit-to-8bit.md)
 - [Adding Text to Image](./content/blog/Python/image/adding-text-to-image.md)
 - [Adding Rectangle to Image](./content/blog/Python/image/adding-rectangle-to-image.md)
+- [Grayworld WB with Python](./content/blog/Python/image/grayworld-WB-with-python.md)
 - [Create Select Area on Image Using Tkinter](./content/blog/Python/image/Create-select-area-on-image-using-tkinter.md)
 - [ColorChecker Detection](./content/blog/Python/image/ColorChecker-detection.md)
 - [Calculating White Balance From Rgb](./content/blog/Python/image/calculating-white-balance-from-rgb.md)
