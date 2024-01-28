@@ -1,8 +1,9 @@
 ---
 title: "Minimum Viable Product"
 date: 2024-01-28T22:32:43+09:00
+categories: ["DXQuest"]
+tags: ["DXQuest", "utility"]
 ---
-
 # Minimum Viable Product(MVP)
 
 ## 概要
