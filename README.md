@@ -169,6 +169,7 @@ Run command in shell
 ### DXQuest/utility
 
 - [Design Research](./content/blog/DXQuest/utility/design-research.md)
+- [Minimum Viable Product](./content/blog/DXQuest/utility/Minimum-Viable-Product.md)
 - [Market Research](./content/blog/DXQuest/utility/market-research.md)
 - [Express Line](./content/blog/DXQuest/utility/Express-Line.md)
 
