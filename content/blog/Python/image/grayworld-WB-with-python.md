@@ -1,8 +1,9 @@
 ---
 title: "Grayworld WB with Python"
 date: 2024-01-29T00:01:53+09:00
+categories: ["Python"]
+tags: ["Python", "image"]
 ---
-
 # Grayworld White Balance with Python
 
 ## 概要
