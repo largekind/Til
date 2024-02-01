@@ -165,6 +165,7 @@ Hugoを使用。テーマは[npqhugo](https://github.com/saadsolimanxyz/npqhugo)
 
 ### DXQuest/utility
 
+- [Low Fidelity Prototype](./content/blog/DXQuest/utility/low-fidelity-prototype.md)
 - [Design Research](./content/blog/DXQuest/utility/design-research.md)
 - [Minimum Viable Product](./content/blog/DXQuest/utility/Minimum-Viable-Product.md)
 - [Market Research](./content/blog/DXQuest/utility/market-research.md)
