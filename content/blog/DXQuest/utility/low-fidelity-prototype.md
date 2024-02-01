@@ -1,8 +1,9 @@
 ---
 title: "Low Fidelity Prototype"
 date: 2024-02-01T22:49:48+09:00
+categories: ["DXQuest"]
+tags: ["DXQuest", "utility"]
 ---
-
 # Low Fidelity Prototype
 
 ## 概要
