@@ -289,4 +289,3 @@ bins = np.arange(0, df.max() + 10, 10)
 df = pd.cut(df, bins = bins)
 print(df)
 ```
-
