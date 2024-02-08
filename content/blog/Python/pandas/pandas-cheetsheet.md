@@ -278,3 +278,15 @@ pythonなら以下の通り
 ``` python
 df = df - df.mean() / df.std()
 ```
+## ビニング（特定区間で区分け）する
+
+pd.cutを用いることで可能
+
+``` python 
+bins = np.arange(0, df.max() + 10, 10)
+
+# Ageを作成した境界値をもとに分割
+df = pd.cut(df, bins = bins)
+print(df)
+```
+
