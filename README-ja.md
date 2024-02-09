@@ -251,6 +251,7 @@ Hugoを使用。テーマは[npqhugo](https://github.com/saadsolimanxyz/npqhugo)
 
 ### Python/pandas
 
+- [クロス集計分析](./content/blog/Python/pandas/crosstab.md)
 - [Usage Pivottable](./content/blog/Python/pandas/usage-pivottable.md)
 - [Xlwings Created Dataframe](./content/blog/Python/pandas/xlwings-created-dataframe.md)
 - [Xlwings_excel_integration](./content/blog/Python/pandas/xlwings-excel-integration.md)
