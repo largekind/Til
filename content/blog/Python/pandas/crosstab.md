@@ -1,8 +1,9 @@
 ---
 title: "クロス集計分析"
 date: 2024-02-07T21:27:14+09:00
+categories: ["Python"]
+tags: ["Python", "pandas"]
 ---
-
 # クロス集計分析
 
 ## 概要
