@@ -20,6 +20,16 @@ tags: ["Python", "pandas"]
  pandas.Series.value_counts().plot(kind='hist')
 ```
 
+## ユニークな要素の値や個数を取得する
+
+ユニークな要素をとる場合は以下
+
+> df.unique()
+
+要素の個数を出すのであれば以下
+
+> df.nunique()
+
 ## カラムの名前を辞書に基づいて変更する
 
 ```python
