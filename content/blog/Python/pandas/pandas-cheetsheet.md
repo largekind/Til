@@ -288,6 +288,7 @@ pythonなら以下の通り
 ``` python
 df = df - df.mean() / df.std()
 ```
+
 ## ビニング（特定区間で区分け）する
 
 pd.cutを用いることで可能
@@ -299,3 +300,9 @@ bins = np.arange(0, df.max() + 10, 10)
 df = pd.cut(df, bins = bins)
 print(df)
 ```
+
+## クロス集計分析
+
+表側と表頭でクロスで出現回数などを調べられるもの
+
+> pd.crosstab(df['hoge'], df['fuga'])
