@@ -1,8 +1,9 @@
 ---
 title: "Retinex"
 date: 2024-02-16T21:38:56+09:00
+categories: ["ISP"]
+tags: ["ISP"]
 ---
-
 # Retinex
 
 ## 概要
