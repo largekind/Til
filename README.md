@@ -95,6 +95,7 @@ Run command in shell
 
 ### ISP
 
+- [Retinex](./content/blog/ISP/Retinex.md)
 - [ISP Guide](./content/blog/ISP/ISP-Guide.md)
 
 ### SoftWare

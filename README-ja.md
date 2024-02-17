@@ -92,6 +92,7 @@ Hugoを使用。テーマは[npqhugo](https://github.com/saadsolimanxyz/npqhugo)
 
 ### ISP
 
+- [Retinex](./content/blog/ISP/Retinex.md)
 - [ISP Guide](./content/blog/ISP/ISP-Guide.md)
 
 ### SoftWare
