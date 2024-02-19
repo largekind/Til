@@ -289,6 +289,7 @@ Hugoを使用。テーマは[npqhugo](https://github.com/saadsolimanxyz/npqhugo)
 - [バイナリのような画像を監視、表示するツール](./content/blog/Python/image/Bin-Image-Checker.md)
 - [画像比較用のスライド自動作成方法](./content/blog/Python/image/Auto-ImageDiff-slide.md)
 - [Crop and Concat Direction](./content/blog/Python/image/crop-and-concat-direction.md)
+- [Retix White Blance](./content/blog/Python/image/retix-white-blance.md)
 - [Reordering Blocks in 2d Array](./content/blog/Python/image/reordering-blocks-in-2d-array.md)
 
 ### Python/API
