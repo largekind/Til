@@ -1,9 +1,10 @@
 ---
 title: "LTV"
 date: 2024-02-19T21:24:47+09:00
-draft: true
+draft: True
+categories: ["InfoEngineer"]
+tags: ["InfoEngineer", "strategy"]
 ---
-
 # LTV : Life Time Value
 
 ## 概要
