@@ -367,6 +367,7 @@ Hugoを使用。テーマは[npqhugo](https://github.com/saadsolimanxyz/npqhugo)
 ### InfoEngineer/strategy
 
 - [KPI : Key Perfomance Indicator](./content/blog/InfoEngineer/strategy/KPI.md)
+- [LTV](./content/blog/InfoEngineer/strategy/LTV.md)
 - [ PDPC : Process Decision Program Chart ](./content/blog/InfoEngineer/strategy/PDPC-method.md)
 - [BCP : Business Continuity Plan](./content/blog/InfoEngineer/strategy/BCP.md)
 - [EA : Enterprise Artitecture](./content/blog/InfoEngineer/strategy/EA.md)
