@@ -1,9 +1,10 @@
 ---
 title: "Retix White Blance"
 date: 2024-02-17T21:08:15+09:00
-draft: true
+draft: True
+categories: ["Python"]
+tags: ["Python", "image"]
 ---
-
 # Retinex理論に基づくホワイトバランス調整の実装
 
 ## 概要
