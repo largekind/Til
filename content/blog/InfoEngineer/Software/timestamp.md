@@ -1,8 +1,9 @@
 ---
 title: "Timestamp"
 date: 2024-02-24T22:00:50+09:00
+categories: ["InfoEngineer"]
+tags: ["InfoEngineer", "Software"]
 ---
-
 # Timestamp
 
 ## 概要
