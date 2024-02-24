@@ -171,6 +171,7 @@ Run command in shell
 
 - [Low Fidelity Prototype](./content/blog/DXQuest/utility/low-fidelity-prototype.md)
 - [Design Research](./content/blog/DXQuest/utility/design-research.md)
+- [RFM Analysis](./content/blog/DXQuest/utility/RFM-analysis.md)
 - [Minimum Viable Product](./content/blog/DXQuest/utility/Minimum-Viable-Product.md)
 - [Market Research](./content/blog/DXQuest/utility/market-research.md)
 - [Express Line](./content/blog/DXQuest/utility/Express-Line.md)
