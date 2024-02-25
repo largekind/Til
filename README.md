@@ -449,6 +449,7 @@ Run command in shell
 - [マッシュアップ : Mashup](./content/blog/InfoEngineer/Software/Mashup.md)
 - [モジュール結合度](./content/blog/InfoEngineer/Software/module-computing.md)
 - [タスク遷移の情報まとめ](./content/blog/InfoEngineer/Software/Preemption.md)
+- [CPI](./content/blog/InfoEngineer/Software/CPI.md)
 - [インクリメンタルモデル](./content/blog/InfoEngineer/Software/incremental-model.md)
 - [対障用語](./content/blog/InfoEngineer/Software/fault.md)
 - [Viral marketing](./content/blog/InfoEngineer/Software/Viral-marketing.md)
