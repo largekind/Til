@@ -1,8 +1,9 @@
 ---
 title: "CPI"
 date: 2024-02-25T20:08:47+09:00
+categories: ["InfoEngineer"]
+tags: ["InfoEngineer", "Software"]
 ---
-
 # CPI : Cycle per instruction
 
 ## 概要
