@@ -1,8 +1,9 @@
 ---
 title: "Fuzzing"
 date: 2024-02-27T23:15:28+09:00
+categories: ["InfoEngineer"]
+tags: ["InfoEngineer", "Security"]
 ---
-
 # Fuzzing
 
 ## 概要
