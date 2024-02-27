@@ -416,6 +416,7 @@ Run command in shell
 - [リスクアセスメントにおけるプロセス](./content/blog/InfoEngineer/Security/Risk-Assessment-Process.md)
 - [WAF : Web Application Firewall](./content/blog/InfoEngineer/Security/WAF.md)
 - [CRL : Certificate Revocation List](./content/blog/InfoEngineer/Security/CRL.md)
+- [Fuzzing](./content/blog/InfoEngineer/Security/fuzzing.md)
 - [チャレンジ・レスポンス方式](./content/blog/InfoEngineer/Security/challenge-response.md)
 - [Sender Policy Framework](./content/blog/InfoEngineer/Security/Sender-Policy-Framework.md)
 - [ポートスキャン](./content/blog/InfoEngineer/Security/Port-scan.md)
