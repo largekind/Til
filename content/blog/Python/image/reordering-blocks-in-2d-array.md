@@ -17,49 +17,92 @@ tags: ["Python", "image"]
 ```python
 import numpy as np
 
-def rearrange_array(array, new_order):
-    # new_orderが2次元配列でなければエラーを返す
-    if len(new_order.shape) != 2:
-        raise ValueError("new_order must be a 2D array")
+def apply_rearrangement_with_overflow_jp(input_array, pattern):
+    # 入力配列と同じ形状と型で出力配列を初期化
+    output_array = np.empty_like(input_array)
+    rows, cols = input_array.shape
+    p_rows, p_cols = pattern.shape
+    
+    # パターンをフラット化して簡単にアクセス
+    flat_pattern = pattern.flatten()
+    
+    # 入力配列の各要素に対して新しいインデックスを計算
+    for i in range(rows):
+        for j in range(cols):
+            # ブロックの位置を決定
+            block_row, block_col = i // p_rows, j // p_cols
+            
+            # ブロック内の位置を計算
+            within_block_row, within_block_col = i % p_rows, j % p_cols
+            
+            # 入れ替えパターンに基づいて新しい位置を決定
+            # パターンサイズを超えないようにする
+            if within_block_row * p_cols + within_block_col < len(flat_pattern):
+                new_pos = flat_pattern[within_block_row * p_cols + within_block_col]
+                
+                # フラットパターン位置に基づいて新しい行と列を計算
+                new_row = block_row * p_rows + new_pos // p_cols
+                new_col = block_col * p_cols + new_pos % p_cols
+                
+                # 新しい位置が入力配列の次元を超えないようにする
+                if new_row < rows and new_col < cols:
+                    output_array[i, j] = input_array[new_row, new_col]
+                else:
+                    output_array[i, j] = input_array[i, j]
+            else:
+                # 位置が入れ替えパターンを超える場合、元の要素を保持
+                output_array[i, j] = input_array[i, j]
+    
+    return output_array
 
-    # ブロックの高さと幅を取得
-    block_height, block_width = new_order.shape
+# 4x4の入力データ定義
+tile_4x4 = np.array([
+    ["R1", "R2", "Gr1", "Gr2"],
+    ["R3", "R4", "Gr3", "Gr4"],
+    ["Gb1", "Gb2", "B1", "B2"],
+    ["Gb3", "Gb4", "B3", "B4"]
+])
 
-    # new_orderの最大値がブロックの要素数を超えていないことを確認
-    if new_order.max() >= block_height * block_width:
-        raise ValueError(f"new_order {new_order.max()} contains an index that is out of bounds for the block size({block_height},{block_width}) = {block_height*block_width}")
-    # 入力配列の高さと幅を取得
-    height, width = array.shape
+def tile_array(tile, shape):
+    """
+    指定されたタイルを使用して、指定された形状の2次元配列を生成する。
+    タイルのサイズが指定された形状にぴったり合わない場合でも適用できるように修正されています。
+    
+    Parameters:
+    - tile: 2次元のNumPy配列（タイル）
+    - shape: タイルを並べる配列の形状（height, width）
+    
+    Returns:
+    - tiled_array: タイルが並べられ、必要に応じてトリミングされた2次元配列
+    """
+    tile_height, tile_width = tile.shape
+    array_height, array_width = shape
+    
+    # タイルを繰り返す回数を計算（切り上げることで、目的のサイズを超えるようにします）
+    repeat_height = -(-array_height // tile_height)  # ceilを使うためのトリック
+    repeat_width = -(-array_width // tile_width)
+    
+    # タイルを繰り返して大きな配列を生成
+    tiled_array_large = np.tile(tile, (repeat_height, repeat_width))
+    
+    # 目的の形状にトリミング
+    tiled_array = tiled_array_large[:array_height, :array_width]
+    
+    return tiled_array
 
-    # 並び替え後の配列を格納するための配列を作成
-    rearranged_array = np.empty_like(array)
 
-    # 入力配列をブロックごとに処理
-    for i in range(0, height, block_height):
-        for j in range(0, width, block_width):
-            # ブロックを取得
-            block = array[i:min(i+block_height, height), j:min(j+block_width, width)].flatten()
+# タイル状に並べた配列を生成（例として7x7の配列を生成）
+input_array= tile_array(tile_4x4, (7, 7))
 
-            # ブロックの要素を新しい順序に並べ替え
-            rearranged_block = block[new_order.flatten()[:block.size]]
+# 4x4の入れ替えパターンを定義
+rearrangement_pattern = np.array([
+    [0, 2, 1, 3],
+    [8, 10, 9, 11],
+    [4, 6, 5, 7],
+    [12, 14, 13, 15]
+])
 
-            # 並べ替えたブロックを新しい配列に戻す
-            rearranged_array[i:min(i+block_height, height), j:min(j+block_width, width)] = rearranged_block.reshape((min(block_height, height-i), min(block_width, width-j)))
-
-    return rearranged_array
-```
-
-## 使用例
-
-```python
-# 入力配列
-array = np.array([[0, 1, 2, 3], [4, 5, 6, 7], [8, 9, 10, 11], [12, 13, 14, 15]])
-
-# 新しい順序
-new_order = np.array([[0, 2, 1, 3], [8, 10, 9, 11], [4, 6, 5, 7], [12, 14, 13, 15]])
-
-# 配列を並び替え
-rearranged_array = rearrange_array(array, new_order)
-
-print(rearranged_array)
+# 入れ替えを含むオーバーフロー部分を適用
+rearranged_output_improved = apply_rearrangement_with_overflow_jp(input_array, rearrangement_pattern)
+print(rearranged_output_improved)
 ```
