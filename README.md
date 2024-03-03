@@ -284,6 +284,7 @@ Run command in shell
 - [Extracting Central Percentage Rectangle](./content/blog/Python/image/extracting-central-percentage-rectangle.md)
 - [Calculating White Balance From Macbeth Colorchecker](./content/blog/Python/image/calculating-white-balance-from-macbeth-colorchecker.md)
 - [Convert Image 10bit to 8bit](./content/blog/Python/image/Convert-image-10bit-to-8bit.md)
+- [Mapping 2d Diff Index](./content/blog/Python/image/mapping-2d-diff-index.md)
 - [Adding Text to Image](./content/blog/Python/image/adding-text-to-image.md)
 - [Adding Rectangle to Image](./content/blog/Python/image/adding-rectangle-to-image.md)
 - [Grayworld WB with Python](./content/blog/Python/image/grayworld-WB-with-python.md)
