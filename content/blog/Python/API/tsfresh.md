@@ -3,7 +3,6 @@ title: "Tsfresh"
 date: 2023-06-02T23:11:02+09:00
 categories: ["Python"]
 tags: ["Python", "API", "AI"]
-draft: True
 ---
 # Tsfresh
 
