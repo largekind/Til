@@ -1,8 +1,9 @@
 ---
 title: "Multiple Regression Analysis"
 date: 2024-03-06T21:28:31+09:00
+categories: ["DataScience"]
+tags: ["DataScience"]
 ---
-
 # Multiple Regression Alanysis : 重回帰分析
 
 ## 概要
