@@ -29,6 +29,10 @@ Run command in shell
 ---
 ## List
 
+### DataScience
+
+- [Multiple Regression Analysis](./content/blog/DataScience/multiple-regression-analysis.md)
+
 ### Web
 
 - [RSS](./content/blog/Web/RSS.md)
