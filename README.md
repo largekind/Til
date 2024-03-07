@@ -31,6 +31,7 @@ Run command in shell
 
 ### DataScience
 
+- [DataLiteracy](./content/blog/DataScience/data-literacy.md)
 - [Multiple Regression Analysis](./content/blog/DataScience/multiple-regression-analysis.md)
 
 ### Web

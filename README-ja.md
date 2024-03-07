@@ -28,6 +28,7 @@ Hugoを使用。テーマは[npqhugo](https://github.com/saadsolimanxyz/npqhugo)
 
 ### DataScience
 
+- [DataLiteracy](./content/blog/DataScience/data-literacy.md)
 - [Multiple Regression Analysis](./content/blog/DataScience/multiple-regression-analysis.md)
 
 ### Web
