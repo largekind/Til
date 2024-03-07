@@ -1,8 +1,9 @@
 ---
 title: "DataLiteracy"
 date: 2024-03-06T21:24:23+09:00
+categories: ["DataScience"]
+tags: ["DataScience"]
 ---
-
 # DataLiteracy
 
 ## 概要
