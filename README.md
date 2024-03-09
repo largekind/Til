@@ -422,6 +422,7 @@ Run command in shell
 - [WAF : Web Application Firewall](./content/blog/InfoEngineer/Security/WAF.md)
 - [CRL : Certificate Revocation List](./content/blog/InfoEngineer/Security/CRL.md)
 - [Fuzzing](./content/blog/InfoEngineer/Security/fuzzing.md)
+- [EDINET](./content/blog/InfoEngineer/Security/EDINET.md)
 - [チャレンジ・レスポンス方式](./content/blog/InfoEngineer/Security/challenge-response.md)
 - [Sender Policy Framework](./content/blog/InfoEngineer/Security/Sender-Policy-Framework.md)
 - [ポートスキャン](./content/blog/InfoEngineer/Security/Port-scan.md)
