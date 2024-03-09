@@ -1,8 +1,9 @@
 ---
 title: "EDINET"
 date: 2024-03-07T22:33:45+09:00
+categories: ["InfoEngineer"]
+tags: ["InfoEngineer", "Security"]
 ---
-
 # EDINET : Electronic Disclosure for Investors' NETwork
 
 ## 概要
