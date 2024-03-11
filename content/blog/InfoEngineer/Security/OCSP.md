@@ -1,8 +1,9 @@
 ---
 title: "OCSP : Online Certificate Status Protocol"
 date: 2024-03-07T22:34:11+09:00
+categories: ["InfoEngineer"]
+tags: ["InfoEngineer", "Security"]
 ---
-
 # OCSP : Online Certificate Status Protocol
 
 ## 概要
