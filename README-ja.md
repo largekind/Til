@@ -414,6 +414,7 @@ Hugoを使用。テーマは[npqhugo](https://github.com/saadsolimanxyz/npqhugo)
 
 - [AES : Advanced Encryption Standard](./content/blog/InfoEngineer/Security/AES.md)
 - [APT : Advanced Persistent Threats](./content/blog/InfoEngineer/Security/APT.md)
+- [OCSP : Online Certificate Status Protocol](./content/blog/InfoEngineer/Security/OCSP.md)
 - [RSA ](./content/blog/InfoEngineer/Security/RSA.md)
 - [リスクアセスメントにおけるプロセス](./content/blog/InfoEngineer/Security/Risk-Assessment-Process.md)
 - [WAF : Web Application Firewall](./content/blog/InfoEngineer/Security/WAF.md)
