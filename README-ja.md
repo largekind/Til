@@ -427,6 +427,7 @@ Hugoを使用。テーマは[npqhugo](https://github.com/saadsolimanxyz/npqhugo)
 - [CRC :Cyclic Redundancy Check](./content/blog/InfoEngineer/Security/CRC.md)
 - [IDS : Intrusion Detection System](./content/blog/InfoEngineer/Security/IDS.md)
 - [DmainKeys Identifined Mail](./content/blog/InfoEngineer/Security/DmainKeys-Identifined-Mail.md)
+- [LDAP](./content/blog/InfoEngineer/Security/LDAP.md)
 - [sanitizing (サニタイジング)](./content/blog/InfoEngineer/Security/sanitizing.md)
 - [TPM : Trusted Platform Module](./content/blog/InfoEngineer/Security/TPM.md)
 
