@@ -1,9 +1,10 @@
 ---
 title: "DOA"
 date: 2024-03-07T22:42:07+09:00
-draft: true
+draft: True
+categories: ["InfoEngineer"]
+tags: ["InfoEngineer", "Software"]
 ---
-
 # DOA : Data Oriented Approach
 
 ## 概要
