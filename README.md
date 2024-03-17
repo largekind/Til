@@ -466,6 +466,7 @@ Run command in shell
 - [クラウドコンピューティングのサービスモデル](./content/blog/InfoEngineer/Software/CloudService.md)
 - [Timestamp](./content/blog/InfoEngineer/Software/timestamp.md)
 - [OSメモリ管理](./content/blog/InfoEngineer/Software/OS-memory-management.md)
+- [DOA](./content/blog/InfoEngineer/Software/DOA.md)
 - [JavaBeans](./content/blog/InfoEngineer/Software/JavaBeans.md)
 - [デザインパターン](./content/blog/InfoEngineer/Software/Design-pattern.md)
 - [PID : Proportional-Integral-Differential Controller](./content/blog/InfoEngineer/Software/PID.md)
