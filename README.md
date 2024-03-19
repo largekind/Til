@@ -449,6 +449,7 @@ Run command in shell
 - [ベストエフォート方式](./content/blog/InfoEngineer/Network/Best-effort.md)
 - [LAN : Local Area Network](./content/blog/InfoEngineer/Network/Local-Area-Network.md)
 - [WAN : Wide Area Network](./content/blog/InfoEngineer/Network/Wide-Area-Network.md)
+- [Lan規格](./content/blog/InfoEngineer/Network/lan-standard.md)
 - [ICMP : Internet Control Message Protocol](./content/blog/InfoEngineer/Network/ICMP.md)
 - [MINE : Multipurpose Internet Mail Extension](./content/blog/InfoEngineer/Network/SMINE.md)
 
