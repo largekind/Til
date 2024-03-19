@@ -1,8 +1,9 @@
 ---
 title: "Lan規格"
 date: 2024-03-14T21:04:41+09:00
+categories: ["InfoEngineer"]
+tags: ["InfoEngineer", "Network"]
 ---
-
 # Lan規格
 
 ## 概要
