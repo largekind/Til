@@ -463,6 +463,7 @@ Run command in shell
 - [CPI](./content/blog/InfoEngineer/Software/CPI.md)
 - [Inheritance](./content/blog/InfoEngineer/Software/inheritance.md)
 - [インクリメンタルモデル](./content/blog/InfoEngineer/Software/incremental-model.md)
+- [Digital Forensics](./content/blog/InfoEngineer/Software/digital-forensics.md)
 - [対障用語](./content/blog/InfoEngineer/Software/fault.md)
 - [Viral marketing](./content/blog/InfoEngineer/Software/Viral-marketing.md)
 - [BNF : Backus–Naur form](./content/blog/InfoEngineer/Software/BNF.md)
