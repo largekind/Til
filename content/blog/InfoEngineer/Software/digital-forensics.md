@@ -1,9 +1,10 @@
 ---
 title: "Digital Forensics"
 date: 2024-03-07T22:50:04+09:00
-draft: true
+draft: True
+categories: ["InfoEngineer"]
+tags: ["InfoEngineer", "Software"]
 ---
-
 # Digital Forensics
 
 ## 概要
