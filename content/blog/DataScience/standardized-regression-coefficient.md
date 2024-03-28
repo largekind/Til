@@ -1,8 +1,9 @@
 ---
 title: "Standardized Regression Coefficient"
 date: 2024-03-06T21:27:32+09:00
+categories: ["DataScience"]
+tags: ["DataScience"]
 ---
-
 # Standardized Regression Coefficient
 
 ## 概要
