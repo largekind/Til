@@ -29,6 +29,7 @@ Hugoを使用。テーマは[npqhugo](https://github.com/saadsolimanxyz/npqhugo)
 ### DataScience
 
 - [DataLiteracy](./content/blog/DataScience/data-literacy.md)
+- [Standardized Regression Coefficient](./content/blog/DataScience/standardized-regression-coefficient.md)
 - [Multiple Regression Analysis](./content/blog/DataScience/multiple-regression-analysis.md)
 
 ### Web
