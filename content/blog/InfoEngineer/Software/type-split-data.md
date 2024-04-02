@@ -1,6 +1,8 @@
 ---
 title: "テキストデータの比較とExcel出力自動化"
 date: 2024-03-30T20:08:47+09:00
+categories: ["InfoEngineer"]
+tags: ["InfoEngineer", "Software"]
 ---
 # テキストデータの比較とExcel出力自動化
 
