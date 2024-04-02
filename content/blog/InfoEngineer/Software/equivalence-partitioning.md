@@ -1,9 +1,10 @@
 ---
 title: "Equivalence Partitioning"
 date: 2024-03-11T21:17:52+09:00
-draft: true
+draft: True
+categories: ["InfoEngineer"]
+tags: ["InfoEngineer", "Software"]
 ---
-
 # Equivalence Partitioning
 
 ## 概要
