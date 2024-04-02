@@ -461,6 +461,7 @@ Run command in shell
 - [マッシュアップ : Mashup](./content/blog/InfoEngineer/Software/Mashup.md)
 - [モジュール結合度](./content/blog/InfoEngineer/Software/module-computing.md)
 - [タスク遷移の情報まとめ](./content/blog/InfoEngineer/Software/Preemption.md)
+- [テキストデータの比較とExcel出力自動化](./content/blog/InfoEngineer/Software/type-split-data.md)
 - [CPI](./content/blog/InfoEngineer/Software/CPI.md)
 - [Inheritance](./content/blog/InfoEngineer/Software/inheritance.md)
 - [インクリメンタルモデル](./content/blog/InfoEngineer/Software/incremental-model.md)
