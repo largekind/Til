@@ -1,9 +1,10 @@
 ---
 title: "API Economy"
 date: 2024-03-25T21:19:46+09:00
-draft: true
+draft: True
+categories: ["InfoEngineer"]
+tags: ["InfoEngineer", "Software"]
 ---
-
 # API Economy
 
 ## 概要

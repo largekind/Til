@@ -1,8 +1,9 @@
 ---
 title: "SGML"
 date: 2024-03-25T21:20:05+09:00
+categories: ["InfoEngineer"]
+tags: ["InfoEngineer", "Software"]
 ---
-
 # SGML : Standard Generalized Markup Language
 
 ## 概要
