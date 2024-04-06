@@ -1,9 +1,10 @@
 ---
 title: "ETL"
 date: 2024-04-06T21:09:54+09:00
-draft: true
+draft: True
+categories: ["SoftWare"]
+tags: ["SoftWare", "Database"]
 ---
-
 # ETL
 
 ## 概要
