@@ -115,6 +115,7 @@ Hugoを使用。テーマは[npqhugo](https://github.com/saadsolimanxyz/npqhugo)
 
 ### SoftWare/Database
 
+- [ETL](./content/blog/SoftWare/Database/ETL.md)
 - [Data Catalog](./content/blog/SoftWare/Database/data-catalog.md)
 - [Data Calalog Tool Chart](./content/blog/SoftWare/Database/data-calalog-tool-chart.md)
 
