@@ -1,9 +1,10 @@
 ---
 title: "P2P"
 date: 2024-04-09T23:19:53+09:00
-draft: true
+draft: True
+categories: ["InfoEngineer"]
+tags: ["InfoEngineer", "Software"]
 ---
-
 # P2P
 
 ## 概要
