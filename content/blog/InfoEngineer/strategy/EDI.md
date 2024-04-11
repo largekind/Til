@@ -1,9 +1,10 @@
 ---
 title: "EDI"
 date: 2024-04-07T21:39:31+09:00
-draft: true
+draft: True
+categories: ["InfoEngineer"]
+tags: ["InfoEngineer", "strategy"]
 ---
-
 # EDI
 
 ## 概要
