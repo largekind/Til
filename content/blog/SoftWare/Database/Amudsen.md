@@ -1,8 +1,9 @@
 ---
 title: "Amudsen"
 date: 2024-04-13T21:57:20+09:00
+categories: ["SoftWare"]
+tags: ["SoftWare", "Database"]
 ---
-
 # Amudsen
 
 ## 概要
