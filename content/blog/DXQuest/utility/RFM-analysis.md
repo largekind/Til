@@ -1,7 +1,6 @@
 ---
 title: "RFM Analysis"
 date: 2024-02-17T22:11:16+09:00
-draft: True
 categories: ["DXQuest"]
 tags: ["DXQuest", "utility"]
 ---
