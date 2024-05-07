@@ -1,7 +1,6 @@
 ---
 title: "Divide and Conquer Method"
 date: 2024-04-19T19:41:28+09:00
-draft: true
 ---
 
 # Divide and Conquer Method
