@@ -1,7 +1,6 @@
 ---
 title: "Design Research"
 date: 2023-12-23T21:59:56+09:00
-draft: True
 categories: ["DXQuest"]
 tags: ["DXQuest", "utility"]
 ---
